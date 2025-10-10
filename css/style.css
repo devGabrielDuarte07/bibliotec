@@ -1,0 +1,28 @@
+html,body{
+    margin: 0;
+    height: 0;
+}
+
+.imagemLogo{
+    width: 13%;
+    height: 11%;
+}
+
+.iconLogin{
+    width: 43%;
+    height: 70%;
+}
+
+.conteiner{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+}
+.retangulo{
+    width: 40%;
+    height: 100%;
+    background-image: linear-gradient(#2FD6CB, #4A67DF);
+
+}
