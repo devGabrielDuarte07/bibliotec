@@ -1,16 +1,11 @@
-html,body{
+body{
     margin: 0;
-    height: 0;
+    height: 100vh;
 }
 
-.cabecario{
-    
-    display: flex;
-    align-items: flex-start;
-}
 
 .imagemLogo{
-    width: 25%;
+    width: 13%;
     height: 11%;
 }
 
@@ -25,9 +20,70 @@ html,body{
     display: flex;
     justify-content: space-between;
 }
+
+
 .retangulo{
+    position: fixed;
+    top: 0;
+    right: 0;
     width: 40%;
-    height: 100%;
+    height: 100vh;
     background-image: linear-gradient(#2FD6CB, #4A67DF);
-   
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;    
+    gap: 20px; 
+    
 }
+
+.conteiner02{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    flex-direction: column;
+    position: relative;
+}
+
+.label{
+    display: block;        
+    text-align: left;       
+    font-weight: bold;  
+}
+
+#actionButton {
+    background-color: linear-gradient(#2FD6CB, #4A67DF); /* Marrom de couro */
+    color: linear-gradient(#2FD6CB, #4A67DF);;
+    border: 3px solid linear-gradient(#2FD6CB, #4A67DF);; /* Borda dourada */
+    padding: 15px 80px;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.3em;
+    cursor: pointer; /* O cursor vira uma mãozinha, como um item clicável */
+    border-radius: 15px; /* Um selo redondo */
+    transition: all 0.3s ease;
+}
+
+#userInput {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 2px solid #ffffff;
+    border-radius: 15px;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.2em;
+    color: #000000; /* Texto escuro */
+    text-shadow: none; /* Sem sombra no input */
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    font-size: 60px;
+  }
+  p{
+    color: rgb(255, 255, 255);;
+  }
