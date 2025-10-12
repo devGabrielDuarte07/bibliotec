@@ -31,64 +31,37 @@ body{
     background-image: linear-gradient(#2FD6CB, #4A67DF);
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: flex-start; 
     align-items: center;    
     gap: 20px; 
-    
+    font-family: 'Montserrat', sans-serif;
 }
 
-.conteiner02{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;  
-    align-items: center;      
-    flex-direction: column;
-    position: relative;
-}
 
-.label{
-    color: white;
-    display: block;        
-    text-align: left;       
-    font-weight: bold;  
-}
-
-#actionButton {
-    background-color: linear-gradient(#2FD6CB, #4A67DF); /* Marrom de couro */
-    color: linear-gradient(#2FD6CB, #4A67DF);
-    padding: 15px 80px;
-    font-family: 'MedievalSharp', cursive;
-    font-size: 1.3em;
-    cursor: pointer; /* O cursor vira uma mãozinha, como um item clicável */
-    border-radius: 15px; /* Um selo redondo */
-    transition: all 0.3s ease;
-}
-
-.inputCampo {
-    display: block;
-    margin: 0 auto 20px auto;
-    width: 90%;
-    padding: 10px;
-    margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.9); 
-    border: 2px solid #ffffff;
-    border-radius: 15px;
-    font-family: 'MedievalSharp', cursive;
-    font-size: 1.2em;
-    color: #000000; /* Texto escuro */
-    text-shadow: none; /* Sem sombra no input */
-}
 
 
 .retangulo h1 {
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 70px;
+    display: flex;
+    letter-spacing: 10px;
 }
 .retangulo p{
     color: rgb(255, 255, 255);
     display: block;        
+    font-size: 14px;
     text-align: left;       
     font-weight: bold;  
     letter-spacing: 1px;
+    margin-top: -70px;
 }
+.retangulo a{
+     margin-top: -10px;
+}
+.conteiner label{
+    color: rgb(255, 255, 255);
+    display: block;        
+    text-align: left;       
+    font-weight: bold;  
+}
+
