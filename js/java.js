@@ -9,5 +9,5 @@ botaoAcao.addEventListener('click', function() {
     return;
   }
 
-  window.location.href = "teste.html";
+  window.location.href = "./telaInicial.html";
 });
