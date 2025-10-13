@@ -7,11 +7,14 @@ body{
 .imagemLogo{
     width: 13%;
     height: 11%;
+    position: absolute;
 }
 
 .iconLogin{
     width: 43%;
     height: 70%;
+    margin-top: 10%;
+    margin-left: 8%;
 }
 
 .conteiner{
@@ -42,9 +45,11 @@ body{
 
 .retangulo h1 {
     color: rgb(255, 255, 255);
-    font-size: 70px;
+    font-size: 90px;
     display: flex;
-    letter-spacing: 10px;
+    letter-spacing: 5px;
+    margin-top: 13%;
+    
 }
 .retangulo p{
     color: rgb(255, 255, 255);
@@ -64,4 +69,6 @@ body{
     text-align: left;       
     font-weight: bold;  
 }
-
+.retangulo a{
+    color: white;
+}

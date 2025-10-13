@@ -4,11 +4,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-header {
+.cabecario {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 40px;
+    justify-content: space-between; 
+    width: 100vw;
 }
 
 .imagemLogo {
@@ -20,7 +19,6 @@ header {
     display: flex;
     align-items: center;
     gap: 20px;
-    /* espaço entre os ícones */
 }
 
 .coracaoFav,
@@ -33,18 +31,18 @@ header {
 .pesquisar {
     flex: 1;
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
 .inputCampo {
     display: flex;
     margin: 0 auto 20px auto;
-    width: 100%;
+    width: 200%;
     max-width: 600px;
     padding: 10px;
     margin-bottom: 0px;
     border: 3px solid #4b89d3;
-    border-radius: 10px;
+    border-radius: 50px;
     font-size: 1.2em;
     color: #000000;
     /* Texto escuro */
@@ -61,10 +59,12 @@ header {
 
 main h1 {
     color: #4A67DF;
+    font-size: 50px;
     display: flex;
     margin-top: 50px;
     display: flex;
     justify-content: center;
+    margin-top: 6%;
 }
 
 .exibirLivros {
@@ -72,8 +72,10 @@ main h1 {
     align-items: center;
     justify-content: center;
     gap: 100px;
+    opacity: 50%;
     
 }
+
 .manga{
     width: 330px;
     height: 500px;
@@ -87,4 +89,5 @@ main h1 {
     align-items: center;
     justify-content: center;
     border-radius: 30px;
-}
+    
+} 
