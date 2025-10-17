@@ -1,16 +1,21 @@
 html,body{
     margin: 0;
     height: 0;
+    height: 100%;
 }
 
+
 .imagemLogo{
-    width: 13%;
-    height: 11%;
+    width: 250px;
+    height: 100px;
+    position: fixed;
 }
 
 .iconLogin{
-    width: 43%;
+    width: 45%;
     height: 70%;
+    margin-top: 12%;
+    margin-left: 5%;
 }
 
 .conteiner{
@@ -18,11 +23,53 @@ html,body{
     height: 100vh;
     display: flex;
     justify-content: space-between;
-    position: absolute;
 }
+
 .retangulo{
     width: 40%;
     height: 100%;
     background-image: linear-gradient(#2FD6CB, #4A67DF);
+}
 
+.Cadastro{
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.Bem-vindo{
+    font-size: 95px;
+    display: flex;
+    align-items: center;
+}
+
+.cadrastre-se{
+    font-size: 20px;
+}
+
+.botao1{
+    width: 500px;
+    height: 75px;
+    cursor: pointer; 
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.botao2{
+    width: 500px;
+    height: 75px;
+    cursor: pointer; 
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.BotaoEntrar{
+    width: 200px;
+    height: 60px;
+    cursor: pointer; 
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: none;
 }
