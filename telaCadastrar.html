@@ -13,14 +13,22 @@
     <div class="retangulo">           
         <h1 class="Login">Log in</h1>
 
-        <p>Email</p>
-        <button></button>
+        <form action="http://127.0.0.1:3000/cadastrar" method="post">
+            <label for="nome">Nome:</label>
+        <input type="text" name="" id="nome"><br>
 
-        <p>Nova senha</p>
-        <button></button>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email"><br>
 
-        <p>Confirmar senha</p>
-        <button></button>
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" id="senha"><br>
+
+        <label for="confirmarSenha">Confirmar Senha:</label>
+        <input type="password" name="confirmarSenha" id="confirmarSenha"><br>
+
+        <button type="submit">cadastrar</button>
+        </form>
+        
     </div>
     </main>
 
