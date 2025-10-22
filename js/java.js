@@ -11,3 +11,5 @@ botaoAcao.addEventListener('click', function() {
 
   window.location.href = "./telaInicial.html";
 });
+
+
