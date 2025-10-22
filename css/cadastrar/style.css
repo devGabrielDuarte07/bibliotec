@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+}
+
+
+.imagemLogo{
+    width: 13%;
+    height: 11%;
+    position: absolute;
+}
+
+.retangulo{
+    width: 750px;
+    height: 800px;
+    background-image: linear-gradient(#2FD6CB, #4A67DF);
+    opacity: 80%;
+    border-radius: 58px;
+    margin-top: 4%;
+
+}
+
+.divinha{
+    display: flex;
+    justify-content: center;
+}
+
+.Login{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+}

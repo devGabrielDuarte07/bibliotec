@@ -1,21 +1,20 @@
-html,body{
+body{
     margin: 0;
-    height: 0;
-    height: 100%;
+    min-height: 100vh;
 }
 
 
 .imagemLogo{
-    width: 250px;
-    height: 100px;
-    position: fixed;
+    width: 13%;
+    height: 11%;
+    position: absolute;
 }
 
 .iconLogin{
     width: 45%;
     height: 70%;
-    margin-top: 12%;
-    margin-left: 5%;
+    margin-top: 10%;
+    margin-left: 8%;
 }
 
 .conteiner{
@@ -25,51 +24,51 @@ html,body{
     justify-content: space-between;
 }
 
-.retangulo{
-    width: 40%;
-    height: 100%;
-    background-image: linear-gradient(#2FD6CB, #4A67DF);
-}
 
-.Cadastro{
-    color: white;
+.retangulo{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100vh;
+    background-image: linear-gradient(#2FD6CB, #4A67DF);
     display: flex;
     flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;    
+    gap: 20px; 
+    font-family: 'Montserrat', sans-serif;
 }
 
-.Bem-vindo{
-    font-size: 95px;
+
+
+
+.retangulo h1 {
+    color: rgb(255, 255, 255);
+    font-size: 90px;
     display: flex;
-    align-items: center;
+    letter-spacing: 5px;
+    margin-top: 13%;
+    
 }
-
-.cadrastre-se{
-    font-size: 20px;
+.retangulo p{
+    color: rgb(255, 255, 255);
+    display: block;        
+    font-size: 14px;
+    text-align: left;       
+    font-weight: bold;  
+    letter-spacing: 1px;
+    margin-top: -70px;
 }
-
-.botao1{
-    width: 500px;
-    height: 75px;
-    cursor: pointer; 
-    border-radius: 15px;
-    transition: all 0.3s ease;
-    border: none;
+.retangulo a{
+     margin-top: -10px;
 }
-
-.botao2{
-    width: 500px;
-    height: 75px;
-    cursor: pointer; 
-    border-radius: 15px;
-    transition: all 0.3s ease;
-    border: none;
+.conteiner label{
+    color: rgb(255, 255, 255);
+    display: block;        
+    text-align: left;       
+    font-weight: bold;  
 }
-
-.BotaoEntrar{
-    width: 200px;
-    height: 60px;
-    cursor: pointer; 
-    border-radius: 15px;
-    transition: all 0.3s ease;
-    border: none;
+.retangulo a{
+    color: white;
 }
