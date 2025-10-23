@@ -23,8 +23,8 @@ USE `bibliotec`;
 CREATE TABLE IF NOT EXISTS `alunos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
-  `cpf` char(11) NOT NULL,
-  `curso` varchar(50) NOT NULL,
+  `cpf` char(11) DEFAULT NULL,
+  `curso` varchar(50) DEFAULT NULL,
   `email` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
