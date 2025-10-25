@@ -7,19 +7,95 @@ const inputSenha = document.getElementById("senha");
 const inputConfirmarSenha = document.getElementById("confirmarSenha");
 const formCadastrar = document.getElementById("cadastroUsuario")
 
+
+function contemMaiuscula(senha) {
+    return /[A-Z]/.test(senha);
+}
+function contemMinuscula(senha) {
+    return /[a-z]/.test(senha);
+}
+
+
+
+
 async function salvar(e) {
     e.preventDefault();
     console.log("Salvando aluno");
 
+    async function buscarDadosDoBanco() {
+        try {
+            const response = await fetch(API);
+            if (!response.ok) {
+                throw new Error('Erro na requisição à API');
+            }
+
+            const dados = await response.json();
+            console.log('Dados recebidos:', dados);
+            return dados; // retorna os dados para serem usados depois
+
+        } catch (error) {
+            console.error('Erro ao buscar dados:', error);
+            return null;
+        }
+    }
+
     const nome = inputNome.value.trim();
     const email = inputEmail.value.trim();
-    const senha = inputSenha.value.trim();
-    const confirmarSenha = inputConfirmarSenha.value.trim();
+    const senha = inputSenha.value;
+    const confirmarSenha = inputConfirmarSenha.value;
+
+    const alunos = await buscarDadosDoBanco();
+
+    if (!alunos) {
+        alert("Erro ao conectar ao servidor. Tente novamente mais tarde.");
+        return;
+    }
 
     if (!nome || !email || !senha || !confirmarSenha) {
         alert("Por gentileza, preencha os campos obrigatórios (nome, email, senha e confirmarSenha).");
         return;
     }
+
+    //verificando se o email ja existe no banco de dados
+    const verificarEmail = alunos.find(aluno => aluno.email === email)
+    if (verificarEmail) {
+        alert("Email ja cadastrado")
+        return;
+    }
+
+    //verifica o tamanho da senha, so passa com 8 caracteres ou mais
+    if (senha.length < 8) {
+        alert("A senha deve ter pelo menos 8 caracteres")
+        return;
+    }
+    if (senha.length > 128) {
+        alert("A senha não pode ter mais que 128 caracteres");
+        return;
+    }
+
+    //verifica se contem letra minuscula e maiuscul
+
+    if (!contemMaiuscula(senha) || !contemMinuscula(senha)) {
+        alert("A senha deve conter pelo menos uma letra maiúscula e uma minúscula")
+        return;
+    }
+
+    //verifica se tem numero na senha
+    function contemNUmero(senha) {
+        return /[0-9]/.test(senha)
+    }
+    if (!contemNUmero(senha)) {
+        alert("A senha deve conter pelo menos um numeral arábico")
+        return;
+    }
+
+    //verifica se tem espaço na senha
+    if (senha.includes(' ')) {
+        alert("A senha não pode conter espaços");
+        return;
+    }
+
+    //verificando se as senhas sao iguais
     if (senha !== confirmarSenha) {
         alert("As senhas não coincidem!");
         return;
