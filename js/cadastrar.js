@@ -39,6 +39,7 @@ async function salvar(e) {
             const dados = await requisicao.json();
             console.log("Aluno salvo com sucesso:", dados);
             alert("Aluno cadastrado com sucesso!");
+            window.location.href = "./index.html";
             formCadastrar.reset();
         } else {
             console.error("Erro na requisição:", requisicao.status);

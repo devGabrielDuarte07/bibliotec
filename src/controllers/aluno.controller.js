@@ -15,7 +15,13 @@ export async function criarAluno(req, res) {
 
     await db.execute(
       "INSERT INTO alunos (nome, email, senha) VALUES (?, ?, ?)",
-      [nome, email, senha]
+      [nome, email, senha],
+
+      //adiciona na tabela Login tambem
+      await db.execute(
+        "INSERT INTO login (email, senha) VALUES (?, ?)",
+        [email, senha]
+      )
     );
 
     res.status(201).json({ mensagem: "Usuário criado com sucesso!" });
@@ -25,7 +31,16 @@ export async function criarAluno(req, res) {
   }
 }
 
-export async function listarAlunos (req, res) {
+export async function loginAlunos(req, res) {
+   try {
+    const [rows] = await db.execute("SELECT * FROM login");
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json({ erro: err.message });
+  }
+}
+
+export async function listarAlunos(req, res) {
   try {
     const [rows] = await db.execute("SELECT * FROM alunos");
     res.json(rows);
@@ -48,7 +63,7 @@ export async function obterAlunos(req, res) {
   }
 };
 
-export async function atualizarAlunos (req, res) {
+export async function atualizarAlunos(req, res) {
   try {
     const { nome, email, senha } = req.body;
     await db.execute(
@@ -62,7 +77,7 @@ export async function atualizarAlunos (req, res) {
 };
 
 
-export async function deletarAluno (req, res) {
+export async function deletarAluno(req, res) {
   try {
     await db.execute("DELETE FROM alunos WHERE id = ?", [req.params.id]);
     res.json({ mensagem: "Usuário deletado com sucesso!" });

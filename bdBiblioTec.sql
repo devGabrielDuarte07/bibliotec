@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Servidor:                     127.0.0.1
--- Versão do servidor:           11.8.2-MariaDB - mariadb.org binary distribution
+-- Versão do servidor:           12.0.2-MariaDB - mariadb.org binary distribution
 -- OS do Servidor:               Win64
--- HeidiSQL Versão:              12.10.0.7000
+-- HeidiSQL Versão:              12.12.0.7122
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -29,9 +29,9 @@ CREATE TABLE IF NOT EXISTS `alunos` (
   `senha` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
--- Copiando dados para a tabela bibliotec.alunos: ~0 rows (aproximadamente)
+-- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela bibliotec.livros
 CREATE TABLE IF NOT EXISTS `livros` (
@@ -42,12 +42,7 @@ CREATE TABLE IF NOT EXISTS `livros` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
--- Copiando dados para a tabela bibliotec.livros: ~4 rows (aproximadamente)
-INSERT IGNORE INTO `livros` (`id`, `titulo`, `autor`, `disponivel`) VALUES
-	(1, 'One Piece vol-1', 'eiichiro oda', 1),
-	(2, 'Chainsaw Man vol-1', 'Tatsuki Fujimoto', 1),
-	(3, 'Jujutsu Kaisen vol-1', 'Gege Akutami', 1),
-	(4, 'Berserk vol-1', 'Kentaro Miura', 1);
+-- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela bibliotec.login
 CREATE TABLE IF NOT EXISTS `login` (
@@ -55,9 +50,9 @@ CREATE TABLE IF NOT EXISTS `login` (
   `email` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
--- Copiando dados para a tabela bibliotec.login: ~0 rows (aproximadamente)
+-- Exportação de dados foi desmarcado.
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
