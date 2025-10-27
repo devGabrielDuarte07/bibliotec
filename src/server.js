@@ -5,6 +5,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import alunosRoutes from "./routes/aluno.routes.js"
+import livroRoutes from "./routes/livro.routes.js"
 
 
 // ============================
@@ -19,7 +20,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/alunos", alunosRoutes)
-
+app.use("/livros", livroRoutes)
 
 // ============================
 //  Inicia o servidor

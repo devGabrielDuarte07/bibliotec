@@ -1,104 +1,116 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carrossel estilo Netflix</title>
+<title>Barra de Busca com Ícone</title>
+
 <style>
   body {
-    margin: 0;
-    font-family: sans-serif;
-    background: #111;
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
     color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 0;
+    padding: 40px;
   }
 
-  .carousel-container {
+  h1 {
+    color: #00bfff;
+  }
+
+  .search-container {
     position: relative;
-    width: 80%;
-    overflow: hidden;
+    width: 320px;
   }
 
-  .carousel-track {
-    display: flex;
-    transition: transform 0.5s ease;
-    gap: 20px;
+  .search-container input[type="search"] {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border-radius: 25px;
+    border: 1px solid #444;
+    outline: none;
+    background: #1e1e1e;
+    color: #fff;
+    transition: all 0.3s;
+    font-size: 15px;
   }
 
-  .card {
-    min-width: 200px;
-    height: 300px;
-    background: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
+  .search-container input[type="search"]:focus {
+    border-color: #00bfff;
+    box-shadow: 0 0 8px #00bfff66;
+  }
+
+  .search-container i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 20px;
+    pointer-events: none;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+    width: 320px;
+  }
+
+  li {
+    background: #1f1f1f;
+    padding: 10px 15px;
     border-radius: 10px;
-    flex-shrink: 0;
+    margin-bottom: 8px;
+    transition: transform 0.2s, background 0.2s;
   }
 
-  .buttons {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
+  li:hover {
+    background: #00bfff22;
+    transform: scale(1.03);
   }
 
-  button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
+  .hidden {
+    display: none;
   }
 </style>
+<!-- Ícones do Google -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
+  <h1>🔍 Buscar Livros</h1>
 
-<div class="carousel-container">
-  <div class="carousel-track">
-    <div class="card">1</div>
-    <div class="card">2</div>
-    <div class="card">3</div>
-    <div class="card">4</div>
-    <div class="card">5</div>
-    <div class="card">6</div>
+  <div class="search-container">
+    <input type="search" id="campoBusca" placeholder="Digite o nome do livro...">
+    <i class="material-icons">search</i>
   </div>
-</div>
 
-<div class="buttons">
-  <button id="prev">⬅</button>
-  <button id="next">➡</button>
-</div>
+  <ul id="listaLivros">
+    <li>Senhor dos Anéis</li>
+    <li>O Hobbit</li>
+    <li>Harry Potter</li>
+    <li>Percy Jackson</li>
+    <li>Jogos Vorazes</li>
+    <li>As Crônicas de Nárnia</li>
+    <li>Duna</li>
+    <li>Eragon</li>
+  </ul>
 
-<script>
-  const track = document.querySelector('.carousel-track');
-  const cards = Array.from(track.children);
-  const prevBtn = document.getElementById('prev');
-  const nextBtn = document.getElementById('next');
-  let index = 0;
-  const visibleCards = 4; // quantas cards aparecem na tela
+  <script>
+    const campoBusca = document.getElementById('campoBusca');
+    const listaLivros = document.getElementById('listaLivros');
+    const itens = listaLivros.getElementsByTagName('li');
 
-  const cardWidth = cards[0].offsetWidth + 20; // 20 é o gap
-
-  function updateCarousel() {
-    track.style.transform = `translateX(-${index * cardWidth}px)`;
-  }
-
-  nextBtn.addEventListener('click', () => {
-    if (index < cards.length - visibleCards) {
-      index++;
-      updateCarousel();
-    }
-  });
-
-  prevBtn.addEventListener('click', () => {
-    if (index > 0) {
-      index--;
-      updateCarousel();
-    }
-  });
-</script>
-
+    campoBusca.addEventListener('input', function() {
+      const termo = this.value.toLowerCase();
+      for (let item of itens) {
+        const texto = item.textContent.toLowerCase();
+        item.classList.toggle('hidden', !texto.includes(termo));
+      }
+    });
+  </script>
 </body>
 </html>
