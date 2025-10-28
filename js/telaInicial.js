@@ -31,12 +31,22 @@ async function carregarLivros() {
         divCard.classList.add('cardLivro');
         divCard.setAttribute('data-titulo', livro.titulo);
         divCard.innerHTML = `
-    <img src="${livro.capa_url}" alt="${livro.titulo}" class="manga">
+         <img src="${livro.capa_url}" alt="${livro.titulo}" class="manga">
 `;
 
 
         exibirLivros.appendChild(divCard);
+
+        divCard.addEventListener('click', () => {
+            console.log("Livro clicado:", livro);
+            localStorage.setItem("botaoClicado", "sim")
+            localStorage.setItem("livroSelecionado", JSON.stringify(livro)); // s
+            window.location.href = "./telaLivro.html";
+        })
     })
+
+
+    //busca os livros
     const livros = document.querySelectorAll('.cardLivro');
 
     campoPesquisa.addEventListener('input', () => {
@@ -44,6 +54,7 @@ async function carregarLivros() {
 
         livros.forEach(livro => {
             const titulo = livro.getAttribute('data-titulo').toLowerCase();
+            
 
             if (titulo.includes(termo)) {
                 livro.style.display = 'flex'; // mostra
@@ -53,9 +64,8 @@ async function carregarLivros() {
         });
     });
 
+
+
 }
-
-
-
 
 carregarLivros();

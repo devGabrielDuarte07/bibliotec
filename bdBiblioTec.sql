@@ -36,11 +36,14 @@ CREATE TABLE IF NOT EXISTS `alunos` (
 -- Copiando estrutura para tabela bibliotec.livros
 CREATE TABLE IF NOT EXISTS `livros` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(255) DEFAULT NULL,
+  `titulo` varchar(255) NOT NULL,
   `autor` varchar(255) DEFAULT NULL,
-  `disponivel` tinyint(1) DEFAULT 1,
+  `descricao` text DEFAULT NULL,
+  `capa_url` varchar(512) DEFAULT NULL,
+  `publicado_ano` int(11) DEFAULT NULL,
+  `criado_em` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
 -- Exportação de dados foi desmarcado.
 
