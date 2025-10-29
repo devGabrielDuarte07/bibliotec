@@ -28,14 +28,20 @@ async function carregarLivros() {
 
     dados.forEach(livro => {
         const divCard = document.createElement('div')
+        const divTitulo = document.createElement('div')
         divCard.classList.add('cardLivro');
         divCard.setAttribute('data-titulo', livro.titulo);
         divCard.innerHTML = `
          <img src="${livro.capa_url}" alt="${livro.titulo}" class="manga">
 `;
+        divTitulo.classList.add('nomesMangas')
+        divTitulo.innerHTML = `
+             <p class="titulo">${livro.titulo}</p>        
+        `
 
 
         exibirLivros.appendChild(divCard);
+        exibirLivros.appendChild(divTitulo);
 
         divCard.addEventListener('click', () => {
             console.log("Livro clicado:", livro);

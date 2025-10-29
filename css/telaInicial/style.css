@@ -134,3 +134,13 @@ main h1 {
     background: #2FD6CB;
     transition: all 0.5s;
 }
+
+
+.nomesMangas{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1%;
+    gap: 100px;
+    color: #4A67DF;
+}
+
