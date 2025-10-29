@@ -2,9 +2,18 @@ const API = "http://localhost:3000/livros"
 
 const campoPesquisa = document.querySelector('.inputCampo');
 const exibirLivros = document.querySelector('.exibirLivros');
+const nextBtn = document.getElementById(`arrow right`)
+const carousel = document.querySelector('.exibirLivros');
+let translateX = 0;
+
+carousel.classList.add('transform: translateX(-800px);')
 
 
+nextBtn.addEventListener(`click`, () => {
+    translateX += '-400px'
 
+    
+})
 async function buscarDadosDoBanco() {
     try {
         const response = await fetch(API);
@@ -54,7 +63,7 @@ async function carregarLivros() {
 
         livros.forEach(livro => {
             const titulo = livro.getAttribute('data-titulo').toLowerCase();
-            
+
 
             if (titulo.includes(termo)) {
                 livro.style.display = 'flex'; // mostra
@@ -63,9 +72,6 @@ async function carregarLivros() {
             }
         });
     });
-
-
-
 }
 
 carregarLivros();
