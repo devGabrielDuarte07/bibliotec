@@ -91,7 +91,6 @@ main h1 {
     align-items: center;
     justify-content: center;
     border-radius: 30px;
-    
 } 
 
 .arrow {
@@ -142,5 +141,9 @@ main h1 {
     padding-top: 1%;
     gap: 100px;
     color: #4A67DF;
+}
+
+.titulo{
+
 }
 
