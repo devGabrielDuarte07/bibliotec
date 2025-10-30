@@ -36,9 +36,8 @@ async function carregarLivros() {
 `;
         divTitulo.classList.add('nomesMangas')
         divTitulo.innerHTML = `
-             <p class="titulo">${livro.titulo}</p>        
+             <h2 class="titulo">${livro.titulo}</h2>        
         `
-
 
         exibirLivros.appendChild(divCard);
         exibirLivros.appendChild(divTitulo);
