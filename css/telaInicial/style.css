@@ -63,16 +63,17 @@ main h1 {
     display: flex;
     justify-content: center;
     margin-top: 5%;
-    /* text-shadow: #000000; */
+   /* text-shadow: #000000; */
 }
 
 .exibirLivros {
     width: 100%;
     display: flex;
-    align-items: start;
-    justify-content: start;
+    justify-content: space-around;
+    align-items: center;
     gap: 109px;
-    padding-top: 4%;
+    padding-top: 1%;
+    padding-left: 7%;
     transition: transform 1.5s ease
 }
 
@@ -121,9 +122,8 @@ main h1 {
     right: 0;
     padding: 20px 20px;
     transform: translateY(-50%);
-    border: 1px solid #4A67DF;
     border-radius: 50%;
-    background: #2FD6CB;
+    background-color: #2fd6cb63;
     transition: all 0.5s;
 }
     
@@ -131,18 +131,16 @@ main h1 {
     left: 0;
     padding: 20px 20px;
     transform: translateY(-50%);
-    border: 1px solid #4A67DF;
-    border-radius: 50%;
-    background: #2FD6CB;
+    border-radius: 50%;    
+    background-color: #2fd6cb63;
     transition: all 0.5s;
 }
 
 
 .nomesMangas{
-    display: flex;
-    justify-content: space-between;
-    padding-top: 1%;
     gap: 100px;
     color: #4A67DF;
+    padding-top: 500px;
 }
+
 

@@ -51,6 +51,7 @@ body{
     margin-top: 13%;
     
 }
+
 .retangulo p{
     color: rgb(255, 255, 255);
     display: block;        
@@ -60,15 +61,18 @@ body{
     letter-spacing: 1px;
     margin-top: -70px;
 }
+
 .retangulo a{
      margin-top: -10px;
 }
+
 .conteiner label{
     color: rgb(255, 255, 255);
     display: block;        
     text-align: left;       
     font-weight: bold;  
 }
+
 .retangulo a{
     color: white;
 }
