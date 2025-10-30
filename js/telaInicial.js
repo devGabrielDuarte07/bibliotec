@@ -29,14 +29,19 @@ async function carregarLivros() {
 
     dados.forEach(livro => {
         const divCard = document.createElement('div')
+        const divTitulo = document.createElement('div')
         divCard.classList.add('cardLivro');
         divCard.setAttribute('data-titulo', livro.titulo);
         divCard.innerHTML = `
          <img src="${livro.capa_url}" alt="${livro.titulo}" class="manga">
 `;
-
+        divTitulo.classList.add('nomesMangas')
+        divTitulo.innerHTML = `
+             <h2 class="titulo">${livro.titulo}</h2>        
+        `
 
         exibirLivros.appendChild(divCard);
+        exibirLivros.appendChild(divTitulo);
 
         divCard.addEventListener('click', () => {
             console.log("Livro clicado:", livro);
@@ -49,28 +54,32 @@ async function carregarLivros() {
 
     //busca os livros
     const livros = document.querySelectorAll('.cardLivro');
-
+    const h1 = document.getElementById('h1Populares')
     campoPesquisa.addEventListener('input', () => {
         const termo = campoPesquisa.value.toLowerCase().trim();
-
+        
         livros.forEach(livro => {
             const titulo = livro.getAttribute('data-titulo').toLowerCase();
-            
+
 
             if (titulo.includes(termo)) {
                 livro.style.display = 'flex'; // mostra
+                h1.style.display = 'none'
             } else {
                 livro.style.display = 'none'; // esconde
             }
+
+            if(campoPesquisa.value === ""){
+                h1.style.display = 'flex'
+            }
         });
     });
-
-
-
 }
 
 carregarLivros();
 
+
+// carousel 
 const nextBtn = document.getElementById(`arrow-right`)
 const previousBtn = document.getElementById(`arrow-left`)
 let deslocamento = 0;
@@ -85,7 +94,6 @@ nextBtn.addEventListener(`click`, () => {
     deslocamento = 0; // volta ao início
   }
   exibirLivros.style.transform = `translateX(${deslocamento}px)`;
-  
 })
 
 previousBtn.addEventListener('click', () => {

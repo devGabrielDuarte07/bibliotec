@@ -11,7 +11,7 @@ import livroRoutes from "./routes/livro.routes.js"
 // ============================
 //  Configuração do servidor
 // ============================
-const app = express();
+const app = express()
 app.use(cors());
 app.use(bodyParser.json());
 
