@@ -144,3 +144,10 @@ main h1 {
     display: flex;
     justify-content: space-around;
 }
+
+.coracaoVazio{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin-left: 1px;
+}
