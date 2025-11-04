@@ -20,8 +20,6 @@ body{
 .conteiner{
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: space-between;
 }
 
 
@@ -34,22 +32,21 @@ body{
     background-image: linear-gradient(#2FD6CB, #4A67DF);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
-    align-items: center;    
+    align-items: center;
     gap: 20px; 
     font-family: 'Montserrat', sans-serif;
+    gap: 0px;
 }
 
-
-
-
-.retangulo h1 {
+.top {
     color: rgb(255, 255, 255);
     font-size: 90px;
-    display: flex;
     letter-spacing: 5px;
     margin-top: 13%;
-    
+}
+
+.cadastrar{
+    padding-left: 33%;
 }
 
 .retangulo p{
@@ -62,18 +59,59 @@ body{
     margin-top: -70px;
 }
 
-.retangulo a{
-     margin-top: -10px;
-}
-
-.conteiner label{
+.texto{
     color: rgb(255, 255, 255);
-    display: block;        
-    text-align: left;       
-    font-weight: bold;  
+    margin: 0%;
+    padding-top: 5%;
+
+    
 }
 
 .retangulo a{
     color: white;
 }
+
+.campo{
+    width: 500px;
+    height: 55px;
+    border-radius: 10px;
+    border-style: none;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.formulario{
+    padding-right: 155px;
+    padding-bottom: 50px;
+}
+
+.linkRecuperar{
+    padding-left: 35%;
+}
+
+
+
+
+.fade {
+  opacity: 0;
+  animation: fadeUp 1s ease-out forwards; /* deixa mais lento */
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  50% {
+    opacity: .4;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
 

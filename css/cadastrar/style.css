@@ -48,7 +48,7 @@
 
 .imput{
     width: 520px;
-    height: 55px;
+    height: 53px;
     background-color: white;
     border-radius: 13px;
     
@@ -57,9 +57,21 @@
 .cadastro{
     width: 200px;
     height: 50px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.459);
     border-radius: 20px;
     display: flex ;
     justify-content: center;
     align-items: center;
+
+}
+
+.retangulo h3{
+    display: flex;
+    justify-content: start;
+}
+
+button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

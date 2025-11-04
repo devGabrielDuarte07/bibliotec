@@ -20,31 +20,34 @@
 </head>
 
 <body>
-    <header class="cabecario">
+    
+    <header class="cabecario">        
         <img class="imagemLogo" src="img/logo.png" alt="logo">
     </header>
+    
 
     <main class="conteiner">
+        <div class="fade">
         <img class="iconLogin" src="./img/iconLogin.png" alt="" >
-
-
+        </div>
+        
         <div class="retangulo">
             <h1 class="top">Bem Vindo</h1>
-            <p>Não tem uma conta? <a href="./telaCadastrar.html">cadastrar-se</a></p>
+            <p class="cadastrar">Não tem uma conta? <a href="./telaCadastrar.html">cadastrar-se</a></p>
 
             <div class="formulario">
-                <label for="userInput">Email:</label>
-                <input type="text" class="inputCampo" id="email">
+                <h3 class="texto" for="userInput">Email</h3>
+                <input type="text" class="campo" id="email">
 
-                <label for="userInput" class="label">Senha:</label>
-                <input type="password" class="inputCampo" id="senha">
+                <h3 class="texto" for="userInput">Senha</h3>
+                <input type="password" class="campo" id="senha">
 
                 <div class="linkRecuperar">
-                    <a href="telaInicial.html">Esqueceu sua senha?</a>
+                    <a href="telaRecuperarSenha.html">Esqueceu sua senha?</a>
                 </div>
             </div>
 
-            <div class="button">
+            <div class="entrar">
                 <button type="button" id="actionButton">Entrar</button>
             </div>
 
