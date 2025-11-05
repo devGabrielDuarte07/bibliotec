@@ -1,4 +1,5 @@
 const API = "http://localhost:3000/livros"
+const APIFav = "http://localhost:3000/favoritos"
 
 const campoPesquisa = document.querySelector('.inputCampo');
 const exibirLivros = document.querySelector('.exibirLivros');

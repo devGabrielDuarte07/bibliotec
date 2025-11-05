@@ -41,8 +41,10 @@ botaoAcao.addEventListener('click', async function () {
   }
 
   const login = alunos.find(aluno => aluno.email === inputEmail.value && aluno.senha === inputSenha.value)
+ 
   if (login) {
     window.location.href = "./telaInicial.html";
+    localStorage.setItem('id', login.id);
   }
   else {
     alert("Email ou senha incorretos!");
