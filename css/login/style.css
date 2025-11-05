@@ -110,6 +110,51 @@ body{
   }
 }
 
+.linkRecuperar{
+     width: 110%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* deixa os labels à esquerda */
+    gap: 10px;
+}
+
+.inputCampo {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    font-size: 1.2em;
+    color: #000000; /* Texto escuro */
+    text-shadow: none; /* Sem sombra no input */
+}
+
+.formulario{
+
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* deixa os labels à esquerda */
+    gap: 10px;
+    padding-top: 150px;
+}
+
+#actionButton {
+    color: #000;
+    padding: 15px 80px;
+    font-size: 1.3em;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    background-color: #ffffff66;
+    border: none;
+    color: white;
+    font-size: 35px;
+}
+
 
 
 
