@@ -1,0 +1,29 @@
+{
+  "name": "bibliotec",
+  "version": "1.0.0",
+  "description": "\"# bibliotec\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabriel-Duarte0711/bibliotec.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gabriel-Duarte0711/bibliotec/issues"
+  },
+  "homepage": "https://github.com/Gabriel-Duarte0711/bibliotec#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.3",
+    "node": "^22.21.0",
+    "nodemon": "^3.1.10"
+  }
+}
