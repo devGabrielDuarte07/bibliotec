@@ -63,17 +63,16 @@ main h1 {
     display: flex;
     justify-content: center;
     margin-top: 5%;
-    /* text-shadow: #000000; */
+    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
 
 .exibirLivros {
     width: 100%;
-    display: flex;
-    align-items: start;
-    justify-content: start;
-    gap: 109px;
+    height: 630px;
     padding-top: 4%;
     transition: transform 1.5s ease
+    
+    
 }
 
 .manga{
@@ -84,12 +83,12 @@ main h1 {
 }
 
 .cardLivro {
-    width: 400px;
+    width: 330px;
     height: 460px;
     background-image: linear-gradient(#2fd6cb7a, #4a68df79);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
     border-radius: 30px;
 } 
 
@@ -98,6 +97,7 @@ main h1 {
     top: 60%;
     cursor: pointer;
 }
+
 .arrow.right {
     right: 20px;
     padding: 20px 20px;
@@ -118,9 +118,8 @@ main h1 {
     right: 0;
     padding: 20px 20px;
     transform: translateY(-50%);
-    border: 1px solid #4A67DF;
     border-radius: 50%;
-    background: #2FD6CB;
+    background: #2fd6cb3f;
     transition: all 0.5s;
 }
     
@@ -128,19 +127,32 @@ main h1 {
     left: 0;
     padding: 20px 20px;
     transform: translateY(-50%);
-    border: 1px solid #4A67DF;
     border-radius: 50%;
-    background: #2FD6CB;
+    background: #2fd6cb3d;
     transition: all 0.5s;
 }
 
 
 .nomesMangas{
     display: flex;
-    justify-content: space-between;
-    padding-top: 1%;
-    gap: 100px;
+    align-self: end;
+    justify-content: space-around;
     color: #4A67DF;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.apenasMangas{
+    align-self: start;
+    display: flex;
+    justify-content: space-around;
+}
+
+.coracaoVazio{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin-left: 1px;
+    
 }
 
 .titulo{

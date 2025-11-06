@@ -1,7 +1,9 @@
 const API = "http://localhost:3000/livros"
+const APIFav = "http://localhost:3000/favoritos"
 
 const campoPesquisa = document.querySelector('.inputCampo');
 const exibirLivros = document.querySelector('.exibirLivros');
+
 
 
 
@@ -87,20 +89,34 @@ const passo = 400;
 const limiteMax = -1600;
 
 
-nextBtn.addEventListener(`click`, () => {
-  deslocamento -= passo;
+// nextBtn.addEventListener(`click`, () => {
+//   deslocamento -= passo;
   
-   if (deslocamento < limiteMax) {
-    deslocamento = 0; // volta ao início
-  }
-  exibirLivros.style.transform = `translateX(${deslocamento}px)`;
-})
+//    if (deslocamento < limiteMax) {
+//     deslocamento = 0; // volta ao início
+//   }
+//   exibirLivros.style.transform = `translateX(${deslocamento}px)`;
+// })
 
-previousBtn.addEventListener('click', () => {
+// previousBtn.addEventListener('click', () => {
 
-  deslocamento += passo;
-  if (deslocamento > 0) {
-    deslocamento = limiteMax; // vai pro final
-  }
-  exibirLivros.style.transform = `translateX(${deslocamento}px)`;
-})
+//   deslocamento += passo;
+//   if (deslocamento > 0) {
+//     deslocamento = limiteMax; // vai pro final
+//   }
+//   exibirLivros.style.transform = `translateX(${deslocamento}px)`;
+// })
+
+// const items = document.querySelectorAll(".fade-up");
+
+// const observer = new IntersectionObserver((entries) => {
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting) {
+//       const index = [...items].indexOf(entry.target);
+//       entry.target.style.transitionDelay = `${index * 0.3}s`;
+//       entry.target.classList.add("show");
+//     }
+//   });
+// });
+
+// items.forEach(item => observer.observe(item));

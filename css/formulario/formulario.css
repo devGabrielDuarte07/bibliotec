@@ -1,9 +1,0 @@
-.formulario{
-
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* deixa os labels à esquerda */
-    gap: 10px;
-    margin: 150px;
-}
