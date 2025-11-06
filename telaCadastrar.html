@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -15,20 +15,32 @@
     <main class="divinha">
         <div class="retangulo">
             <h1 class="Login">Log in</h1>
-            <form id="cadastroUsuario">
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome"><br>
+            <form class="cadastroUsuario" id="cadastroUsuario">
+                <h3 for="nome">Nome Completo</h3>
+                <input class="imput" type="text" name="nome" id="nome"><br>
 
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email"><br>
+                <h3 for="curso">Curso</h3>
+                <select class="imput" name="curso" id="curso"> 
+                    <option value="curso">Selecione...</option>
+                    <option value="ds">Desenvolvimento de Sistemas</option>
+                    <option value="si">Administração</option>
+                    <option value="eng">Fundição</option>
+                    <option value="cc">Metalurgia</option>
+                </select>
+                    
 
-                <label for="senha">Senha:</label>
-                <input type="password" name="senha" id="senha"><br>
+                <br><h3 for="email">Email</h3>
+                <input class="imput" type="email" name="email" id="email"><br>
 
-                <label for="confirmarSenha">Confirmar Senha:</label>
-                <input type="password" name="confirmarSenha" id="confirmarSenha"><br> 
+                <h3 for="senha">Senha</h3>
+                <input class="imput" type="password" name="senha" id="senha"><br>
 
-                <button type="submit" id="btnCadastrar">cadastrar</button>
+                <h3 for="confirmarSenha">Confirmar Senha</h3>
+                <input class="imput" type="password" name="confirmarSenha" id="confirmarSenha"><br> 
+
+                <div class="cadastro">
+                    <button class="botaoCadastrar" type="submit" id="btnCadastrar">cadastrar</button>
+                </div>
             </form>
 
         </div>
