@@ -71,8 +71,6 @@ main h1 {
     height: 630px;
     padding-top: 4%;
     transition: transform 1.5s ease
-    
-    
 }
 
 .manga{
@@ -95,8 +93,8 @@ main h1 {
 
 .arrow {
     position: absolute;
-    top: 60%;
     cursor: pointer;
+    margin-top: 13%;
 }
 
 .arrow.right {
@@ -155,4 +153,5 @@ main h1 {
     margin-left: 1px;
     
 }
+
 

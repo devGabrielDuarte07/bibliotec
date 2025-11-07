@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/Group.png">
     <title>Document</title>
     <link rel="stylesheet" href="css/cadastrar/style.css">
 
@@ -16,8 +17,13 @@
         <div class="retangulo">
             <h1 class="Login">Log in</h1>
             <form class="cadastroUsuario" id="cadastroUsuario">
-                <h3 for="nome">Nome Completo</h3>
+                <div class="nome">
+                <h3 for="">Nome Completo</h3>
                 <input class="imput" type="text" name="nome" id="nome"><br>
+                </div>
+
+                <br> <h3  for="email">Email</h3>
+                <input class="imput" type="email" name="email" id="email"><br>
 
                 <h3 for="curso">Curso</h3>
                 <select class="imput" name="curso" id="curso"> 
@@ -27,12 +33,8 @@
                     <option value="eng">Fundição</option>
                     <option value="cc">Metalurgia</option>
                 </select>
-                    
 
-                <br><h3 for="email">Email</h3>
-                <input class="imput" type="email" name="email" id="email"><br>
-
-                <h3 for="senha">Senha</h3>
+                <br><h3 class="senha" for="senha">Senha</h3>
                 <input class="imput" type="password" name="senha" id="senha"><br>
 
                 <h3 for="confirmarSenha">Confirmar Senha</h3>

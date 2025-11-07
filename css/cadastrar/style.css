@@ -12,27 +12,9 @@
     position: absolute;
 }
 
-.iconLogin{
-    width: 43%;
-    height: 70%;
-    margin-top: 10%;
-    margin-left: 8%;
-}
-
-.conteiner{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-}
-
-
 .retangulo{
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 40%;
-    height: 100vh;
+    width: 750px;
+    height: 800px;
     background-image: linear-gradient(#2FD6CB, #4A67DF);
     opacity: 80%;
     border-radius: 58px;
@@ -45,34 +27,19 @@
 
 .divinha{
     display: flex;
-    letter-spacing: 5px;
-    margin-top: 13%;
-    
+    justify-content: center;
 }
-.retangulo p{
-    color: rgb(255, 255, 255);
-    display: block;        
-    font-size: 14px;
-    text-align: left;       
-    font-weight: bold;  
-    letter-spacing: 1px;
-    margin-top: -70px;
-}
-.retangulo a{
-     margin-top: -10px;
-}
-.conteiner label{
-    color: rgb(255, 255, 255);
-    display: block;        
-    text-align: left;       
-    font-weight: bold;  
-}
-.retangulo a{
+
+.Login{
     color: white;
     font-size: 60px;
-    padding-top: 5%;
-    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    padding-top: 6%;
 }
+
+.nome{
+    padding-top: 3%;
+}
+
 
 .cadastroUsuario{
     font-size: 15px;
@@ -81,7 +48,7 @@
     color: white;
     padding-top: 5%;
     gap: 3px;
-    text-shadow: 0 3px 6px rgba(0,0,0,0.6);
+
 }
 
 .imput{
@@ -97,10 +64,10 @@
     height: 50px;
     background-color: rgba(255, 255, 255, 0.459);
     border-radius: 20px;
-    display: flex ;
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 30%
+    margin-left: 30%;
 }
 
 #btnCadastrar{
@@ -110,9 +77,4 @@
 .botaoCadastrar{
     color: white;
     font-size: 30px;
-}
-
-.retangulo h3{
-    display: flex;
-    justify-content: start;
 }
