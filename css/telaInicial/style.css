@@ -94,8 +94,8 @@ main h1 {
 
 .arrow {
     position: absolute;
-    top: 60%;
     cursor: pointer;
+    
 }
 
 .arrow.right {
@@ -151,21 +151,28 @@ main h1 {
     width: 35px;
     height: 35px;
     cursor: pointer;
-    margin-right: 1px;
+    /* margin-right: 1px; */
     margin-top: 2px;
+    display: block;
+    
+    
     
 }
 .titulo{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     margin-top: 6px;
-    width: 200px;
+    width: 300px;
+    
+    
+
 
 }
 
 
 .espaco{
-    padding-left: 100px;
+    /* padding-left: 30px; */
+    
     
     
 }
