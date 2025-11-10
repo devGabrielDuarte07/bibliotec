@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+     overflow-x: hidden;
+}
+
+.cabecario {
+    display: flex;
+    justify-content: space-around;
+}
+
+.imagemLogo {
+    width: 13%;
+    height: 11%;
+}
+
+.icones {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.coracaoFav,
+.perfil {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.pesquisar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputCampo {
+    width: 130vh;
+    padding: 10px 20px;
+    border: 2px solid #4A67DF;
+    border-radius: 50px;
+    font-size: 1.2em;
+    color: #4A67DF;
+}
+
+.conteiner {
+    width: 100%;
+    height: 100vh;
+}
+
+main h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #4A67DF;
+    font-size: 50px;
+    display: flex;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.exibirLivros {
+    width: 100%;
+    height: 630px;
+    padding-top: 4%;
+    transition: transform 1.5s ease
+}
+
+.manga{
+    width: 300px;
+    height: 430px;
+    border-radius: 20px;
+    margin: 15px;
+}
+
+.cardLivro {
+    width: 330px;
+    height: 460px;
+    background-image: linear-gradient(#2fd6cb7a, #4a68df79);
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    border-radius: 30px;
+    
+} 
+
+.arrow {
+    position: absolute;
+    cursor: pointer;
+    margin-top: 13%;
+}
+
+.arrow.right {
+    right: 20px;
+    padding: 20px 20px;
+    transform: translateY(-50%);
+    border: 0px solid #4A67DF;
+    border-radius: 50%;
+    transition: all 1s;
+}
+.arrow.left {
+    left: 20px;
+    padding: 20px 20px;
+    transform: translateY(-50%);
+    border: 0px solid #4A67DF;
+    border-radius: 50%;
+    transition: all 1s;
+}
+.arrow.right:hover {
+    right: 0;
+    padding: 20px 20px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: #2fd6cb3f;
+    transition: all 0.5s;
+}
+    
+.arrow.left:hover {
+    left: 0;
+    padding: 20px 20px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: #2fd6cb3d;
+    transition: all 0.5s;
+}
+
+
+.nomesMangas{
+    display: flex;
+    align-self: end;
+    justify-content: space-around;
+    color: #4A67DF;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.apenasMangas{
+    align-self: start;
+    display: flex;
+    justify-content: space-around;
+}
+
+.coracaoVazio{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin-left: 1px;
+    
+}
+
+
+
+/* TESTE */
+.trilho {
+    width: 100px;
+    height: 50px;
+    background-color: #555;
+    border-radius: 150px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    transition: background-color .3s ease;
+}
+
+.trilho .indicador {
+    width: 42px;
+    height: 42px;
+    background-color: #000;
+    border-radius: 50%;
+    transition: transform .3s ease, background-color .3s ease;
+}
+
+.trilho.dark {
+    background-color: #cfcfcf;
+}
+
+.trilho.dark .indicador {
+    transform: translateX(50px);
+    background-color: #fff;
+}
+
+body.dark {
+    background-color: #000;
+    color: #fff;
+    transition: background-color .3s ease, color .3s ease;
+}
