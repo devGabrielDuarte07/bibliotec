@@ -5,6 +5,15 @@
     box-sizing: border-box;
 }
 
+.backgroundCor{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    padding: 0%;
+    bottom: 15%;
+    z-index: 1;
+    display: flex;
+}
 
 .imagemLogo{
     width: 13%;
@@ -15,14 +24,13 @@
 .retangulo{
     width: 750px;
     height: 800px;
-    background-image: linear-gradient(#2FD6CB, #4A67DF);
-    opacity: 80%;
+    background-image: linear-gradient(#65EAE1, #718BF6);
     border-radius: 58px;
     margin-top: 4%;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    z-index: 2;
 }
 
 .divinha{
