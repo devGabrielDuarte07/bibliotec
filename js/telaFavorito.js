@@ -29,14 +29,19 @@ async function carregarLivrosFavoritos() {
     divApenasManga.classList.add('apenasMangas');
     
     alunosFav.forEach(livro => {
+        const divCard = document.createElement('div')
+        divCard.classList.add('cardLivro');
+
         const img = document.createElement('img')
         img.src = livro.capa_url;
         img.alt = livro.titulo;
         img.classList.add("manga")
-        divApenasManga.appendChild(img)
+        divCard.appendChild(img);
+        exibirLivros.appendChild(divCard)
         
 
     })
+    divApenasManga.appendChild(divCard)
     exibirLivros.appendChild(divApenasManga)
 }
 

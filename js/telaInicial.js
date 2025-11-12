@@ -34,14 +34,14 @@ async function carregarLivros() {
         divCard.classList.add('cardLivro');
         divCard.setAttribute('data-titulo', livro.titulo);
         divCard.innerHTML = `
-         <img src="${livro.capa_url}" alt="${livro.titulo}" class="manga">
+         <img src="${livro.capa_url}" alt="${livro.titulo}" class="livro">
 `;
-        divTitulo.classList.add('nomesMangas')
+        divTitulo.classList.add('nomesLivros')
         divTitulo.innerHTML = `
              <h2 class="titulo">${livro.titulo}</h2>        
         `
 
-        exibirLivros.appendChild(divCard);
+            
         exibirLivros.appendChild(divTitulo);
 
         divCard.addEventListener('click', () => {

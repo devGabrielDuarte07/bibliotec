@@ -73,14 +73,28 @@ main h1 {
     text-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
 
-.exibirLivros {
+.exibirLivrosPopulares{
     width: 100%;
     height: 630px;
     padding-top: 4%;
     transition: transform 1.5s ease;
 }
 
-.manga{
+.exibirLivrosMangas{
+    width: 100%;
+    height: 630px;
+    padding-top: 4%;
+    transition: transform 1.5s ease;
+}
+
+.exibirLivrosRomance{
+    width: 100%;
+    height: 630px;
+    padding-top: 4%;
+    transition: transform 1.5s ease;
+}
+
+.livro{
     width: 300px;
     height: 430px;
     border-radius: 20px;
@@ -92,16 +106,16 @@ main h1 {
     height: 460px;
     background-image: linear-gradient(#2fd6cb7a, #4a68df79);
     display: flex;
-    align-items: start;
-    justify-content: start;
+    flex-direction: column;
     border-radius: 30px;
     
-} 
+}
+
 
 .arrow {
     position: absolute;
     cursor: pointer;
-    z-index: 2; 
+    display: flex;
 }
 
 .arrow.right {
@@ -139,21 +153,21 @@ main h1 {
 }
 
 
-.nomesMangas{
+.nomesLivros{
     display: flex;
-    align-self: end;
     justify-content: space-around;
+    gap: 80px;
     color: #4A67DF;
     text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    padding-top: 4%;
 }
 
-.apenasMangas{
+.apenasLivros{
     align-self: start;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 70px;
     margin-left: 4%;
-    z-index: 1;
 }
 
 .coracaoVazio{
@@ -161,13 +175,6 @@ main h1 {
     height: 35px;
     cursor: pointer;
     margin-left: 1px;
-    
 }
 
-.titulo{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 6px;
-    width: 300px;
-}
 
