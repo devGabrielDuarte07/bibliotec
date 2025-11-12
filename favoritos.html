@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/Group.png">
     <title>Bibliotec - Tela Favoritos</title>
     <link rel="icon" href="img/Group.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,15 +21,15 @@
         <div class="pesquisar">
             <input class="inputCampo" id="inputPesquisarLivros" type="search" placeholder="Pesquisar..."
                 autocomplete="off">
-            <div class="filtro"></div>
-            </div>
+                <img class="filtro" src="img/filtro.png" alt="Filtro de pesquisa">
+        </div>
 
         <div class="icones">
             <a href="favoritos.html">
                 <img class="coracaoFav" src="img/coracao.png" alt="Favoritos">
             </a>
             <a href="favoritos.html">
-                <img class="perfil" src="img/perfil.png" alt="Perfil">
+                <img class="perfil" src="img/perfil.png" alt="Perfil" id="perfil">
             </a>
         </header>
     
@@ -36,7 +37,8 @@
         <h1 class="h1Favoritos">Favoritos</h1>
         <div class="retanguloMain">
             <div class="retangulo">
-                <div class="exibirLivros">
+                <div class="exibirLivros"> </div>
+                <!-- <div class="exibirLivros">
                     <div class="apenasMangas">
                     <img src="./img/livros/onePiece.PNG" alt="" class="manga">
                     <img src="./img/livros/chainsawMan.png" alt="" class="manga">
@@ -44,14 +46,14 @@
                     <img src="./img/livros/berserk.png" alt="" class="manga">
                     </div>
                     <div class="nomesMangas">
-                        <h2 class="titulo">One Piece  <br> Vol-1  <div class="espaco"><img class="coracaoPreenchido" src="img/coracao.png" alt="coracão preechido"></div> </h2>
-                        <h2 class="titulo">Chainsaw Man <br> Vol-1 <div class="espaco"><img class="coracaoPreenchido" src="img/coracao.png" alt="coracão preechido"></div> </h2>
-                        <h2 class="titulo">Jujutsu Kaisen <br> Vol-1 <div class="espaco"><img class="coracaoPreenchido" src="img/coracao.png" alt="coracão preechido"></div> </h2>
-                        <h2 class="titulo">Berserk <br> Vol-1 <div class="espaco"><img class="coracaoPreenchido" src="img/coracao.png" alt="coracão preechido"></div> </h2>
-                        
-                        
-                        
-                        
+                        <h2 class="titulo">One Piece <br> Vol-1 </h2>
+                        <h2 class="titulo">Chainsaw Man <br> Vol-1</h2>
+                        <h2 class="titulo">Jujutsu Kaisen <br> Vol-1</h2>
+                        <h2 class="titulo">Berserk <br> Vol-1</h2>
+                        <img class="coracaoPreenchido" src="img/coracao.png" alt="coracão preechido">
+                        <img class="coracaoPreenchido" src="img/coracao.png" alt="coracão preechido">
+                        <img class="coracaoPreenchido" src="img/coracao.png" alt="coracão preechido">
+                        <img class="coracaoPreenchido" src="img/coracao.png" alt="coracão preechido">
                     </div>
 
                     <div class="apenasMangas">
@@ -87,9 +89,10 @@
                         <img class="coracaoPreenchido" src="img/coracao.png" alt="coracão preechido">
                         <img class="coracaoPreenchido" src="img/coracao.png" alt="coracão preechido">
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </main>
+    <script src="./js/telaFavorito.js"></script>
 </body>
 </html>
