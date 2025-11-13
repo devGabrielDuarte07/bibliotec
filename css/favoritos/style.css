@@ -85,9 +85,9 @@ body {
 }
 
 .manga{
-    width: 200px;
-    height: 300px;
-    border-radius: 20px;
+    width: 230px;
+    height: 350px;
+    border-radius: 30px;
 }
 
 .nomesMangas{
@@ -122,7 +122,14 @@ body {
 }
 
 .cardLivro {
-    width: 330px;
-    height: 460px; 
+    width: 340px;
+    height: 460px;
+    display: flex; 
+    justify-content: center;
 } 
+
+.cabecarioPerfil{
+    display: flex;
+    justify-content: center;
+}
 

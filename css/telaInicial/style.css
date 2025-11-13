@@ -1,13 +1,15 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-*{
+
+* {
     margin: 0;
     border: 0;
     box-sizing: border-box;
 }
+
 body {
     min-height: 100vh;
     font-family: 'Montserrat', sans-serif;
-     overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 .cabecario {
@@ -30,6 +32,13 @@ body {
 .perfil {
     width: 35px;
     height: 35px;
+    cursor: pointer;
+}
+
+.filtro {
+    margin-left: 1%;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
 }
 
@@ -63,19 +72,20 @@ main h1 {
     display: flex;
     justify-content: center;
     margin-top: 5%;
-    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 .exibirLivros {
     width: 100%;
     height: 630px;
     padding-top: 4%;
-    transition: transform 1.5s ease
-    
-    
+    transition: transform 1.5s ease;
+    overflow: hidden;
+    position: relative;
 }
 
-.manga{
+
+.livro {
     width: 300px;
     height: 430px;
     border-radius: 20px;
@@ -87,15 +97,16 @@ main h1 {
     height: 460px;
     background-image: linear-gradient(#2fd6cb7a, #4a68df79);
     display: flex;
-    align-items: start;
-    justify-content: start;
+    flex-direction: column;
     border-radius: 30px;
-} 
+
+}
+
 
 .arrow {
     position: absolute;
     cursor: pointer;
-    
+    display: flex;
 }
 
 .arrow.right {
@@ -106,6 +117,7 @@ main h1 {
     border-radius: 50%;
     transition: all 1s;
 }
+
 .arrow.left {
     left: 20px;
     padding: 20px 20px;
@@ -114,6 +126,7 @@ main h1 {
     border-radius: 50%;
     transition: all 1s;
 }
+
 .arrow.right:hover {
     right: 0;
     padding: 20px 20px;
@@ -122,7 +135,7 @@ main h1 {
     background: #2fd6cb3f;
     transition: all 0.5s;
 }
-    
+
 .arrow.left:hover {
     left: 0;
     padding: 20px 20px;
@@ -133,46 +146,63 @@ main h1 {
 }
 
 
-.nomesMangas{
+.nomesLivros {
     display: flex;
-    align-self: end;
     justify-content: space-around;
+    gap: 80px;
     color: #4A67DF;
-    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    padding-top: 4%;
 }
 
-.apenasMangas{
+.apenasLivros {
     align-self: start;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 70px;
+    margin-left: 4%;
+    transition: transform 1.5s ease;
 }
 
-.coracaoVazio{
+.coracaoVazio {
     width: 35px;
     height: 35px;
     cursor: pointer;
-    /* margin-right: 1px; */
-    margin-top: 2px;
-    display: block;
-    
-    
-    
+    margin-left: 1px;
 }
-.titulo{
+
+.pop-up-perfil {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: space-between;
-    margin-top: 6px;
-    width: 300px;
-    
-    
-
-
+    align-items: center;
+    justify-content: right;
+    z-index: 1000;
 }
 
+.perfil-pop {
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    height: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    
+}
 
-.espaco{
-    /* padding-left: 30px; */
+.cabecarioPerfil{
+    display: flex;
+    justify-content: center;
+}
+
+.fotoPerfil{
+    width: 10vw;
+    height: 20vh;
     
-    
-    
+}
+.divFotoPerfil{
+    display: flex;
+    justify-content: center;
 }
