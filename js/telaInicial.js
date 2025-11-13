@@ -5,8 +5,6 @@ const campoPesquisa = document.querySelector('.inputCampo');
 const exibirLivros = document.querySelector('.exibirLivros');
 
 
-
-
 async function buscarDadosDoBanco() {
     try {
         const response = await fetch(API);
@@ -119,3 +117,6 @@ const limiteMax = -1600;
 // });
 
 // items.forEach(item => observer.observe(item));
+
+
+
