@@ -206,3 +206,8 @@ main h1 {
     display: flex;
     justify-content: center;
 }
+
+.divNomePessoa{
+    display: flex;
+    justify-content: center;    
+}
