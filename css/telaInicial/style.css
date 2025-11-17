@@ -12,6 +12,9 @@ body {
     overflow-x: hidden;
 }
 
+html{
+    color-scheme: light dark;
+}
 
 header {
   position: fixed;
@@ -75,9 +78,7 @@ header {
     height: 100vh;
     z-index: 0;
 }
-.canvas{
-    z-index: 0;
-}
+
 
 .conteiner {
     width: 100%;
@@ -127,7 +128,46 @@ main h1 {
     position: absolute;
     cursor: pointer;
     display: flex;
+    z-index: 2;
+
 }
+
+#setasPopulares{
+    display: flex;
+    justify-content: space-between;
+    bottom: 30%;
+}
+
+#setasMangas{
+    display: flex;
+    justify-content: space-between;
+    bottom: -65%;
+}
+
+#setasRomance{
+    display: flex;
+    justify-content: space-between;
+    bottom: -158%;
+}
+
+#setasComedia{
+    display: flex;
+    justify-content: space-between;
+    bottom: -253%;
+}
+
+#setasSuspense{
+    display: flex;
+    justify-content: space-between;
+    bottom: -345%;
+}
+
+#setasTerror{
+    display: flex;
+    justify-content: space-between;
+    bottom: -440%;
+}
+
 
 .arrow.right {
     right: 20px;
