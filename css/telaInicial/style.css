@@ -211,3 +211,20 @@ main h1 {
     display: flex;
     justify-content: center;    
 }
+
+.divConfig{
+    margin-top: 11%;
+    background-color: aqua;
+}
+
+.divInfoPerfil{
+    margin-top: 11%;
+}
+
+.divMeusFavoritos{
+    margin-top: 4%;
+}
+
+.divModo{
+    margin-top: 4%;
+}
