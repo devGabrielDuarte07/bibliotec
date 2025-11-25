@@ -62,13 +62,40 @@ header {
     transform: scale(1.15);
 }
 
-.filtro {
+.filtro{
     margin-left: 1%;
     width: 50px;
     height: 50px;
     cursor: pointer;
-    transition: transform 0.3s ease;
 }
+
+.pop-up-filtro {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: start;
+    justify-content: center;
+    z-index: 1000;
+    padding-top: 100px;
+    padding-left: 500px;
+}
+
+.pop-up-filtro.show {
+    display: flex;
+}
+
+.filtro-pop {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    
+    width: 60%;
+    height: 20%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    
+}
+
 
 .pesquisar {
     flex: 1;
@@ -109,7 +136,7 @@ header {
     height: 100vh;
 }
 
-main h1 {
+h1 {
     font-family: 'Montserrat', sans-serif;
     color: #4A67DF;
     font-size: 50px;
@@ -176,31 +203,31 @@ main h1 {
 #setasMangas{
     display: flex;
     justify-content: space-between;
-    bottom: -65%;
+    bottom: -60%;
 }
 
 #setasRomance{
     display: flex;
     justify-content: space-between;
-    bottom: -158%;
+    bottom: -155%;
 }
 
 #setasComedia{
     display: flex;
     justify-content: space-between;
-    bottom: -253%;
+    bottom: -247%;
 }
 
 #setasSuspense{
     display: flex;
     justify-content: space-between;
-    bottom: -345%;
+    bottom: -339%;
 }
 
 #setasTerror{
     display: flex;
     justify-content: space-between;
-    bottom: -440%;
+    bottom: -430%;
 }
 
 
@@ -266,3 +293,43 @@ main h1 {
     cursor: pointer;
     margin-left: 1px;
 }
+
+/* Descrição 
+*/
+
+/* .descricaoFiltro{
+        background: rgba(0, 0, 0, 0.5); 
+} */
+
+.descricaoLivro {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 1000px;
+    height: 700px;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 5;
+
+}
+
+
+.descricaoLivro,
+.p {
+    color: #000000;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+
+.descricaoLivro.ativa {
+    transform: translate(-50%, -50%) scale(1);
+}
+
