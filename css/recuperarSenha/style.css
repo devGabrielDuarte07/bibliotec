@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.backgroundCor{
+    width: 100%;
+    height: 1080px;
+    position: absolute;
+    margin: 0;
+    bottom: 15%;
+    z-index: 1;
+    display: flex;
+}
+
+.imagemLogo{
+    width: 13%;
+    height: 11%;
+    position: absolute;
+}
+
+.retangulo{
+    width: 750px;
+    height: 800px;
+    background-image: linear-gradient(#65EAE1, #718BF6);
+    border-radius: 58px;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.divinha{
+    display: flex;
+    justify-content: center;
+}
+
+.Login{
+    color: white;
+    font-size: 60px;
+    padding-top: 6%;
+}
+
+.nome{
+    padding-top: 3%;
+}
+
+
+.cadastroUsuario{
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding-top: 5%;
+    gap: 3px;
+
+}
+
+.imput{
+    width: 520px;
+    height: 53px;
+    background-color: white;
+    border-radius: 13px;
+    
+}
+
+#btnCadastrar{
+    width: 200px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.459);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+}
+
+#btnCadastrar{
+    margin-top: 6%;
+}
+
+.botaoCadastrar{
+    color: white;
+    font-size: 30px;
+}

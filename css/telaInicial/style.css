@@ -213,31 +213,46 @@ main h1 {
 }
 
 .divConfig{
-    margin-top: 11%;
-    background-color: aqua;
+    margin-top: 14%;
+    display: flex;
+    justify-content: center;
+    color:#4A67DF
 }
 
 .divInfoPerfil{
     margin-top: 11%;
+    cursor: pointer;
+    transition: transform 1.5s ease;
 }
 
 .divMeusFavoritos{
     margin-top: 4%;
+    cursor: pointer;
+    transition: transform 1.5s ease;
 }
 
 .divModo{
     margin-top: 4%;
+    cursor: pointer;
+    transition: transform 1.5s ease;
 }
 
 .divTermosePrivacidade{
+    display: flex;
+    justify-content: center;
     margin-top: 11%;
-    background-color: aqua;
+    color:#4A67DF;
+    transition: transform 1.5s ease;
 }
 
 .divPrivacidade{
-    margin-top: 11%;
+    margin-top: 4%;
+    cursor: pointer;
+    transition: transform 1.5s ease;
 }
 
 .divTermo{
-    margin-top: 4%;
+    margin-top: 11%;
+    cursor: pointer;
+    transition: transform 1.5s ease;
 }
