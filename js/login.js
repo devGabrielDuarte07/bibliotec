@@ -1,55 +1,49 @@
-const API = "http://localhost:3000/alunos"
+const APILogin = "http://localhost:3000/login"
 
 const botaoAcao = document.getElementById('actionButton');
 const inputEmail = document.getElementById("email");
 const inputSenha = document.getElementById("senha");
 
 
-async function buscarDadosDoBanco() {
-  try {
-    const response = await fetch(API);
-    if (!response.ok) {
-      throw new Error('Erro na requisição à API');
-    }
 
-    const dados = await response.json();
-    console.log('Dados recebidos:', dados);
-    return dados; // retorna os dados para serem usados depois
-
-  } catch (error) {
-    console.error('Erro ao buscar dados:', error);
-    return null;
-  }
-}
-
-
-
-botaoAcao.addEventListener('click', async function () {
+botaoAcao.addEventListener('click', async function (event) {
   // Validação dentro do evento
   event.preventDefault();
 
-  if (!inputEmail.value || !inputSenha.value) {
-    alert("Por favor, preencha todos os campos!");
+  const email = inputEmail.value.trim();
+  const senha = inputSenha.value.trim();
+  if (!email || !senha) {
+    alert("Preencha todos os campos!");
     return;
   }
 
-  const alunos = await buscarDadosDoBanco();
+  try {
+    const response = await fetch(APILogin, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, senha }) 
+    })
 
-  if (!alunos) {
-    alert("Erro ao conectar ao servidor. Tente novamente mais tarde.");
-    return;
+    const dado = await response.json();
+
+    if (!response.ok) {
+      alert(dado.erro || "Erro ao fazer login");
+      return;
+    }
+    const perfil = dado.aluno.perfil;
+
+    // Redirecionar
+    if (perfil === "aluno") {
+      window.location.href = "./telaInicial.html";
+    } else {
+      window.location.href = "./telaTeste.html";
+    }
+
+  } catch (error) {
+    console.log("Erro:", error);
+    alert("Erro de conexão com o servidor.");
   }
 
-  const login = alunos.find(aluno => aluno.email === inputEmail.value && aluno.senha === inputSenha.value)
- 
-  if (login) {
-    window.location.href = "./telaInicial.html";
-    localStorage.setItem('id', login.id);
-  }
-  else {
-    alert("Email ou senha incorretos!");
-    return;
-  }
-});
+}
 
-
+)

@@ -1,5 +1,6 @@
 
 import { db } from "../config/db.js"
+import bcrypt from "bcrypt"
 // ============================
 //  Rotas CRUD
 // ============================
@@ -7,23 +8,26 @@ import { db } from "../config/db.js"
 
 export async function criarAluno(req, res) {
   try {
-    const { nome, email, senha } = req.body;
-    if (!nome || !email || !senha)
+    const { nome, cpf, email, curso_id, turma_id, senha } = req.body;
+    if (!nome || !cpf || !email || !curso_id || !turma_id || !senha)
       return res.status(400).json({ erro: "Campos obrigatórios" });
 
-    console.log("📦 Dados recebidos:", { nome, email, senha });
+    console.log("📦 Dados recebidos:", {  nome, cpf, email, curso_id, turma_id, senha });
 
-    await db.execute(
-      "INSERT INTO alunos (nome, email, senha) VALUES (?, ?, ?)",
-      [nome, email, senha],
-
-      //adiciona na tabela Login tambem
-      await db.execute(
-        "INSERT INTO login (email, senha) VALUES (?, ?)",
-        [email, senha]
-      )
+      const [resultado] = await db.execute(
+      "INSERT INTO tabela_usuario (nome, cpf, email, curso_id, turma_id) VALUES (?, ?, ?, ?, ?)",
+      [nome, cpf, email, curso_id, turma_id],
     );
 
+    const aluno_id = resultado.insertId;
+    const hashedPassword = await bcrypt.hash(senha, 10)
+
+    
+      //adiciona na tabela Login tambem
+      await db.execute(
+        "INSERT INTO tabela_login (aluno_id, senha) VALUES (?, ?)",
+        [aluno_id, hashedPassword]
+      )
     res.status(201).json({ mensagem: "Usuário criado com sucesso!" });
   } catch (err) {
     console.error("❌ ERRO AO CRIAR ALUNO:", err);
@@ -32,7 +36,7 @@ export async function criarAluno(req, res) {
 }
 
 export async function loginAlunos(req, res) {
-   try {
+  try {
     const [rows] = await db.execute("SELECT * FROM login");
     res.json(rows);
   } catch (err) {
