@@ -309,25 +309,34 @@ h1 {
     width: 1000px;
     height: 700px;
     background: white;
-    border-radius: 15px;
     padding: 20px;
     box-shadow: 0 0 30px rgba(0,0,0,0.4);
     transition: 0.3s ease;
-    display: flex;
-    align-items: center;
     gap: 10px;
     z-index: 5;
 
 }
 
 
-.descricaoLivro,
-.p {
-    color: #000000;
+.h3Descricao{
+    color: #4A67DF;
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
+    font-size: 64px;
+    display: flex;
+    justify-content: start;
+    padding-top: 3%;
+    margin-left: 5%;
 }
 
+.pDescricaoLivro{
+   color: black;
+}
+
+.imgDescricao{
+    margin-top: 5%;
+    border-radius: 15px;
+
+}
 
 .descricaoLivro.ativa {
     transform: translate(-50%, -50%) scale(1);

@@ -6,9 +6,9 @@ livros.forEach(livro => {
     livro.addEventListener('click', (e) => {
         e.stopPropagation();
         descricaoLivro.innerHTML = `
-            <img src="${livro.src}" style="width:300px; border-radius:10px;">
-            <h3>${livro.alt}</h3> 
-            <p>Descrição sobre o livro...</p>
+            <h3 class="h3Descricao">${livro.alt}</h3> 
+            <img class="imgDescricao" src="${livro.src}" style="width:300px; border-radius:10px;">
+            <p class="pDescricaoLivro"> Descrição sobre o livro...</p>
         `;
         descricaoLivro.classList.add('ativa');
     });
