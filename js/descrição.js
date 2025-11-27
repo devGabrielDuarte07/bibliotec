@@ -5,11 +5,12 @@ const livros = document.querySelectorAll('.livro');
 livros.forEach(livro => {
     livro.addEventListener('click', (e) => {
         e.stopPropagation();
+        const valor = livro.getAttribute("data-descricao")
         descricaoLivro.innerHTML = `
             <h3 class="h3Descricao">${livro.alt}</h3>
             <div class="descricao">
             <img class="imgDescricao" src="${livro.src}">
-            <p class="pDescricaoLivro">aa</p>
+            <p class="pDescricaoLivro">${valor}</p>
             <div>
         `;
         descricaoLivro.classList.add('ativa');
