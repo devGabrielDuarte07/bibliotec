@@ -40,8 +40,6 @@ export async function login(req, res) {
     }
 
 
-    console.log("Login recebido:", req.body);
-    console.log("Resultado do SELECT aluno:", alunoRows);
     return res.json({
       mensagem: "Login bem-sucedido",
       aluno: {

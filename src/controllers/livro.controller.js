@@ -14,7 +14,7 @@ export async function criarLivro(req, res) {
     console.log("📦 Dados recebidos:", { titulo, autor, disponivel });
 
     await db.execute(
-      "INSERT INTO livros (titulo, autor, disponivel) VALUES (?, ?, ?)",
+      "INSERT INTO tabela_livros (titulo, autor, disponivel) VALUES (?, ?, ?)",
       [titulo, autor, disponivel],
 
     );
@@ -28,7 +28,7 @@ export async function criarLivro(req, res) {
 
 export async function listarLivros(req, res) {
   try {
-    const [rows] = await db.execute("SELECT * FROM livros");
+    const [rows] = await db.execute("SELECT * FROM tabela_livros");
     res.json(rows);
   } catch (err) {
     res.status(500).json({ erro: err.message });
@@ -38,7 +38,7 @@ export async function listarLivros(req, res) {
 
 export async function obterLivros(req, res) {
   try {
-    const [rows] = await db.execute("SELECT * FROM livros WHERE id = ?", [
+    const [rows] = await db.execute("SELECT * FROM tabela_livros WHERE id = ?", [
       req.params.id,
     ]);
     if (rows.length === 0)
@@ -53,7 +53,7 @@ export async function atualizarLivros(req, res) {
   try {
     const { nome, email, senha } = req.body;
     await db.execute(
-      "UPDATE livros SET titulo = ?, autor = ?, disponivel = ? WHERE id = ?",
+      "UPDATE tabela_livros SET titulo = ?, autor = ?, disponivel = ? WHERE id = ?",
       [titulo, autor, disponivel, req.params.id]
     );
     res.json({ mensagem: "Livro atualizado com sucesso!" });
@@ -65,7 +65,7 @@ export async function atualizarLivros(req, res) {
 
 export async function deletarLivro(req, res) {
   try {
-    await db.execute("DELETE FROM livros WHERE id = ?", [req.params.id]);
+    await db.execute("DELETE FROM tabela_livros WHERE id = ?", [req.params.id]);
     res.json({ mensagem: "Livro deletado com sucesso!" });
   } catch (err) {
     res.status(500).json({ erro: err.message });

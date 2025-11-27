@@ -35,18 +35,9 @@ export async function criarAluno(req, res) {
   }
 }
 
-export async function loginAlunos(req, res) {
-  try {
-    const [rows] = await db.execute("SELECT * FROM login");
-    res.json(rows);
-  } catch (err) {
-    res.status(500).json({ erro: err.message });
-  }
-}
-
 export async function listarAlunos(req, res) {
   try {
-    const [rows] = await db.execute("SELECT * FROM alunos");
+    const [rows] = await db.execute("SELECT * FROM tabela_usuario");
     res.json(rows);
   } catch (err) {
     res.status(500).json({ erro: err.message });
@@ -56,7 +47,7 @@ export async function listarAlunos(req, res) {
 
 export async function obterAlunos(req, res) {
   try {
-    const [rows] = await db.execute("SELECT * FROM alunos WHERE id = ?", [
+    const [rows] = await db.execute("SELECT * FROM tabela_usuario WHERE id = ?", [
       req.params.id,
     ]);
     if (rows.length === 0)
@@ -71,7 +62,7 @@ export async function atualizarAlunos(req, res) {
   try {
     const { nome, email, senha } = req.body;
     await db.execute(
-      "UPDATE alunos SET nome = ?, email = ?, senha = ? WHERE id = ?",
+      "UPDATE tabela_usuario SET nome = ?, email = ?, senha = ? WHERE id = ?",
       [nome, email, senha, req.params.id]
     );
     res.json({ mensagem: "Usuário atualizado com sucesso!" });
@@ -83,7 +74,7 @@ export async function atualizarAlunos(req, res) {
 
 export async function deletarAluno(req, res) {
   try {
-    await db.execute("DELETE FROM alunos WHERE id = ?", [req.params.id]);
+    await db.execute("DELETE FROM tabela_usuario WHERE id = ?", [req.params.id]);
     res.json({ mensagem: "Usuário deletado com sucesso!" });
   } catch (err) {
     res.status(500).json({ erro: err.message });
