@@ -21,7 +21,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 10;
 }
 
 
@@ -308,35 +308,46 @@ h1 {
     transform: translate(-50%, -50%) scale(0);
     width: 1000px;
     height: 700px;
+    border-radius: 15px;
     background: white;
     padding: 20px;
     box-shadow: 0 0 30px rgba(0,0,0,0.4);
     transition: 0.3s ease;
     gap: 10px;
-    z-index: 5;
+    z-index: 11;
 
 }
 
+.descricao{
+    display: flex;
+    justify-content: space-around;
+}
 
 .h3Descricao{
     color: #4A67DF;
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    font-size: 64px;
+    font-size: 50px;
     display: flex;
     justify-content: start;
     padding-top: 3%;
-    margin-left: 5%;
+    padding-left: 5%;
+}
+
+.imgDescricao{
+    padding-top: 8%;
+    border-radius: 20px;
+    width: 300px;
+    height: 500px;
+
 }
 
 .pDescricaoLivro{
    color: black;
+   padding-top: 10%;
+   margin-right: 50%;
 }
 
-.imgDescricao{
-    margin-top: 5%;
-    border-radius: 15px;
 
-}
 
 .descricaoLivro.ativa {
     transform: translate(-50%, -50%) scale(1);
