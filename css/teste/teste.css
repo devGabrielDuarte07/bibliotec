@@ -12,9 +12,9 @@ body {
     overflow-x: hidden;
 }
 
-html{
+/* html{
     color-scheme: light dark;
-}
+} */
 
 header {
   position: fixed;
@@ -353,3 +353,39 @@ h1 {
     transform: translate(-50%, -50%) scale(1);
 }
 
+/* TESTE */
+/* .trilho {
+    width: 100px;
+    height: 50px;
+    background-color: #555;
+    border-radius: 150px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    transition: background-color .3s ease;
+}
+
+.trilho .indicador {
+    width: 42px;
+    height: 42px;
+    background-color: #000;
+    border-radius: 50%;
+    transition: transform .3s ease, background-color .3s ease;
+}
+
+.trilho.dark {
+    background-color: #cfcfcf;
+}
+
+.trilho.dark .indicador {
+    transform: translateX(50px);
+    background-color: #fff;
+}
+
+body.dark {
+    background-color: #000;
+    color: #fff;
+    transition: background-color .3s ease, color .3s ease;
+} */

@@ -3,6 +3,9 @@ const API = "http://localhost:3000/livros"
 const campoPesquisa = document.querySelector('.inputCampo');
 const conteiner = document.querySelector('.conteiner')
 const descricaoLivro = document.getElementById('descricaoLivro');
+const APIFavoritar = `http://localhost:3000/favoritos`;
+const idAluno = localStorage.getItem("id");
+const APIListFavoritos = `http://localhost:3000/favoritos/${idAluno}`;
 
 
 async function buscarDadosDoBanco() {
@@ -22,7 +25,7 @@ async function buscarDadosDoBanco() {
     }
 }
 
-function montarCategoria(titulo, genero, dados) {
+function montarCategoria(titulo, genero, dados, favoritos) {
 
     // --- H1 ---
     const h1 = document.createElement("h1");
@@ -65,31 +68,42 @@ function montarCategoria(titulo, genero, dados) {
         card.classList.add("cardLivro");
         card.setAttribute("data-titulo", livro.titulo);
 
+        const jaFavoritado = favoritos.some(f => f.livro_id === livro.id);
+
         card.innerHTML = `
             <img src="${livro.capa_url}" alt="${livro.titulo}" class="livro">
             <h2 class="nomesLivros">
-                ${livro.titulo} <br> Vol-01
-                <img class="coracaoVazio" src="img/coracao vazio.png" alt="coração vazio">
+                ${livro.titulo}
+                <img class="coracaoVazio" src="${jaFavoritado ? 'img/coracaoCheio.png' : 'img/coracao vazio.png'}" id="coracoFav-${livro.id}" alt="coração vazio">
             </h2>
         `;
 
         apenasLivros.appendChild(card);
         apenasLivros.appendChild(document.createElement("br"));
+
     });
 }
 
 async function carregarLivros() {
     const dados = await buscarDadosDoBanco();
+    const favoritosResponse = await fetch(APIListFavoritos);
+    const favoritos = await favoritosResponse.json();
 
-    montarCategoria("Mangas", "manga", dados);
-    montarCategoria("Romance", "romance", dados);
-    montarCategoria("Terror", "terror", dados);
-    montarCategoria("Ação", "acao", dados);
+    montarCategoria("Mangas", "manga", dados, favoritos);
+    montarCategoria("Romance", "romance", dados, favoritos);
+    montarCategoria("Suspense", "suspense", dados, favoritos);
+    montarCategoria("Terror", "terror", dados, favoritos);
+
 }
 
 carregarLivros();
 
 
+document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("coracaoVazio")) {
+        alert(e.target.id); // ex: coracao-12
+    }
+});
 // carousel 
 const nextBtn = document.getElementById(`arrow-right`)
 const previousBtn = document.getElementById(`arrow-left`)

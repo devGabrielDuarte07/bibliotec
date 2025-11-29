@@ -2,14 +2,14 @@ import { db } from "../config/db.js"
 
 
 
-export async function obterLivros(req, res) {
+export async function obterLivrosFavs(req, res) {
   try {
     console.log("ID recebido:", req.params.id);
 
     const [rows] = await db.execute(`
       SELECT livro.id, livro.titulo, livro.autor, livro.capa_url
-        FROM alunos_favoritos af
-        JOIN livros livro ON livro.id = af.livro_id
+        FROM tabela_livros_favoritos af
+        JOIN tabela_livros livro ON livro.id = af.livro_id
         WHERE af.aluno_id = ?`, [
       req.params.id,
     ]);
@@ -21,9 +21,7 @@ export async function obterLivros(req, res) {
   } catch (err) {
     res.status(500).json({ erro: err.message });
   }
-};
-
-
+}; 
 export async function adicionarFavorito(req, res) {
   const { aluno_id, livro_id } = req.body;
 
