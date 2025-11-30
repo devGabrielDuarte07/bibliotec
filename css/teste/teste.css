@@ -58,6 +58,8 @@ header {
     transform: scale(1.15);
 }
 
+
+
 .filtro:hover {
     transform: scale(1.15);
 }
@@ -287,12 +289,15 @@ h1 {
     transition: transform 1.5s ease;
 }
 
-.coracaoVazio {
+.coracao {
     width: 35px;
     height: 35px;
     cursor: pointer;
     margin-left: 1px;
 }
+
+
+
 
 /* Descrição 
 */

@@ -7,27 +7,29 @@ export async function obterLivrosFavs(req, res) {
     console.log("ID recebido:", req.params.id);
 
     const [rows] = await db.execute(`
-      SELECT livro.id, livro.titulo, livro.autor, livro.capa_url
-        FROM tabela_livros_favoritos af
-        JOIN tabela_livros livro ON livro.id = af.livro_id
-        WHERE af.aluno_id = ?`, [
-      req.params.id,
-    ]);
-    if (rows.length === 0) {
-      return res.json([]);
-    }
+      SELECT 
+        livro.id AS livro_id,
+        livro.titulo,
+        livro.autor,
+        livro.capa_url
+      FROM tabela_livros_favoritos af
+      JOIN tabela_livros livro ON livro.id = af.livro_id
+      WHERE af.aluno_id = ?
+    `, [req.params.id]);
+
     return res.json(rows);
 
   } catch (err) {
     res.status(500).json({ erro: err.message });
   }
-}; 
+}
+
 export async function adicionarFavorito(req, res) {
   const { aluno_id, livro_id } = req.body;
 
   try {
     await db.execute(
-      "INSERT INTO alunos_favoritos (aluno_id, livro_id) VALUES (?, ?)",
+      "INSERT INTO tabela_livros_favoritos (aluno_id, livro_id) VALUES (?, ?)",
       [aluno_id, livro_id]
     );
 
@@ -42,7 +44,7 @@ export async function removerFavorito(req, res) {
 
   try {
     await db.execute(
-      "DELETE FROM alunos_favoritos WHERE aluno_id = ? AND livro_id = ?",
+      "DELETE FROM tabela_livros_favoritos WHERE aluno_id = ? AND livro_id = ?",
       [aluno_id, livro_id]
     );
 

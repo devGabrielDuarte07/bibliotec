@@ -1,16 +1,16 @@
-const API = "http://localhost:3000/livros"
-
+const APILivros = "http://localhost:3000/livros"
 const campoPesquisa = document.querySelector('.inputCampo');
 const conteiner = document.querySelector('.conteiner')
 const descricaoLivro = document.getElementById('descricaoLivro');
-const APIFavoritar = `http://localhost:3000/favoritos`;
+const APIFavoritar = `http://localhost:3000/favoritos/favoritar`;
+const APIDesfavoritar = "http://localhost:3000/favoritos/desfavoritar";
 const idAluno = localStorage.getItem("id");
 const APIListFavoritos = `http://localhost:3000/favoritos/${idAluno}`;
 
 
 async function buscarDadosDoBanco() {
     try {
-        const response = await fetch(API);
+        const response = await fetch(APILivros);
         if (!response.ok) {
             throw new Error('Erro na requisição à API');
         }
@@ -74,7 +74,11 @@ function montarCategoria(titulo, genero, dados, favoritos) {
             <img src="${livro.capa_url}" alt="${livro.titulo}" class="livro">
             <h2 class="nomesLivros">
                 ${livro.titulo}
-                <img class="coracaoVazio" src="${jaFavoritado ? 'img/coracaoCheio.png' : 'img/coracao vazio.png'}" id="coracoFav-${livro.id}" alt="coração vazio">
+                <img 
+                    class="coracao ${jaFavoritado ? "favoritado" : ""}" 
+                    src="${jaFavoritado ? 'img/coracaoCheio.png' : 'img/coracaoVazio.png'}" 
+                    id="coracoFav-${livro.id}"
+                >
             </h2>
         `;
 
@@ -99,11 +103,45 @@ async function carregarLivros() {
 carregarLivros();
 
 
-document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("coracaoVazio")) {
-        alert(e.target.id); // ex: coracao-12
+document.addEventListener("click", async (e) => {
+    if (!e.target.classList.contains("coracao")) return;
+
+    const idCoracao = e.target.id;
+    const livroId = idCoracao.split("-")[1];
+    const jaFavoritado = e.target.classList.contains("favoritado");
+
+    const url = jaFavoritado ? APIDesfavoritar : APIFavoritar;
+    const metodo = jaFavoritado ? "DELETE" : "POST";
+
+    try {
+        const requisicao = await fetch(url, {
+            method: metodo,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                aluno_id: idAluno,
+                livro_id: livroId
+            })
+        });
+
+        if (!requisicao.ok) {
+            alert("Erro no servidor. Código: " + requisicao.status);
+            return;
+        }
+
+        if (metodo === "POST") {
+            e.target.src = "img/coracaoCheio.png";
+            e.target.classList.add("favoritado");
+        } else {
+            e.target.src = "img/coracaoVazio.png";
+            e.target.classList.remove("favoritado");
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Erro de conexão com servidor.");
     }
 });
+
 // carousel 
 const nextBtn = document.getElementById(`arrow-right`)
 const previousBtn = document.getElementById(`arrow-left`)
