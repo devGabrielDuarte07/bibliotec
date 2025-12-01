@@ -25,24 +25,29 @@ async function buscarAlunosFav() {
 async function carregarLivrosFavoritos() {
     // const livros = await buscarLivros();
     const alunosFav = await buscarAlunosFav();
-    const divApenasManga = document.createElement('div')
-    divApenasManga.classList.add('apenasMangas');
+    const divApenasLivro = document.createElement('div')
+    divApenasLivro.classList.add('apenasLivro');
     
     alunosFav.forEach(livro => {
         const divCard = document.createElement('div')
-        divCard.classList.add('cardLivro');
-
+       divCard.classList.add('cardLivro');
+        const titulo = document.createElement('h3')
         const img = document.createElement('img')
         img.src = livro.capa_url;
         img.alt = livro.titulo;
-        img.classList.add("manga")
+        img.classList.add("livro")
+        titulo.classList.add("nomesLivros")
+        titulo.textContent = livro.titulo 
+
+        
         divCard.appendChild(img);
+        divCard.appendChild(titulo)
         exibirLivros.appendChild(divCard)
         
 
     })
-    divApenasManga.appendChild(divCard)
-    exibirLivros.appendChild(divApenasManga)
+    divApenasLivro.appendChild(divCard)
+    exibirLivros.appendChild(divApenasLivro)
 }
 
 carregarLivrosFavoritos();

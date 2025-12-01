@@ -7,7 +7,7 @@ export async function obterLivros(req, res) {
     console.log("ID recebido:", req.params.id);
 
     const [rows] = await db.execute(`
-      SELECT livro.id, livro.titulo, livro.autor, livro.capa_url
+      SELECT livro.id AS livro_id, livro.titulo, livro.autor, livro.capa_url
         FROM alunos_favoritos af
         JOIN livros livro ON livro.id = af.livro_id
         WHERE af.aluno_id = ?`, [

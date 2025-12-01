@@ -1,13 +1,16 @@
-const API = "http://localhost:3000/livros"
-
+const APILivros = "http://localhost:3000/livros"
 const campoPesquisa = document.querySelector('.inputCampo');
-const exibirLivros = document.querySelector('.exibirLivros');
-
+const conteiner = document.querySelector('.conteiner')
+const descricaoLivro = document.getElementById('descricaoLivro');
+const APIFavoritar = `http://localhost:3000/favoritos/favoritar`;
+const APIDesfavoritar = "http://localhost:3000/favoritos/desfavoritar";
+const idAluno = localStorage.getItem("id");
+const APIListFavoritos = `http://localhost:3000/favoritos/${idAluno}`;
 
 
 async function buscarDadosDoBanco() {
     try {
-        const response = await fetch(API);
+        const response = await fetch(APILivros);
         if (!response.ok) {
             throw new Error('Erro na requisição à API');
         }
@@ -22,71 +25,121 @@ async function buscarDadosDoBanco() {
     }
 }
 
+function montarCategoria(titulo, genero, dados, favoritos) {
+
+    // --- H1 ---
+    const h1 = document.createElement("h1");
+    h1.id = `h1${titulo}`;
+    h1.textContent = titulo;
+
+    // --- Containers principais ---
+    const fadeUp = document.createElement("div");
+    fadeUp.classList.add("fade-up");
+
+    const exibir = document.createElement("div");
+    exibir.classList.add("exibirLivros", titulo);
+
+    const apenasLivros = document.createElement("div");
+    apenasLivros.classList.add("apenasLivros");
+
+    exibir.appendChild(apenasLivros);
+
+    // --- Controls ---
+    const controls = document.createElement("div");
+    controls.classList.add(`controls${titulo}`);
+
+    controls.innerHTML = `
+        <span class="arrow right material-icons arrow-right" id="setas${titulo}">keyboard_arrow_right</span>
+        <span class="arrow left material-icons arrow-left" id="setas${titulo}">keyboard_arrow_left</span>
+    `;
+
+    fadeUp.appendChild(exibir);
+    fadeUp.appendChild(controls);
+
+    // --- Adiciona tudo no container principal ---
+    conteiner.appendChild(h1);
+    conteiner.appendChild(fadeUp);
+
+    // --- Criar os cards dessa categoria ---
+    dados.forEach(livro => {
+        if (livro.genero !== genero) return;
+
+        const card = document.createElement("div");
+        card.classList.add("cardLivro");
+        card.setAttribute("data-titulo", livro.titulo);
+
+        const jaFavoritado = favoritos.some(f => f.livro_id === livro.id);
+
+        card.innerHTML = `
+            <img src="${livro.capa_url}" alt="${livro.titulo}" class="livro">
+            <h2 class="nomesLivros">
+                ${livro.titulo}
+                <img 
+                    class="coracao ${jaFavoritado ? "favoritado" : ""}" 
+                    src="${jaFavoritado ? 'img/coracao.png' : 'img/coracao vazio.png'}" 
+                    id="coracoFav-${livro.id}"
+                >
+            </h2>
+        `;
+
+        apenasLivros.appendChild(card);
+        apenasLivros.appendChild(document.createElement("br"));
+
+    });
+}
+
 async function carregarLivros() {
     const dados = await buscarDadosDoBanco();
-    exibirLivros.innerHTML = '';
-    const divApenasMangas = document.createElement('div')
-    const divNomesMangas = document.createElement('div')
-    dados.forEach(livro => {
-        // criando as div
+    const favoritosResponse = await fetch(APIListFavoritos);
+    const favoritos = await favoritosResponse.json();
 
-        const divCard = document.createElement('div')
-        const nomeManga = document.createElement('h2')
-
-        // colocando as class nas div
-        divApenasMangas.classList.add('apenasMangas')
-        divNomesMangas.classList.add('nomesMangas')
-        divCard.classList.add('cardLivro');
-        divCard.setAttribute('data-titulo', livro.titulo);
-
-
-        divCard.innerHTML = `
-                <img src="${livro.capa_url}" alt="${livro.titulo}" class="manga">
-                `
-
-        nomeManga.classList.add('titulo')
-        nomeManga.textContent = livro.titulo
-
-        divApenasMangas.appendChild(divCard)
-        exibirLivros.appendChild(divApenasMangas)
-        exibirLivros.appendChild(divNomesMangas)
-        divNomesMangas.appendChild(nomeManga);
-
-        divCard.addEventListener('click', () => {
-            console.log("Livro clicado:", livro);
-            localStorage.setItem("botaoClicado", "sim")
-            localStorage.setItem("livroSelecionado", JSON.stringify(livro)); // s
-            window.location.href = "./telaLivro.html";
-        })
-    })
-
-
-    //busca os livros
-    const livros = document.querySelectorAll('.cardLivro');
-    const h1 = document.getElementById('h1Populares')
-    campoPesquisa.addEventListener('input', () => {
-        const termo = campoPesquisa.value.toLowerCase().trim();
-
-        livros.forEach(livro => {
-            const titulo = livro.getAttribute('data-titulo').toLowerCase();
-
-
-            if (titulo.includes(termo)) {
-                livro.style.display = 'flex'; // mostra
-                h1.style.display = 'none'
-            } else {
-                livro.style.display = 'none'; // esconde
-            }
-
-            if (campoPesquisa.value === "") {
-                h1.style.display = 'flex'
-            }
-        });
-    });
+    montarCategoria("Mangas", "manga", dados, favoritos);
+    montarCategoria("Romance", "romance", dados, favoritos);
+    montarCategoria("Suspense", "suspense", dados, favoritos);
+    montarCategoria("Terror", "terror", dados, favoritos);
 }
 
 carregarLivros();
 
+
+document.addEventListener("click", async (e) => {
+    if (!e.target.classList.contains("coracao")) return;
+
+    const idCoracao = e.target.id;
+    const livroId = idCoracao.split("-")[1];
+    const jaFavoritado = e.target.classList.contains("favoritado");
+
+    const url = jaFavoritado ? APIDesfavoritar : APIFavoritar;
+    const metodo = jaFavoritado ? "DELETE" : "POST";
+
+    try {
+        const requisicao = await fetch(url, {
+            method: metodo,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                aluno_id: idAluno,
+                livro_id: livroId
+            })
+        });
+
+        if (!requisicao.ok) {
+            alert("Erro no servidor. Código: " + requisicao.status);
+            return;
+        }
+
+        if (metodo === "POST") {
+            e.target.src = "img/coracao.png";
+            e.target.classList.add("favoritado");
+        } else {
+            e.target.src = "img/coracao vazio.png";
+            e.target.classList.remove("favoritado");
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Erro de conexão com servidor.");
+    }
+});
 
 // carousel 
 const nextBtn = document.getElementById(`arrow-right`)

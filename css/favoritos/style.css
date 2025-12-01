@@ -84,20 +84,19 @@ body {
     justify-content: center;
 }
 
-.manga{
+.livro{
     width: 200px;
     height: 300px;
     border-radius: 20px;
 }
 
-.nomesMangas{
-    font-size: 13px;
+.nomesLivros{
+    margin-top: 3%;
+    font-size: 15px;
     display: flex;
-    align-self: end;
     justify-content: space-around;
     color: #4A67DF;
-    padding-top: 1%;
-     
+    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
 
 .coracaoPreenchido{
@@ -116,13 +115,14 @@ body {
 }
 
 .exibirLivros{
-    padding-top: 5%;
+    padding-top: 3%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    justify-content: center;
 }
 
 .cardLivro {
-    width: 330px;
-    height: 460px; 
+    padding: 4%;
 } 
 

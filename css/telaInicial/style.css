@@ -347,9 +347,120 @@ h1 {
    margin-right: 50%;
 }
 
-
-
 .descricaoLivro.ativa {
     transform: translate(-50%, -50%) scale(1);
 }
 
+
+.pop-up-perfil {
+    position: fixed;    
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: right;
+    z-index: 1000;
+}
+
+.pop-up-perfil.show{
+    display: flex;
+}
+
+.perfil-pop {
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    height: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+}
+
+.cabecarioPerfil{
+    display: flex;
+    justify-content: center;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.fotoPerfil{
+    width: 10vw;
+    height: 20vh;
+    
+}
+.divFotoPerfil{
+    display: flex;
+    justify-content: center;
+}
+
+.divNomePessoa{
+    display: flex;
+    justify-content: center;    
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.divConfig{
+    margin-top: 20%;
+    display: flex;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    color:#4A67DF
+}
+
+.divInfoPerfil{
+    margin-left: 4%;
+    margin-top: 8%;
+    cursor: pointer;
+    transition: transform 1.5s ease;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.divMeusFavoritos{
+    margin-left: 4%;
+    margin-top: 4%;
+    cursor: pointer;
+    transition: transform 1.5s ease;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+}
+
+.divModo{
+    margin-left: 4%;
+    margin-top: 4%;
+    cursor: pointer;
+    transition: transform 1.5s ease;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.divTermosEPrivacidade{
+    display: flex;
+    margin-top: 14%;
+    color:#4A67DF;
+    transition: transform 1.5s ease;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.divPrivacidade{
+    margin-left: 4%;
+    margin-top: 4%;
+    cursor: pointer;
+    transition: transform 1.5s ease;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.divTermo{
+    margin-left: 4%;
+    margin-top: 8%;
+    cursor: pointer;
+    transition: transform 1.5s ease;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.fav{
+    text-decoration: none;
+    color: black;
+    
+}
+
+a:hover{
+    color: #4A67DF;
+}
