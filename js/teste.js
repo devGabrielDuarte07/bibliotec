@@ -141,6 +141,58 @@ document.addEventListener("click", async (e) => {
         alert("Erro de conexão com servidor.");
     }
 });
+const descricaoLivro2 = document.getElementById('descricaoLivro');
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("livro")) {
+    descricaoLivro.innerHTML = `
+            <h3 class="h3Descricao">${e.target.alt}</h3>
+            <div class="descricao">
+                <img class="imgDescricao" src="${e.target.src}">
+                <p class="pDescricaoLivro">${e.target.dataset.descricao}</p>
+            </div>
+        `;
+    descricaoLivro.classList.add("ativa");
+    return;
+  }
+
+  // Se clicar fora → fecha
+  if (!descricaoLivro.contains(e.target)) {
+    descricaoLivro.classList.remove("ativa");
+  }
+});
+// Abrir ao clicar no livro
+// livros.forEach(livro => {
+//     livro.addEventListener('click', (e) => {
+//         e.stopPropagation();
+//         const valor = livro.getAttribute("data-descricao")
+//         descricaoLivro2.innerHTML = `
+//             <h3 class="h3Descricao">${livro.alt}</h3>
+//             <div class="descricao">
+//             <img class="imgDescricao" src="${livro.src}">
+//             <p class="pDescricaoLivro">${valor}</p>
+//             <div>
+//         `;
+//         descricaoLivro2.classList.add('ativa');
+//     });
+// });
+
+// POP UP
+const filtro = document.getElementById('filtro')
+const popUpFiltro = document.getElementById('pop-up-filtro')
+const filtroPop = document.getElementById('filtro-pop')
+
+filtro.addEventListener('click', () => {
+
+    popUpFiltro.classList.add('show');
+})
+
+popUpFiltro.addEventListener('click', (evento) => {
+    if (evento.target === popUpFiltro) {
+        popUpFiltro.classList.remove('show');
+    }
+})
+
+
 
 // carousel 
 const nextBtn = document.getElementById(`arrow-right`)
