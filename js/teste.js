@@ -93,6 +93,7 @@ async function carregarLivros() {
     const favoritosResponse = await fetch(APIListFavoritos);
     const favoritos = await favoritosResponse.json();
 
+    montarCategoria("Populares", "populares", dados, favoritos);
     montarCategoria("Mangas", "manga", dados, favoritos);
     montarCategoria("Romance", "romance", dados, favoritos);
     montarCategoria("Suspense", "suspense", dados, favoritos);

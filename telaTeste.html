@@ -23,6 +23,8 @@
         <div class="pesquisar">
             <input class="inputCampo" id="inputPesquisarLivros" type="search" placeholder="Pesquisar..."
                 autocomplete="off">
+
+                <img class="filtro"  src="img/filtro.png" alt="Filtro de pesquisa" id="filtro">
         </div>
 
         <div class="icones">
@@ -33,9 +35,8 @@
             <a href="favoritos.html">
                 <img class="coracaoFav" src="img/coracaoCheio.png" alt="Favoritos">
             </a>
-            <a href="teste.html">
-                <img class="perfil" src="img/perfil.png" alt="Perfil">
-            </a>
+                <img class="perfil" id="perfil" src="img/perfil.png" alt="Perfil">
+         
 
         </div>
     </header>
@@ -43,10 +44,35 @@
         <div class="descricaoLivro" id="descricaoLivro"></div>
     </div>
     <main class="conteiner">
+        <div class="pop-up-perfil" id="pop-up-perfil">
+            <div class="perfil-pop" id="perfil-pop">
+                <div class="cabecarioPerfil">
+                <h2>Perfil</h2>
+                </div>
+                <div class="divFotoPerfil"><img class="fotoPerfil" src="img/perfil.png" alt="Foto de perfil"></div> 
+                <div class="divNomePessoa"><h2>Cauã Borges Caetano</h2></div>
+                <div class="divConfig"><h2>Configurações</h2></div>
+                <div class="divInfoPerfil"><a class="fav" href="favoritos.html"><h2>Informações do perfil</h2></a></div>
+                <div class="divMeusFavoritos">
+                    <a class="fav" href="favoritos.html"><h2>Meus favoritos</h2></a>
+                    </div>
+                <div class="divModo"><h2>Modo</h2></div>
+                <div class="divTermosEPrivacidade"><h2>Termos e Privacidade</h2></div>
+                <div class="divTermo"><a class="fav" href="favoritos.html"><h2>Termos e condições</h2></a>
+                    </div>
+                <div class="divPrivacidade"><a class="fav" href="favoritos.html"><h2>Privacidade e segurança</h2></a>
+                    </div>
+            </div>
+        </div>
 
-        
+        <div class="pop-up-filtro" id="pop-up-filtro">
+            <div class="filtro-pop" id="filtro-pop">
+                
+            </div>
+        </div>
     </main>
     <script src="./js/teste.js"></script>
+    <script src="./js/gPerfil.js"></script>
 </body>
 
 </html>

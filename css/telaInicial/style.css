@@ -58,43 +58,8 @@ header {
     transform: scale(1.15);
 }
 
-.filtro:hover {
-    transform: scale(1.15);
-}
 
-.filtro{
-    margin-left: 1%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-}
 
-.pop-up-filtro {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    align-items: start;
-    justify-content: center;
-    z-index: 1000;
-    padding-top: 100px;
-    padding-left: 500px;
-}
-
-.pop-up-filtro.show {
-    display: flex;
-}
-
-.filtro-pop {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    
-    width: 60%;
-    height: 20%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    
-}
 
 
 .pesquisar {

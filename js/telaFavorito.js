@@ -32,11 +32,17 @@ async function carregarLivrosFavoritos() {
         const divCard = document.createElement('div')
         divCard.classList.add('cardLivro');
 
-        const img = document.createElement('img')
-        img.src = livro.capa_url;
-        img.alt = livro.titulo;
-        img.classList.add("manga")
-        divCard.appendChild(img);
+        divCard.innerHTML = `
+            <img src="${livro.capa_url}" alt="${livro.titulo}" class="manga">
+            <h3 class="nomesLivros">
+                ${livro.titulo}
+                <img 
+                    class="coracaoFav2" 
+                    src="img/coracaoCheio.png" 
+                    id="coracoFav-${livro.id}"
+                >
+            </h2>`;
+            
         exibirLivros.appendChild(divCard)
         
 
