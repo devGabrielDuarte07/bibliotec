@@ -1,4 +1,5 @@
     const descricaoLivro = document.getElementById('descricaoLivro');
+    const descricaoFiltro = document.getElementById('descricaoFiltro')
     const livros = document.querySelectorAll('.livro');
 
     // Abrir ao clicar no livro
@@ -14,12 +15,14 @@
                 <div>
             `;
             descricaoLivro.classList.add('ativa');
+            descricaoFiltro.style.display = 'flex'
         });
     });
 
     // Fechar quando tirar o mouse
     descricaoLivro.addEventListener('mouseleave',  () => {
         descricaoLivro.classList.remove('ativa');
+        descricaoFiltro.style.display = 'none'
     });
 
     descricaoLivro.addEventListener("click", (e) => {
@@ -27,24 +30,13 @@
     });
 
     document.addEventListener("click", () => {
+        descricaoFiltro.style.display = 'none'
         descricaoLivro.classList.remove("ativa");
+        
     });
 
 
-    const filtro = document.getElementById('filtro')
-    const popUpFiltro = document.getElementById('pop-up-filtro')
-    const filtroPop = document.getElementById('filtro-pop')
 
-    filtro.addEventListener('click', () => {
-
-        popUpFiltro.classList.add('show');
-    })
-
-    popUpFiltro.addEventListener('click', (evento) => {
-        if (evento.target === popUpFiltro) {
-            popUpFiltro.classList.remove('show');
-        }
-    })
 
 
     

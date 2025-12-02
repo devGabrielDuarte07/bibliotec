@@ -40,12 +40,18 @@ header {
     display: flex;
     align-items: center;
     gap: 20px;
+    padding-right: 1%;
 }
 
-.coracaoFav,
-.perfil {
+.coracaoFav{
     width: 35px;
     height: 35px;
+    transition: transform 0.3s ease;
+}
+
+.perfil {
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -297,15 +303,20 @@ h1 {
 /* Descrição 
 */
 
-/* .descricaoFiltro{
-        background: rgba(0, 0, 0, 0.5); 
-} */
+.descricaoFiltro{
+    position: fixed;    
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: right;
+    z-index: 1000;
+}
 
 .descricaoLivro {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0);
     width: 1000px;
     height: 700px;
     border-radius: 15px;
