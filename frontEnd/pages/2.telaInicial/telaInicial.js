@@ -6,7 +6,8 @@ const APIFavoritar = `http://localhost:3000/favoritos/favoritar`;
 const APIDesfavoritar = "http://localhost:3000/favoritos/desfavoritar";
 const idAluno = localStorage.getItem("id");
 const APIListFavoritos = `http://localhost:3000/favoritos/${idAluno}`;
-
+const aluno = JSON.parse(localStorage.getItem("aluno"));
+divNomePessoa.textContent = aluno.nome;
 
 async function buscarDadosDoBanco() {
     try {
@@ -49,10 +50,10 @@ function montarCategoria(titulo, genero, dados, favoritos) {
     controls.classList.add(`controls${titulo}`);
 
     controls.innerHTML = `
-        <span class="arrow right material-icons arrow-right" id="setas${titulo}">keyboard_arrow_right</span>
-        <span class="arrow left material-icons arrow-left" id="setas${titulo}">keyboard_arrow_left</span>
+        <span class="arrow right material-icons arrow-right" id="arrow-right-${titulo}">keyboard_arrow_right</span>
+        <span class="arrow left material-icons arrow-left" id="arrow-left-${titulo}">keyboard_arrow_left</span>
     `;
-
+    exibir.id = `carrossel-${titulo}`;
     fadeUp.appendChild(exibir);
     fadeUp.appendChild(controls);
 
@@ -71,12 +72,12 @@ function montarCategoria(titulo, genero, dados, favoritos) {
         const jaFavoritado = favoritos.some(f => f.livro_id === livro.id);
 
         card.innerHTML = `
-            <img src="${livro.capa_url}" alt="${livro.titulo}" class="livro">
+            <img src="${livro.capa_url}" alt="${livro.titulo}" class="livro" data-descricao="${livro.descricao}">
             <h2 class="nomesLivros">
                 ${livro.titulo}
                 <img 
                     class="coracao ${jaFavoritado ? "favoritado" : ""}" 
-                    src="${jaFavoritado ? 'img/coracaoCheio.png' : 'img/coracaoVazio.png'}" 
+                    src="${jaFavoritado ? '../../img/coracaoCheio.png' : '../../img/coracaoVazio.png'}" 
                     id="coracoFav-${livro.id}"
                 >
             </h2>
@@ -101,8 +102,35 @@ async function carregarLivros() {
 
 }
 
-carregarLivros();
+function configurarCarrossel(titulo) {
+    const nextBtn = document.getElementById(`arrow-right-${titulo}`);
+    const prevBtn = document.getElementById(`arrow-left-${titulo}`);
+    const carrossel = document.querySelector(`#carrossel-${titulo} .apenasLivros`);
 
+    let deslocamento = 0;
+    const passo = 400;
+    const limiteMax = -1600;
+
+    nextBtn.addEventListener("click", () => {
+        deslocamento -= passo;
+        if (deslocamento < limiteMax) deslocamento = 0;
+        carrossel.style.transform = `translateX(${deslocamento}px)`;
+    });
+
+    prevBtn.addEventListener("click", () => {
+        deslocamento += passo;
+        if (deslocamento > 0) deslocamento = limiteMax;
+        carrossel.style.transform = `translateX(${deslocamento}px)`;
+    });
+}
+
+carregarLivros().then(() => {
+    configurarCarrossel("Populares");
+    configurarCarrossel("Mangas");
+    configurarCarrossel("Romance");
+    configurarCarrossel("Suspense");
+    configurarCarrossel("Terror");
+});
 
 document.addEventListener("click", async (e) => {
     if (!e.target.classList.contains("coracao")) return;
@@ -130,10 +158,10 @@ document.addEventListener("click", async (e) => {
         }
 
         if (metodo === "POST") {
-            e.target.src = "img/coracaoCheio.png";
+            e.target.src = "../../img/coracaoCheio.png";
             e.target.classList.add("favoritado");
         } else {
-            e.target.src = "img/coracaoVazio.png";
+            e.target.src = "../../img/coracaoVazio.png";
             e.target.classList.remove("favoritado");
         }
 
@@ -144,22 +172,22 @@ document.addEventListener("click", async (e) => {
 });
 const descricaoLivro2 = document.getElementById('descricaoLivro');
 document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("livro")) {
-    descricaoLivro.innerHTML = `
+    if (e.target.classList.contains("livro")) {
+        descricaoLivro.innerHTML = `
             <h3 class="h3Descricao">${e.target.alt}</h3>
             <div class="descricao">
                 <img class="imgDescricao" src="${e.target.src}">
                 <p class="pDescricaoLivro">${e.target.dataset.descricao}</p>
             </div>
         `;
-    descricaoLivro.classList.add("ativa");
-    return;
-  }
+        descricaoLivro.classList.add("ativa");
+        return;
+    }
 
-  // Se clicar fora → fecha
-  if (!descricaoLivro.contains(e.target)) {
-    descricaoLivro.classList.remove("ativa");
-  }
+    // Se clicar fora → fecha
+    if (!descricaoLivro.contains(e.target)) {
+        descricaoLivro.classList.remove("ativa");
+    }
 });
 // Abrir ao clicar no livro
 // livros.forEach(livro => {
@@ -196,30 +224,6 @@ popUpFiltro.addEventListener('click', (evento) => {
 
 
 // carousel 
-const nextBtn = document.getElementById(`arrow-right`)
-const previousBtn = document.getElementById(`arrow-left`)
-let deslocamento = 0;
-const passo = 400;
-const limiteMax = -1600;
-
-
-nextBtn.addEventListener(`click`, () => {
-    deslocamento -= passo;
-
-    if (deslocamento < limiteMax) {
-        deslocamento = 0; // volta ao início
-    }
-    exibirLivros.style.transform = `translateX(${deslocamento}px)`;
-})
-
-previousBtn.addEventListener('click', () => {
-
-    deslocamento += passo;
-    if (deslocamento > 0) {
-        deslocamento = limiteMax; // vai pro final
-    }
-    exibirLivros.style.transform = `translateX(${deslocamento}px)`;
-})
 
 
 const trilho = document.getElementById('trilho')
@@ -227,5 +231,21 @@ const body = document.querySelector('body')
 trilho.addEventListener('click', () => {
     trilho.classList.toggle('dark')
     body.classList.toggle('dark')
+})
+
+
+const perfil = document.getElementById('perfil')
+const popUpPerfil = document.getElementById('pop-up-perfil')
+const perfilPop = document.getElementById('perfil-pop')
+
+perfil.addEventListener('click', () => {
+
+    popUpPerfil.classList.add('show');
+})
+
+popUpPerfil.addEventListener('click', (evento) => {
+    if (evento.target === popUpPerfil) {
+        popUpPerfil.classList.remove('show');
+    }
 })
 

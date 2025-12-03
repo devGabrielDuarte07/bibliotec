@@ -38,7 +38,7 @@ async function carregarLivrosFavoritos() {
                 ${livro.titulo}
                 <img 
                     class="coracaoFav2" 
-                    src="img/coracaoCheio.png" 
+                    src="../../img/coracaoCheio.png" 
                     id="coracoFav-${livro.id}"
                 >
             </h2>`;

@@ -21,7 +21,7 @@ botaoAcao.addEventListener('click', async function (event) {
     const response = await fetch(APILogin, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, senha }) 
+      body: JSON.stringify({ email, senha })
     })
 
     const dado = await response.json();
@@ -32,9 +32,12 @@ botaoAcao.addEventListener('click', async function (event) {
     }
     const perfil = dado.aluno.perfil;
 
+    localStorage.setItem("aluno", JSON.stringify(dado.aluno));
+    localStorage.setItem("id", dado.aluno.id);
+
     // Redirecionar
     if (perfil === "aluno") {
-      window.location.href = "./telaInicial.html";
+      window.location.href = "2.telaInicial/telaInicial.html";
     } else {
       window.location.href = "./telaTeste.html";
     }
