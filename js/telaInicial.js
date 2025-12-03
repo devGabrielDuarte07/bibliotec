@@ -1,13 +1,16 @@
-const API = "http://localhost:3000/livros"
-const APIFav = "http://localhost:3000/favoritos"
-
+const APILivros = "http://localhost:3000/livros"
 const campoPesquisa = document.querySelector('.inputCampo');
-const exibirLivros = document.querySelector('.exibirLivros');
+const conteiner = document.querySelector('.conteiner')
+const descricaoLivro = document.getElementById('descricaoLivro');
+const APIFavoritar = `http://localhost:3000/favoritos/favoritar`;
+const APIDesfavoritar = "http://localhost:3000/favoritos/desfavoritar";
+const idAluno = localStorage.getItem("id");
+const APIListFavoritos = `http://localhost:3000/favoritos/${idAluno}`;
 
 
 async function buscarDadosDoBanco() {
     try {
-        const response = await fetch(API);
+        const response = await fetch(APILivros);
         if (!response.ok) {
             throw new Error('Erro na requisição à API');
         }
@@ -22,102 +25,223 @@ async function buscarDadosDoBanco() {
     }
 }
 
-async function carregarLivros() {
-    const dados = await buscarDadosDoBanco();
-    exibirLivros.innerHTML = '';
+function montarCategoria(titulo, genero, dados, favoritos) {
 
+    // --- H1 ---
+    const h1 = document.createElement("h1");
+    h1.id = `h1${titulo}`;
+    h1.textContent = titulo;
+
+    // --- Containers principais ---
+    const fadeUp = document.createElement("div");
+    fadeUp.classList.add("fade-up");
+
+    const exibir = document.createElement("div");
+    exibir.classList.add("exibirLivros", titulo);
+
+    const apenasLivros = document.createElement("div");
+    apenasLivros.classList.add("apenasLivros");
+
+    exibir.appendChild(apenasLivros);
+
+    // --- Controls ---
+    const controls = document.createElement("div");
+    controls.classList.add(`controls${titulo}`);
+
+    controls.innerHTML = `
+        <span class="arrow right material-icons arrow-right" id="arrow-right-${titulo}">keyboard_arrow_right</span>
+        <span class="arrow left material-icons arrow-left" id="arrow-left-${titulo}">keyboard_arrow_left</span>
+    `;
+    exibir.id = `carrossel-${titulo}`;
+    fadeUp.appendChild(exibir);
+    fadeUp.appendChild(controls);
+
+    // --- Adiciona tudo no container principal ---
+    conteiner.appendChild(h1);
+    conteiner.appendChild(fadeUp);
+
+    // --- Criar os cards dessa categoria ---
     dados.forEach(livro => {
-        const divCard = document.createElement('div')
-        const divTitulo = document.createElement('div')
-        divCard.classList.add('cardLivro');
-        divCard.setAttribute('data-titulo', livro.titulo);
-        divCard.innerHTML = `
-         <img src="${livro.capa_url}" alt="${livro.titulo}" class="livro">
-`;
-        divTitulo.classList.add('nomesLivros')
-        divTitulo.innerHTML = `
-             <h2 class="titulo">${livro.titulo}</h2>        
-        `
+        if (livro.genero !== genero) return;
 
-            
-        exibirLivros.appendChild(divTitulo);
+        const card = document.createElement("div");
+        card.classList.add("cardLivro");
+        card.setAttribute("data-titulo", livro.titulo);
 
-        divCard.addEventListener('click', () => {
-            console.log("Livro clicado:", livro);
-            localStorage.setItem("botaoClicado", "sim")
-            localStorage.setItem("livroSelecionado", JSON.stringify(livro)); // s
-            window.location.href = "./telaLivro.html";
-        })
-    })
+        const jaFavoritado = favoritos.some(f => f.livro_id === livro.id);
 
+        card.innerHTML = `
+            <img src="${livro.capa_url}" alt="${livro.titulo}" class="livro" data-descricao="${livro.descricao}">
+            <h2 class="nomesLivros">
+                ${livro.titulo}
+                <img 
+                    class="coracao ${jaFavoritado ? "favoritado" : ""}" 
+                    src="${jaFavoritado ? 'img/coracao.png' : 'img/coracao vazio.png'}" 
+                    id="coracoFav-${livro.id}"
+                >
+            </h2>
+        `;
 
-    //busca os livros
-    const livros = document.querySelectorAll('.cardLivro');
-    const h1 = document.getElementById('h1Populares')
-    campoPesquisa.addEventListener('input', () => {
-        const termo = campoPesquisa.value.toLowerCase().trim();
-        
-        livros.forEach(livro => {
-            const titulo = livro.getAttribute('data-titulo').toLowerCase();
+        apenasLivros.appendChild(card);
+        apenasLivros.appendChild(document.createElement("br"));
 
-
-            if (titulo.includes(termo)) {
-                livro.style.display = 'flex'; // mostra
-                h1.style.display = 'none'
-            } else {
-                livro.style.display = 'none'; // esconde
-            }
-
-            if(campoPesquisa.value === ""){
-                h1.style.display = 'flex'
-            }
-        });
     });
 }
 
-carregarLivros();
+async function carregarLivros() {
+    const dados = await buscarDadosDoBanco();
+    const favoritosResponse = await fetch(APIListFavoritos);
+    const favoritos = await favoritosResponse.json();
+
+    montarCategoria("Populares", "populares", dados, favoritos);
+    montarCategoria("Mangas", "manga", dados, favoritos);
+    montarCategoria("Romance", "romance", dados, favoritos);
+    montarCategoria("Suspense", "suspense", dados, favoritos);
+    montarCategoria("Terror", "terror", dados, favoritos);
+
+}
+
+function configurarCarrossel(titulo) {
+    const nextBtn = document.getElementById(`arrow-right-${titulo}`);
+    const prevBtn = document.getElementById(`arrow-left-${titulo}`);
+    const carrossel = document.querySelector(`#carrossel-${titulo} .apenasLivros`);
+    
+    let deslocamento = 0;
+    const passo = 400;
+    const limiteMax = -1600;
+
+    nextBtn.addEventListener("click", () => {
+        deslocamento -= passo;
+        if (deslocamento < limiteMax) deslocamento = 0;
+        carrossel.style.transform = `translateX(${deslocamento}px)`;
+    });
+
+    prevBtn.addEventListener("click", () => {
+        deslocamento += passo;
+        if (deslocamento > 0) deslocamento = limiteMax;
+        carrossel.style.transform = `translateX(${deslocamento}px)`;
+    });
+}
+
+carregarLivros().then(() => {
+    configurarCarrossel("Populares");
+    configurarCarrossel("Mangas");
+    configurarCarrossel("Romance");
+    configurarCarrossel("Suspense");
+    configurarCarrossel("Terror");
+});
+
+document.addEventListener("click", async (e) => {
+    if (!e.target.classList.contains("coracao")) return;
+
+    const idCoracao = e.target.id;
+    const livroId = idCoracao.split("-")[1];
+    const jaFavoritado = e.target.classList.contains("favoritado");
+
+    const url = jaFavoritado ? APIDesfavoritar : APIFavoritar;
+    const metodo = jaFavoritado ? "DELETE" : "POST";
+
+    try {
+        const requisicao = await fetch(url, {
+            method: metodo,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                aluno_id: idAluno,
+                livro_id: livroId
+            })
+        });
+
+        if (!requisicao.ok) {
+            alert("Erro no servidor. Código: " + requisicao.status);
+            return;
+        }
+
+        if (metodo === "POST") {
+            e.target.src = "img/coracao.png";
+            e.target.classList.add("favoritado");
+        } else {
+            e.target.src = "img/coracao vazio.png";
+            e.target.classList.remove("favoritado");
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Erro de conexão com servidor.");
+    }
+});
+const descricaoLivro2 = document.getElementById('descricaoLivro');
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("livro")) {
+    descricaoLivro.innerHTML = `
+            <h3 class="h3Descricao">${e.target.alt}</h3>
+            <div class="descricao">
+                <img class="imgDescricao" src="${e.target.src}">
+                <p class="pDescricaoLivro">${e.target.dataset.descricao}</p>
+            </div>
+                <div class="final">
+                <div class="estrelas">
+                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
+                </div>
+                <div class=osdois>
+                <button type="button" class="botaoReservar">Reservar livro</button>
+                <img class="coracao" src="img/coracao.png" alt="">
+                </div>
+                </div>
+        `;
+    descricaoLivro.classList.add("ativa");
+    return;
+  }
+
+  // Se clicar fora → fecha
+  if (!descricaoLivro.contains(e.target)) {
+    descricaoLivro.classList.remove("ativa");
+  }
+});
+// Abrir ao clicar no livro
+// livros.forEach(livro => {
+//     livro.addEventListener('click', (e) => {
+//         e.stopPropagation();
+//         const valor = livro.getAttribute("data-descricao")
+//         descricaoLivro2.innerHTML = `
+//             <h3 class="h3Descricao">${livro.alt}</h3>
+//             <div class="descricao">
+//             <img class="imgDescricao" src="${livro.src}">
+//             <p class="pDescricaoLivro">${valor}</p>
+//             <div>
+//         `;
+//         descricaoLivro2.classList.add('ativa');
+//     });
+// });
+
+// POP UP
+const filtro = document.getElementById('filtro')
+const popUpFiltro = document.getElementById('pop-up-filtro')
+const filtroPop = document.getElementById('filtro-pop')
+
+filtro.addEventListener('click', () => {
+
+    popUpFiltro.classList.add('show');
+})
+
+popUpFiltro.addEventListener('click', (evento) => {
+    if (evento.target === popUpFiltro) {
+        popUpFiltro.classList.remove('show');
+    }
+})
+
 
 
 // carousel 
-const nextBtn = document.getElementById(`arrow-right`)
-const previousBtn = document.getElementById(`arrow-left`)
-let deslocamento = 0;
-const passo = 400;
-const limiteMax = -1600;
 
 
-// nextBtn.addEventListener(`click`, () => {
-//   deslocamento -= passo;
-  
-//    if (deslocamento < limiteMax) {
-//     deslocamento = 0; // volta ao início
-//   }
-//   exibirLivros.style.transform = `translateX(${deslocamento}px)`;
-// })
-
-// previousBtn.addEventListener('click', () => {
-
-//   deslocamento += passo;
-//   if (deslocamento > 0) {
-//     deslocamento = limiteMax; // vai pro final
-//   }
-//   exibirLivros.style.transform = `translateX(${deslocamento}px)`;
-// })
-
-// const items = document.querySelectorAll(".fade-up");
-
-// const observer = new IntersectionObserver((entries) => {
-//   entries.forEach((entry) => {
-//     if (entry.isIntersecting) {
-//       const index = [...items].indexOf(entry.target);
-//       entry.target.style.transitionDelay = `${index * 0.3}s`;
-//       entry.target.classList.add("show");
-//     }
-//   });
-// });
-
-// items.forEach(item => observer.observe(item));
-
-
-// pop up do filtro
+const trilho = document.getElementById('trilho')
+const body = document.querySelector('body')
+trilho.addEventListener('click', () => {
+    trilho.classList.toggle('dark')
+    body.classList.toggle('dark')
+})
 
