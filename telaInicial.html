@@ -36,6 +36,8 @@
 
         </div>
     </header>
+    <div class="descricaoFiltro" id="tirarDescricao">
+        <div class="descricaoLivro" id="descricaoLivro"></div>
     <main class="conteiner">
         <div class="pop-up-perfil" id="pop-up-perfil">
             <div class="perfil-pop" id="perfil-pop">
@@ -45,14 +47,16 @@
                 <div class="divFotoPerfil"><img class="fotoPerfil" src="img/perfil.png" alt="Foto de perfil"></div> 
                 <div class="divNomePessoa"><h2>Cauã Borges Caetano</h2></div>
                 <div class="divConfig"><h2>Configurações</h2></div>
-                <div class="divInfoPerfil"><h2>Informações do perfil</h2></div>
+                <div class="divInfoPerfil"><a class="fav" href="favoritos.html"><h2>Informações do perfil</h2></a></div>
                 <div class="divMeusFavoritos">
                     <a class="fav" href="favoritos.html"><h2>Meus favoritos</h2></a>
                     </div>
                 <div class="divModo"><h2>Modo</h2></div>
                 <div class="divTermosEPrivacidade"><h2>Termos e Privacidade</h2></div>
-                <div class="divTermo"><h2>Termos e condições</h2></div>
-                <div class="divPrivacidade"><h2>Privacidade e segurança</h2></div>
+                <div class="divTermo"><a class="fav" href="favoritos.html"><h2>Termos e condições</h2></a>
+                    </div>
+                <div class="divPrivacidade"><a class="fav" href="favoritos.html"><h2>Privacidade e segurança</h2></a>
+                    </div>
             </div>
         </div>
         <h1 id="h1Populares">POPULARES </h1>
@@ -268,6 +272,7 @@
 
 
     </main>
+    <script src="./js/descricao.js"></script>
     <script src="./js/perfil.js"></script>
     <script src="js/carousel.js"></script>
 </body>

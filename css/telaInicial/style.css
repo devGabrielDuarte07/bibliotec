@@ -239,7 +239,7 @@ main h1 {
     cursor: pointer;
     transition: transform 1.5s ease;
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    text-decoration: none;
+    
 }
 
 .divModo{
@@ -248,6 +248,8 @@ main h1 {
     cursor: pointer;
     transition: transform 1.5s ease;
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    
 }
 
 .divTermosePrivacidade{
@@ -264,6 +266,7 @@ main h1 {
     cursor: pointer;
     transition: transform 1.5s ease;
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    
 }
 
 .divTermo{
@@ -282,4 +285,52 @@ main h1 {
 
 a:hover{
     color: #4A67DF;
+}
+
+.descricaoLivro {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 1000px;
+    height: 700px;
+    border-radius: 15px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    transition: 0.3s ease;
+    gap: 10px;
+    z-index: 11;
+}
+
+.descricao{
+    display: flex;
+    justify-content: space-around;
+}
+
+.h3Descricao{
+    color: #4A67DF;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    font-size: 50px;
+    display: flex;
+    justify-content: start;
+    padding-top: 3%;
+    padding-left: 5%;
+}
+
+.imgDescricao{
+    padding-top: 8%;
+    border-radius: 20px;
+    width: 300px;
+    height: 500px;
+}
+
+.pDescricaoLivro{
+   color: black;
+   padding: 5%;
+   padding-top: 10%;
+}
+
+.descricaoLivro.ativa {
+    transform: translate(-50%, -50%) scale(1);
 }
