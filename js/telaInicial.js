@@ -186,7 +186,7 @@ document.addEventListener("click", (e) => {
                 <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
                 <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
                 </div>
-                <div class=osdois>
+                <div class="osdois">
                 <button type="button" class="botaoReservar">Reservar livro</button>
                 <img class="coracao" src="img/coracao.png" alt="">
                 </div>
@@ -223,7 +223,7 @@ const popUpFiltro = document.getElementById('pop-up-filtro')
 const filtroPop = document.getElementById('filtro-pop')
 
 filtro.addEventListener('click', () => {
-
+    
     popUpFiltro.classList.add('show');
 })
 

@@ -379,7 +379,18 @@ h1 {
     height: 90px;
     display: flex;
     justify-content: space-around;
-    gap: 420px;
+    gap: 330px;
+}
+
+.osdois{
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    padding-right: 2%;
+}
+
+.coracao{
+    margin-top: 3%;
 }
 
 /* TESTE */
@@ -555,6 +566,7 @@ a:hover{
     z-index: 1000;
     padding-top: 100px;
     padding-left: 500px;
+    
 }
 
 .pop-up-filtro.show {
@@ -565,9 +577,31 @@ a:hover{
     background: white;
     padding: 20px;
     border-radius: 10px;
-    
     width: 60%;
-    height: 20%;
+    height: 100%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin: 0%;
+}
+
+.temas{
+    width: 570px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tituloFiltro{
+    padding: 4%;
+    color: #4A67DF;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input{
+    width: 20px;
+    margin-left: 50%;
 }
