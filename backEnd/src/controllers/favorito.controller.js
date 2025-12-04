@@ -11,6 +11,7 @@ export async function obterLivrosFavs(req, res) {
         livro.id AS livro_id,
         livro.titulo,
         livro.autor,
+        livro.descricao,
         livro.capa_url
       FROM tabela_livros_favoritos af
       JOIN tabela_livros livro ON livro.id = af.livro_id
