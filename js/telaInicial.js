@@ -169,38 +169,38 @@ document.addEventListener("click", async (e) => {
         alert("Erro de conexão com servidor.");
     }
 });
-const descricaoLivro2 = document.getElementById('descricaoLivro');
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("livro")) {
-    descricaoLivro.innerHTML = `
-            <h3 class="h3Descricao">${e.target.alt}</h3>
-            <div class="descricao">
-                <img class="imgDescricao" src="${e.target.src}">
-                <p class="pDescricaoLivro">${e.target.dataset.descricao}</p>
-            </div>
-                <div class="final">
-                <div class="estrelas">
-                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
-                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
-                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
-                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
-                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
+    const descricaoLivro2 = document.getElementById('descricaoLivro');
+    document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("livro")) {
+        descricaoLivro.innerHTML = `
+                <h3 class="h3Descricao">${e.target.alt}</h3>
+                <div class="descricao">
+                    <img class="imgDescricao" src="${e.target.src}">
+                    <p class="pDescricaoLivro">${e.target.dataset.descricao}</p>
                 </div>
-                <div class="osdois">
-                <button type="button" class="botaoReservar">Reservar livro</button>
-                <img class="coracao" src="img/coracao.png" alt="">
-                </div>
-                </div>
-        `;
-    descricaoLivro.classList.add("ativa");
-    return;
-  }
+                    <div class="final">
+                    <div class="estrelas">
+                    <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
+                    <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
+                    <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
+                    <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
+                    <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
+                    </div>
+                    <div class="osdois">
+                    <button type="button" class="botaoReservar">Reservar livro</button>
+                    <img class="coracao" src="img/coracao.png" alt="">
+                    </div>
+                    </div>
+            `;
+        descricaoLivro.classList.add("ativa");
+        return;
+    }
 
-  // Se clicar fora → fecha
-  if (!descricaoLivro.contains(e.target)) {
-    descricaoLivro.classList.remove("ativa");
-  }
-});
+    // Se clicar fora → fecha
+    if (!descricaoLivro.contains(e.target)) {
+        descricaoLivro.classList.remove("ativa");
+    }
+    });
 // Abrir ao clicar no livro
 // livros.forEach(livro => {
 //     livro.addEventListener('click', (e) => {
