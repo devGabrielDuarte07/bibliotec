@@ -40,12 +40,18 @@ header {
     display: flex;
     align-items: center;
     gap: 20px;
+    margin-right: 2%;
 }
 
-.coracaoFav,
-.perfil {
+.coracaoFav{
     width: 35px;
     height: 35px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.perfil {
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -57,47 +63,6 @@ header {
 .coracaoFav:hover {
     transform: scale(1.15);
 }
-
-
-
-.filtro:hover {
-    transform: scale(1.15);
-}
-
-.filtro{
-    margin-left: 1%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-}
-
-.pop-up-filtro {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    align-items: start;
-    justify-content: center;
-    z-index: 1000;
-    padding-top: 100px;
-    padding-left: 500px;
-}
-
-.pop-up-filtro.show {
-    display: flex;
-}
-
-.filtro-pop {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    
-    width: 60%;
-    height: 20%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    
-}
-
 
 .pesquisar {
     flex: 1;
@@ -509,6 +474,7 @@ a:hover{
     z-index: 1000;
     padding-top: 100px;
     padding-left: 500px;
+    
 }
 
 .pop-up-filtro.show {
@@ -519,9 +485,55 @@ a:hover{
     background: white;
     padding: 20px;
     border-radius: 10px;
-    
     width: 60%;
-    height: 20%;
+    height: 70%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin: 0%;
+}
+
+.temas{
+    width: 600px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
     
+}
+
+.textoFiltro:hover{
+    cursor: pointer;
+    color: #4A67DF;
+}
+
+.tituloFiltro{
+    font-size: 30px;
+    padding: 4%;
+    color: #4A67DF;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.botaoFiltrar{
+    background-color: #4A67DF;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}
+
+
+
+.conteinerInferior{
+    display: flex;
+    justify-content: end;
+    width: 700px;
 }

@@ -181,11 +181,11 @@ document.addEventListener("click", (e) => {
             </div>
                 <div class="final">
                 <div class="estrelas">
-                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
-                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
-                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
-                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
-                <img class="estrelaVazia" src="img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="frontEnd/img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="frontEnd/img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="frontEnd/img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="frontEnd/img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="frontEnd/img/estrelaVazia.png" alt="">
                 </div>
                 <div class="osdois">
                 <button type="button" class="botaoReservar">Reservar livro</button>
