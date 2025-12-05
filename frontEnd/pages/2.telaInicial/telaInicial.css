@@ -288,15 +288,54 @@ h1 {
 }
 
 .pDescricaoLivro{
-   color: black;
-   padding-top: 10%;
-   margin-right: 50%;
+   color: 777676;
+   font-family: 'Montserrat', sans-serif;
+   text-align: justify;
+   letter-spacing: 1px;
+   padding: 5%;
+   padding-top: 8%;
 }
 
 .descricaoLivro.ativa {
     transform: translate(-50%, -50%) scale(1);
 }
 
+.botaoReservar{
+    background-color: #4A67DF;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+}
+
+.estrelaVazia{
+    width: 35px;
+    height : 35px;
+    cursor: pointer;
+    margin-top: 12%;
+}
+
+.final{
+    height: 90px;
+    display: flex;
+    justify-content: space-around;
+    gap: 330px;
+}
+
+.osdois{
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    padding-right: 2%;
+}
+
+.coracao{
+    margin-top: 3%;
+}
 /* TESTE */
 /* .trilho {
     width: 100px;
