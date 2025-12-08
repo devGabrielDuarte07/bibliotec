@@ -9,10 +9,14 @@
     width: 100%;
     height: 1080px;
     position: absolute;
-    margin: 0;
     bottom: 15%;
-    z-index: 1;
-    display: flex;
+    opacity: 0;
+    animation: aparecer 1.5s ease forwards;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .imagemLogo{
@@ -23,7 +27,7 @@
 
 .retangulo{
     width: 750px;
-    height: 800px;
+    height: 830px;
     background-image: linear-gradient(#2FD6CB, #4A67DF);
     border-radius: 58px;
     margin-top: 4%;
@@ -48,6 +52,10 @@
     padding-top: 3%;
 }
 
+.cpf{
+    padding-top: 3%;
+}
+
 
 .cadastroUsuario{
     font-size: 15px;
@@ -61,7 +69,7 @@
 
 .imput{
     width: 520px;
-    height: 53px;
+    height: 48px;
     background-color: white;
     border-radius: 13px;
     
@@ -79,10 +87,14 @@
 }
 
 #btnCadastrar{
-    margin-top: 6%;
+    margin-top: 2%;
 }
 
 .botaoCadastrar{
     color: white;
     font-size: 30px;
+}
+
+.turma{
+    padding-top: 3%;
 }
