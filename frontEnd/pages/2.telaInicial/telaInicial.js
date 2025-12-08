@@ -3,6 +3,10 @@ const campoPesquisa = document.querySelector('.inputCampo');
 const conteiner = document.querySelector('.conteiner')
 const descricaoLivro = document.getElementById('descricaoLivro');
 const APIFavoritar = `http://localhost:3000/favoritos/favoritar`;
+const APIReservar = `http://localhost:3000/reserva/reservar`;
+
+const APIDesreservar = `http://localhost:3000/reserva/desreservar`
+
 const APIDesfavoritar = "http://localhost:3000/favoritos/desfavoritar";
 const idAluno = localStorage.getItem("id");
 const APIListFavoritos = `http://localhost:3000/favoritos/${idAluno}`;
@@ -72,7 +76,7 @@ function montarCategoria(titulo, genero, dados, favoritos) {
         const jaFavoritado = favoritos.some(f => f.livro_id === livro.id);
 
         card.innerHTML = `
-            <img src="${livro.capa_url}" alt="${livro.titulo}" class="livro" data-descricao="${livro.descricao}">
+            <img src="${livro.capa_url}" alt="${livro.titulo}" class="livro" data-descricao="${livro.descricao}" id="livro-${livro.id}">
             <h2 class="nomesLivros">
                 ${livro.titulo}
                 <img 
@@ -94,7 +98,6 @@ async function carregarLivros() {
     const favoritosResponse = await fetch(APIListFavoritos);
     const favoritos = await favoritosResponse.json();
 
-    montarCategoria("Populares", "populares", dados, favoritos);
     montarCategoria("Mangas", "manga", dados, favoritos);
     montarCategoria("Romance", "romance", dados, favoritos);
     montarCategoria("Suspense", "suspense", dados, favoritos);
@@ -107,8 +110,8 @@ function configurarCarrossel(titulo) {
     const carrossel = document.querySelector(`#carrossel-${titulo} .apenasLivros`);
 
     let deslocamento = 0;
-    const passo = 400;
-    const limiteMax = -1600;
+    const passo = 460;
+    const limiteMax = -2000;
 
     nextBtn.addEventListener("click", () => {
         deslocamento -= passo;
@@ -124,7 +127,6 @@ function configurarCarrossel(titulo) {
 }
 
 carregarLivros().then(() => {
-    configurarCarrossel("Populares");
     configurarCarrossel("Mangas");
     configurarCarrossel("Romance");
     configurarCarrossel("Suspense");
@@ -159,9 +161,11 @@ document.addEventListener("click", async (e) => {
         if (metodo === "POST") {
             e.target.src = "../../img/coracaoCheio.png";
             e.target.classList.add("favoritado");
+            
         } else {
             e.target.src = "../../img/coracaoVazio.png";
             e.target.classList.remove("favoritado");
+            
         }
 
     } catch (error) {
@@ -171,9 +175,16 @@ document.addEventListener("click", async (e) => {
 });
 
 const descricaoLivro2 = document.getElementById('descricaoLivro');
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("livro")) {
-    descricaoLivro.innerHTML = `
+document.addEventListener("click", async (e) => {
+    if (e.target.classList.contains("livro")) {
+        const livroId = e.target.id.split("-")[1];
+
+        // buscar favoritos atualizados
+        const favoritosResponse = await fetch(APIListFavoritos);
+        const favoritos = await favoritosResponse.json();
+        const jaFavoritado = favoritos.some(f => f.livro_id == livroId);
+
+        descricaoLivro.innerHTML = `
             <h3 class="h3Descricao">${e.target.alt}</h3>
             <div class="descricao">
                 <img class="imgDescricao" src="${e.target.src}">
@@ -181,27 +192,77 @@ document.addEventListener("click", (e) => {
             </div>
                 <div class="final">
                 <div class="estrelas">
-                <img class="estrelaVazia" src="frontEnd/img/estrelaVazia.png" alt="">
-                <img class="estrelaVazia" src="frontEnd/img/estrelaVazia.png" alt="">
-                <img class="estrelaVazia" src="frontEnd/img/estrelaVazia.png" alt="">
-                <img class="estrelaVazia" src="frontEnd/img/estrelaVazia.png" alt="">
-                <img class="estrelaVazia" src="frontEnd/img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="">
                 </div>
                 <div class="osdois">
-                <button type="button" class="botaoReservar">Reservar livro</button>
-                <img class="coracao" src="../../img/coracaoVazio.png" alt="">
+                <button type="button" class="botaoReservar" id="btnReserva-${livroId}">Reservar livro</button>
+                <img 
+    class="coracao ${jaFavoritado ? "favoritado" : ""}"
+    id="coracoFav-${livroId}"
+    src="${jaFavoritado ? '../../img/coracaoCheio.png' : '../../img/coracaoVazio.png'}"
+>
                 </div>
                 </div>
-        `;
-    descricaoLivro.classList.add("ativa");
-    return;
-  }
+        `
+        descricaoLivro.classList.add("ativa");
 
-  // Se clicar fora → fecha
-  if (!descricaoLivro.contains(e.target)) {
-    descricaoLivro.classList.remove("ativa");
-  }
+        return;
+
+    }
+
+    // Se clicar fora → fecha
+    if (!descricaoLivro.contains(e.target)) {
+        
+        descricaoLivro.classList.remove("ativa");
+    }
 });
+
+document.addEventListener("click", async (e) => {
+    if (!e.target.classList.contains("botaoReservar")) return;
+
+    const idBtn = e.target.id;
+    const livroId = idBtn.split("-")[1];
+
+    const jaReservado = e.target.classList.contains("favoritado");
+
+    const url = jaReservado ? APIDesreservar : APIReservar;
+    const metodo = jaReservado ? "DELETE" : "POST";
+    
+    try {
+        const requisicao = await fetch(url, {
+            method: metodo,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                aluno_id: idAluno,
+                livro_id: livroId
+            })
+        });
+
+        if (!requisicao.ok) {
+            alert("Erro no servidor. Código: " + requisicao.status);
+            return;
+        }
+
+        if (metodo === "POST") {
+            e.target.src = "../../img/coracaoCheio.png";
+            e.target.classList.add("favoritado");
+            
+        } else {
+            e.target.src = "../../img/coracaoVazio.png";
+            e.target.classList.remove("favoritado");
+            
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Erro de conexão com servidor.");
+    }
+    
+})
 // Abrir ao clicar no livro
 // livros.forEach(livro => {
 //     livro.addEventListener('click', (e) => {
