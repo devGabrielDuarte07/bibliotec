@@ -1,13 +1,13 @@
 const APILivros = "http://localhost:3000/livros"
 const campoPesquisa = document.querySelector('.inputCampo');
-const conteiner = document.querySelector('.conteiner')
+
 const descricaoLivro = document.getElementById('descricaoLivro');
 const APIFavoritar = `http://localhost:3000/favoritos/favoritar`;
 const APIDesfavoritar = "http://localhost:3000/favoritos/desfavoritar";
 const idAluno = localStorage.getItem("id");
 const APIListFavoritos = `http://localhost:3000/favoritos/${idAluno}`;
 const aluno = JSON.parse(localStorage.getItem("aluno"));
-divNomePessoa.textContent = aluno.nome;
+
 
 async function buscarDadosDoBanco() {
     try {
@@ -26,7 +26,7 @@ async function buscarDadosDoBanco() {
     }
 }
 
-function montarCategoria(titulo, genero, dados, favoritos) {
+function montarCategoria(titulo, genero, dados, favoritos, conteiner) {
 
     // --- H1 ---
     const h1 = document.createElement("h1");
@@ -92,13 +92,15 @@ function montarCategoria(titulo, genero, dados, favoritos) {
 async function carregarLivros() {
     const dados = await buscarDadosDoBanco();
     const favoritosResponse = await fetch(APIListFavoritos);
-    const favoritos = await favoritosResponse.json();
+    const favoritos = await favoritosResponse.json();   
+    const conteiner = document.querySelector(".conteiner");
 
-    montarCategoria("Populares", "populares", dados, favoritos);
-    montarCategoria("Mangas", "manga", dados, favoritos);
-    montarCategoria("Romance", "romance", dados, favoritos);
-    montarCategoria("Suspense", "suspense", dados, favoritos);
-    montarCategoria("Terror", "terror", dados, favoritos);
+    
+    montarCategoria("Populares", "populares", dados, favoritos, conteiner);
+    montarCategoria("Mangas", "manga", dados, favoritos, conteiner);
+    montarCategoria("Romance", "romance", dados, favoritos, conteiner);
+    montarCategoria("Suspense", "suspense", dados, favoritos, conteiner);
+    montarCategoria("Terror", "terror", dados, favoritos, conteiner);
 }
 
 function configurarCarrossel(titulo) {
@@ -123,14 +125,19 @@ function configurarCarrossel(titulo) {
     });
 }
 
-carregarLivros().then(() => {
-    configurarCarrossel("Populares");
-    configurarCarrossel("Mangas");
-    configurarCarrossel("Romance");
-    configurarCarrossel("Suspense");
-    configurarCarrossel("Terror");
-});
+document.addEventListener("cabecalho-carregado", () => {
 
+    const conteiner = document.querySelector(".conteiner");
+
+    carregarLivros().then(() => {
+        configurarCarrossel("Populares");
+        configurarCarrossel("Mangas");
+        configurarCarrossel("Romance");
+        configurarCarrossel("Suspense");
+        configurarCarrossel("Terror");
+    });
+
+});
 document.addEventListener("click", async (e) => {
     if (!e.target.classList.contains("coracao")) return;
 
@@ -219,46 +226,14 @@ document.addEventListener("click", (e) => {
 // });
 
 // POP UP
-const filtro = document.getElementById('filtro')
-const popUpFiltro = document.getElementById('pop-up-filtro')
-const filtroPop = document.getElementById('filtro-pop')
 
-filtro.addEventListener('click', () => {
-
-    popUpFiltro.classList.add('show');
-})
-
-popUpFiltro.addEventListener('click', (evento) => {
-    if (evento.target === popUpFiltro) {
-        popUpFiltro.classList.remove('show');
-    }
-})
 
 
 
 // carousel 
 
 
-const trilho = document.getElementById('trilho')
-const body = document.querySelector('body')
-trilho.addEventListener('click', () => {
-    trilho.classList.toggle('dark')
-    body.classList.toggle('dark')
-})
 
 
-const perfil = document.getElementById('perfil')
-const popUpPerfil = document.getElementById('pop-up-perfil')
-const perfilPop = document.getElementById('perfil-pop')
 
-perfil.addEventListener('click', () => {
-
-    popUpPerfil.classList.add('show');
-})
-
-popUpPerfil.addEventListener('click', (evento) => {
-    if (evento.target === popUpPerfil) {
-        popUpPerfil.classList.remove('show');
-    }
-})
 

@@ -1,97 +1,3 @@
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-*{
-    margin: 0;
-    border: 0;
-    box-sizing: border-box;
-}
-
-header {
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-}
-
-
-.cabecario {
-    background-color: rgba(255, 255, 255, 0.807);
-    display: flex;
-    justify-content: space-around;
-}
-
-.imagemLogo {
-    width: 13%;
-    height: 11%;
-}
-
-.icones {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-right: 2%;
-}
-
-.coracaoFav{
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.perfil {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.perfil:hover {
-    transform: scale(1.15);
-}
-
-.coracaoFav:hover {
-    transform: scale(1.15);
-}
-
-.pesquisar {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.inputCampo {
-    width: 100vh;
-    padding: 10px 20px;
-    border: 2px solid #4A67DF;
-    border-radius: 50px;
-    font-size: 1.2em;
-    color: #4A67DF;
-}
-
-.divFotoPerfil{
-    display: flex;
-    justify-content: center;
-}
-
-.divNomePessoa{
-    display: flex;
-    justify-content: center;    
-}
-
-/* .backgroundCor{
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
-} */
-
-
-.conteiner {
-    width: 100%;
-    height: 100vh;
-}
-
 .h1Favoritos{
     font-size: 60px;
     color: #4A67DF;
@@ -157,9 +63,19 @@ header {
     width: 330px;
     height: 460px; 
     padding-left: 95px;
-
     transition: transform 0.3s ease;
-} 
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 .cardLivro:hover{
     transform: scale(1.15);
