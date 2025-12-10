@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus reservados</title>
+    <link rel="icon" href="../../img/Group.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="telaReservar.css">
+</head>
+
+<body>
+    <header class="cabecario">
+        <img class="imagemLogo" src="../../img/logo.png" alt="Logo">
+
+        <div class="pesquisar">
+            <input class="inputCampo" id="inputPesquisarLivros" type="search" placeholder="Pesquisar..."
+                autocomplete="off">
+                <img class="filtro" src="../../img/filtro.png" alt="Filtro de pesquisa">
+        </div>
+
+        <div class="icones">
+            <a href="telaFavoritos.html">
+                <img class="coracaoFav" src="../../img/coracaoCheio.png" alt="Favoritos">
+            </a>
+            <a href="">
+                <img class="perfil" src="../../img/perfil.png" alt="Perfil" id="perfil">
+            </a>
+        </header>
+    <div class="descricaoFiltro" id="tirarDescricao">
+        <div class="descricaoLivro" id="descricaoLivro"></div>
+    </div>
+    <main>
+        <h1 class="h1Favoritos">Meus reservados</h1>
+        <div class="retanguloMain">
+            <div class="retangulo">
+                <div class="exibirLivros"> </div>
+            </div>
+        </div>
+    </main>
+    <script src="telaReservar.js"></script>
+    <script src="../../js/gPerfil.js"></script>
+    <script src="../../js/gFiltro.js"></script>
+</body>
+</html>
