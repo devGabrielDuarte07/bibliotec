@@ -1,13 +1,14 @@
 const APILivros = "http://localhost:3000/livros"
 const campoPesquisa = document.querySelector('.inputCampo');
-
 const descricaoLivro = document.getElementById('descricaoLivro');
 const APIFavoritar = `http://localhost:3000/favoritos/favoritar`;
 const APIDesfavoritar = "http://localhost:3000/favoritos/desfavoritar";
 const idAluno = localStorage.getItem("id");
 const APIListFavoritos = `http://localhost:3000/favoritos/${idAluno}`;
 const aluno = JSON.parse(localStorage.getItem("aluno"));
-
+const APIReservar = `http://localhost:3000/reserva/reservar`;
+const APIDesreservar = `http://localhost:3000/reserva/desreservar`
+const APIListReservados = `http://localhost:3000/reserva/${idAluno}`;
 
 async function buscarDadosDoBanco() {
     try {
@@ -72,7 +73,7 @@ function montarCategoria(titulo, genero, dados, favoritos, conteiner) {
         const jaFavoritado = favoritos.some(f => f.livro_id === livro.id);
 
         card.innerHTML = `
-            <img src="${livro.capa_url}" alt="${livro.titulo}" class="livro" data-descricao="${livro.descricao}">
+            <img src="${livro.capa_url}" alt="${livro.titulo}" class="livro" data-descricao="${livro.descricao}" id="livro-${livro.id}">
             <h2 class="nomesLivros">
                 ${livro.titulo}
                 <img 
@@ -92,10 +93,10 @@ function montarCategoria(titulo, genero, dados, favoritos, conteiner) {
 async function carregarLivros() {
     const dados = await buscarDadosDoBanco();
     const favoritosResponse = await fetch(APIListFavoritos);
-    const favoritos = await favoritosResponse.json();   
+    const favoritos = await favoritosResponse.json();
     const conteiner = document.querySelector(".conteiner");
 
-    
+
     montarCategoria("Populares", "populares", dados, favoritos, conteiner);
     montarCategoria("Mangas", "manga", dados, favoritos, conteiner);
     montarCategoria("Romance", "romance", dados, favoritos, conteiner);
@@ -178,9 +179,20 @@ document.addEventListener("click", async (e) => {
 });
 
 const descricaoLivro2 = document.getElementById('descricaoLivro');
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("livro")) {
-    descricaoLivro.innerHTML = `
+document.addEventListener("click", async (e) => {
+    if (e.target.classList.contains("livro")) {
+        const livroId = e.target.id.split("-")[1];
+
+        // buscar favoritos atualizados
+        const favoritosResponse = await fetch(APIListFavoritos);
+        const favoritos = await favoritosResponse.json();
+        const jaFavoritado = favoritos.some(f => f.livro_id == livroId);
+
+        const reservadosResponse = await fetch(APIListReservados);
+        const reservados = await reservadosResponse.json();
+        const jaReservado = reservados.some(r => r.livro_id == livroId);
+
+        descricaoLivro.innerHTML = `
             <h3 class="h3Descricao">${e.target.alt}</h3>
             <div class="descricao">
                 <img class="imgDescricao" src="${e.target.src}">
@@ -188,49 +200,77 @@ document.addEventListener("click", (e) => {
             </div>
                 <div class="final">
                 <div class="estrelas">
-                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="Estrela vazia">
-                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="Estrela vazia">
-                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="Estrela vazia">
-                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="Estrela vazia">
-                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="Estrela vazia">
+                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="">
+                <img class="estrelaVazia" src="../../../frontEnd/img/estrelaVazia.png" alt="">
                 </div>
                 <div class="osdois">
-                <button type="button" class="botaoReservar">Reservar livro</button>
-                <img class="coracao" src="../../img/coracaoVazio.png" alt="">
+                <button type="button" class="${jaReservado ? 'botaoReservar reservado' : 'botaoReservar'}" id="btnReserva-${livroId}">${jaReservado ? 'livro reservado' : 'Reservar livro'}</button>
+                <img 
+    class="coracao ${jaFavoritado ? "favoritado" : ""}"
+    id="coracoFav-${livroId}"
+    src="${jaFavoritado ? '../../img/coracaoCheio.png' : '../../img/coracaoVazio.png'}"
+>
                 </div>
                 </div>
-        `;
-    descricaoLivro.classList.add("ativa");
-    return;
-  }
+        `
+        descricaoLivro.classList.add("ativa");
 
-  // Se clicar fora → fecha
-  if (!descricaoLivro.contains(e.target)) {
-    descricaoLivro.classList.remove("ativa");
-  }
+        return;
+
+    }
+
+    // Se clicar fora → fecha
+    if (!descricaoLivro.contains(e.target)) {
+
+        descricaoLivro.classList.remove("ativa");
+    }
 });
-// Abrir ao clicar no livro
-// livros.forEach(livro => {
-//     livro.addEventListener('click', (e) => {
-//         e.stopPropagation();
-//         const valor = livro.getAttribute("data-descricao")
-//         descricaoLivro2.innerHTML = `
-//             <h3 class="h3Descricao">${livro.alt}</h3>
-//             <div class="descricao">
-//             <img class="imgDescricao" src="${livro.src}">
-//             <p class="pDescricaoLivro">${valor}</p>
-//             <div>
-//         `;
-//         descricaoLivro2.classList.add('ativa');
-//     });
-// });
 
-// POP UP
+document.addEventListener("click", async (e) => {
+    if (!e.target.classList.contains("botaoReservar")) return;
 
+    const idBtn = e.target.id;
+    const livroId = idBtn.split("-")[1];
 
+    const jaReservado = e.target.classList.contains("reservado");
 
+    const url = jaReservado ? APIDesreservar : APIReservar;
+    const metodo = jaReservado ? "DELETE" : "POST";
+    
+    try {
+        const requisicao = await fetch(url, {
+            method: metodo,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                aluno_id: idAluno,
+                livro_id: livroId
+            })
+        });
 
-// carousel 
+        if (!requisicao.ok) {
+            alert("Erro no servidor. Código: " + requisicao.status);
+            return;
+        }
+
+        if (metodo === "POST") {
+            e.target.textContent = 'Livro reservado'
+            e.target.classList.add('reservado')
+
+        } else {
+            e.target.textContent = 'Reservar livro'
+            e.target.classList.remove("reservado");
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Erro de conexão com servidor.");
+    }
+
+})
+
 
 
 

@@ -8,6 +8,7 @@
   import livroRoutes from "./routes/livro.routes.js"
   import favoritosRoutes from "./routes/favoritos.routes.js"
   import loginRoutes from "./routes/login.routes.js"
+  import reservaRoutes from "./routes/reserva.routes.js"
 
 
   // ============================
@@ -25,7 +26,7 @@
   app.use("/livros", livroRoutes)
   app.use("/favoritos", favoritosRoutes)
   app.use("/login", loginRoutes)
-
+  app.use("/reserva",reservaRoutes)
   // ============================
   //  Inicia o servidor
   // ============================

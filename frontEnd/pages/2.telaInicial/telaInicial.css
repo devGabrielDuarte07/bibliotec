@@ -185,6 +185,10 @@ h1 {
     color: white;
 }
 
+.botaoReservar.reservado{
+    background-color: #2fd6cb;
+}
+
 .estrelaVazia{
     width: 35px;
     height : 35px;
