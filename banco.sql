@@ -1,4 +1,5 @@
 -- --------------------------------------------------------
+
 -- Servidor:                     127.0.0.1
 -- Versão do servidor:           11.8.2-MariaDB - mariadb.org binary distribution
 -- OS do Servidor:               Win64
