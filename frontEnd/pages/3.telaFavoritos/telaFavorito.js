@@ -1,10 +1,15 @@
 const APILivro = "http://localhost:3000/livros"
-
+const img = document.getElementById("botaoTelaInicial")
 const id = window.localStorage.getItem(`id`)
 const APIFav = `http://localhost:3000/favoritos/${id}`
 const APIDesfavoritar = 'http://localhost:3000/favoritos/desfavoritar'
 console.log(id)
 const exibirLivros = document.querySelector('.exibirLivros');
+
+img.addEventListener("click", () => {
+    window.location.href = "/frontEnd/pages/2.telaInicial/telaInicial.html";
+})
+
 
 async function buscarAlunosFav() {
     try {
