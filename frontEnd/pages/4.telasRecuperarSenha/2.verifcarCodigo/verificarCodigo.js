@@ -1,7 +1,7 @@
 // Agora o email vem do localStorage, não da URL 👇
 const email = localStorage.getItem("email_recuperacao");
 
-const APIVerificarCodigo = "http://localhost:3000/verificacao/verificar";
+const APIVerificarCodigo = "http://localhost:3000/verificacao/recuperacao/verificar";
 const inputs = document.querySelectorAll(".codigo");
 const btnVerificar = document.getElementById('btnVerificar');
 
@@ -71,6 +71,7 @@ async function verificarCodigo(email, codigo) {
     return false;
   }
 }
+
 
 // Evento do botão
 btnVerificar.addEventListener('click', async () => {

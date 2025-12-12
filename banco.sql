@@ -113,15 +113,19 @@ CREATE TABLE IF NOT EXISTS `tabela_livros_favoritos` (
   KEY `livro_id` (`livro_id`),
   CONSTRAINT `tabela_livros_favoritos_ibfk_1` FOREIGN KEY (`aluno_id`) REFERENCES `tabela_usuario` (`id`),
   CONSTRAINT `tabela_livros_favoritos_ibfk_2` FOREIGN KEY (`livro_id`) REFERENCES `tabela_livros` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
--- Copiando dados para a tabela bibliotec.tabela_livros_favoritos: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela bibliotec.tabela_livros_favoritos: ~9 rows (aproximadamente)
 INSERT INTO `tabela_livros_favoritos` (`id`, `aluno_id`, `livro_id`) VALUES
 	(38, 1, 42),
 	(39, 1, 43),
 	(13, 1, 51),
 	(14, 1, 52),
-	(78, 3, 42);
+	(78, 3, 42),
+	(84, 8, 2),
+	(88, 8, 4),
+	(86, 8, 11),
+	(87, 8, 12);
 
 -- Copiando estrutura para tabela bibliotec.tabela_livros_reservados
 CREATE TABLE IF NOT EXISTS `tabela_livros_reservados` (
@@ -134,13 +138,16 @@ CREATE TABLE IF NOT EXISTS `tabela_livros_reservados` (
   KEY `fk_reservado_aluno` (`aluno_id`),
   CONSTRAINT `fk_reservado_aluno` FOREIGN KEY (`aluno_id`) REFERENCES `tabela_usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_reservado_livro` FOREIGN KEY (`livro_id`) REFERENCES `tabela_livros` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
--- Copiando dados para a tabela bibliotec.tabela_livros_reservados: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela bibliotec.tabela_livros_reservados: ~6 rows (aproximadamente)
 INSERT INTO `tabela_livros_reservados` (`id`, `aluno_id`, `livro_id`) VALUES
 	(53, 3, 2),
 	(54, 3, 4),
-	(56, 3, 26);
+	(56, 3, 26),
+	(91, 8, 2),
+	(89, 8, 4),
+	(92, 8, 11);
 
 -- Copiando estrutura para tabela bibliotec.tabela_login
 CREATE TABLE IF NOT EXISTS `tabela_login` (
@@ -151,62 +158,17 @@ CREATE TABLE IF NOT EXISTS `tabela_login` (
   PRIMARY KEY (`id`),
   KEY `aluno_id` (`aluno_id`),
   CONSTRAINT `tabela_login_ibfk_1` FOREIGN KEY (`aluno_id`) REFERENCES `tabela_usuario` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
--- Copiando dados para a tabela bibliotec.tabela_login: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela bibliotec.tabela_login: ~7 rows (aproximadamente)
 INSERT INTO `tabela_login` (`id`, `aluno_id`, `senha`, `perfil`) VALUES
 	(3, 1, '$2b$10$PwpbjA0kyhnmLdk.at47ceHyIPcHv6e/D1T5CHMQybrZkhiy3go2e', 'aluno'),
 	(4, 2, '$2b$10$TPjuiqwwnBH.bU3JNC7GguOQQksK6/2FBGlptuWOPrUrEh23aoiVa', 'aluno'),
-	(5, 3, '$2b$10$eMXsYQKqq.CUqrYcx0k4.uyGU.7Td25F6a8bM36Gs6iQthJhlDDKW', 'aluno');
-
--- Copiando estrutura para tabela bibliotec.tabela_turma
-CREATE TABLE IF NOT EXISTS `tabela_turma` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `turma` varchar(100) NOT NULL,
-  `curso_id` int(11) NOT NULL,
-  `periodo` enum('M','V','N','I') DEFAULT NULL,
-  `semestre_inicio` enum('1','2') DEFAULT NULL,
-  `ano_inicio` year(4) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `curso_id` (`curso_id`),
-  CONSTRAINT `tabela_turma_ibfk_1` FOREIGN KEY (`curso_id`) REFERENCES `tabela_curso` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
-
--- Copiando dados para a tabela bibliotec.tabela_turma: ~33 rows (aproximadamente)
-INSERT INTO `tabela_turma` (`id`, `turma`, `curso_id`, `periodo`, `semestre_inicio`, `ano_inicio`) VALUES
-	(1, 'PEF-03-FUA', 1, NULL, NULL, NULL),
-	(2, 'PES-04-EJS', 2, NULL, NULL, NULL),
-	(3, 'CSTPME225N1', 3, NULL, NULL, NULL),
-	(4, 'CSTPME124N4', 3, NULL, NULL, NULL),
-	(5, '1NA', 4, NULL, NULL, NULL),
-	(6, '2DS', 5, NULL, NULL, NULL),
-	(7, '2NA', 4, NULL, NULL, NULL),
-	(8, 'ADM1A-SESI', 6, NULL, NULL, NULL),
-	(9, 'ADM2A-SESI', 6, NULL, NULL, NULL),
-	(10, 'ADM2B-SESI', 6, NULL, NULL, NULL),
-	(11, 'DS1A-SESI', 5, NULL, NULL, NULL),
-	(12, 'DS1B-SESI', 5, NULL, NULL, NULL),
-	(13, 'DS2A-SESI', 5, NULL, NULL, NULL),
-	(14, 'DS2B-SESI', 5, NULL, NULL, NULL),
-	(15, 'MT1A-SESI', 4, NULL, NULL, NULL),
-	(16, 'MT1B-SESI', 4, NULL, NULL, NULL),
-	(17, 'MT1-SEDUC', 4, NULL, NULL, NULL),
-	(18, 'MT2-SESI', 4, NULL, NULL, NULL),
-	(19, 'I1CMFF', 7, NULL, NULL, NULL),
-	(20, 'I1PMFF', 8, NULL, NULL, NULL),
-	(21, 'M1ADM', 9, NULL, NULL, NULL),
-	(22, 'M1ALP', 10, NULL, NULL, NULL),
-	(23, 'M1EME', 11, NULL, NULL, NULL),
-	(24, 'M2IRET', 12, NULL, NULL, NULL),
-	(25, 'M2MM', 13, NULL, NULL, NULL),
-	(26, 'M4MM', 13, NULL, NULL, NULL),
-	(27, 'T1ADM', 9, NULL, NULL, NULL),
-	(28, 'T1EME', 11, NULL, NULL, NULL),
-	(29, 'T1SOL', 14, NULL, NULL, NULL),
-	(30, 'T2ALP', 10, NULL, NULL, NULL),
-	(31, 'T2MM', 13, NULL, NULL, NULL),
-	(32, 'T3EME', 11, NULL, NULL, NULL),
-	(33, 'T4MM', 13, NULL, NULL, NULL);
+	(5, 3, '$2b$10$eMXsYQKqq.CUqrYcx0k4.uyGU.7Td25F6a8bM36Gs6iQthJhlDDKW', 'aluno'),
+	(6, 4, '$2b$10$Or4rm6T/.ltD5n0Lx92.oOquNVNZ7alu3vlpGCrCw1tOnDvz.b.2C', 'aluno'),
+	(7, 5, '$2b$10$3op1hqqQ.EEfZlIgM7QiNuahonSRV.JQtODRCyNKWTDuTAryAjZz2', 'aluno'),
+	(8, 6, '$2b$10$eEFW31ZdS.aEN7IYaHtdy.5gMjbRoBgQRL/.V2MmbMPon.kAx8M7q', 'aluno'),
+	(10, 8, '$2b$10$UQieE.HklCSrJKmO6bSR.uiFgnal.5vfrxeA/3AYEuHDBxW5LndBm', 'aluno');
 
 -- Copiando estrutura para tabela bibliotec.tabela_usuario
 CREATE TABLE IF NOT EXISTS `tabela_usuario` (
@@ -215,20 +177,20 @@ CREATE TABLE IF NOT EXISTS `tabela_usuario` (
   `CPF` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
   `curso_id` int(11) NOT NULL,
-  `turma_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `CPF` (`CPF`),
-  KEY `curso_id` (`curso_id`),
-  KEY `tabela_usuario_ibfk_3` (`turma_id`),
-  CONSTRAINT `tabela_usuario_ibfk_1` FOREIGN KEY (`curso_id`) REFERENCES `tabela_curso` (`id`),
-  CONSTRAINT `tabela_usuario_ibfk_3` FOREIGN KEY (`turma_id`) REFERENCES `tabela_turma` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+  KEY `curso_id` (`curso_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
--- Copiando dados para a tabela bibliotec.tabela_usuario: ~3 rows (aproximadamente)
-INSERT INTO `tabela_usuario` (`id`, `nome`, `CPF`, `email`, `curso_id`, `turma_id`) VALUES
-	(1, 'denise', '55522233311', 'teste@gmail.com', 1, 1),
-	(2, 'denise', '55522233312', 'teste@gmail.com', 1, 1),
-	(3, 'Gabs', '55522233313', 'gabs@gmail.com', 1, 1);
+-- Copiando dados para a tabela bibliotec.tabela_usuario: ~7 rows (aproximadamente)
+INSERT INTO `tabela_usuario` (`id`, `nome`, `CPF`, `email`, `curso_id`) VALUES
+	(1, 'denise', '55522233311', 'teste@gmail.com', 1),
+	(2, 'denise', '55522233312', 'teste@gmail.com', 1),
+	(3, 'Gabs', '55522233313', 'gabs@gmail.com', 1),
+	(4, 'teste232', '12345678901', 'teste232@gmail.com', 3),
+	(5, 'tsetsa', '11111111111', 'taste@gmail.com', 10),
+	(6, 'teste', '55099540864', 'teste12223@gmail.com', 3),
+	(8, 'Gabriel Sousa', '90535502834', 'gabriel.s.duarte8@aluno.senai.br', 9);
 
 -- Copiando estrutura para tabela bibliotec.tabela_verificacao
 CREATE TABLE IF NOT EXISTS `tabela_verificacao` (
@@ -238,14 +200,12 @@ CREATE TABLE IF NOT EXISTS `tabela_verificacao` (
   `criado_em` datetime DEFAULT current_timestamp(),
   `expiracao` datetime NOT NULL,
   `usado` tinyint(1) DEFAULT 0,
+  `tipo` enum('cadastro','recuperacao') DEFAULT 'cadastro',
   PRIMARY KEY (`id`),
   KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
--- Copiando dados para a tabela bibliotec.tabela_verificacao: ~1 rows (aproximadamente)
-INSERT INTO `tabela_verificacao` (`id`, `email`, `codigo`, `criado_em`, `expiracao`, `usado`) VALUES
-	(11, 'gabs@gmail.com', '445446', '2025-12-10 11:15:45', '2025-12-10 11:30:45', 0),
-	(12, 'gabs@gmail.com', '481429', '2025-12-10 11:16:32', '2025-12-10 11:31:32', 0);
+-- Copiando dados para a tabela bibliotec.tabela_verificacao: ~13 rows (aproximadamente)
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

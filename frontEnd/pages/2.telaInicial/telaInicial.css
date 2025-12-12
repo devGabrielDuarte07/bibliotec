@@ -200,12 +200,6 @@ h1 {
     width: max-content; /* IMPORTANTÍSSIMO → permite o carrossel deslizar */
 }
 
-.coracao {
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    margin-left: 1px;
-}
 
 /* Descrição 
 */
@@ -303,6 +297,10 @@ h1 {
 }
 
 .coracao{
+      width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin-left: 1px;
     margin-top: 3%;
 }
 /* TESTE */

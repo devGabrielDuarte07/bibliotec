@@ -1,9 +1,12 @@
 import express from "express";
-import { criarCodigo, verificarCodigo, atualizarSenha } from "../controllers/verificacao.controller.js"
+import { criarCodigoRecuperacao, criarCodigoCadastro, verificarCodigoRecuperacao, verificarCodigoCadastro,atualizarSenha } from "../controllers/verificacao.controller.js"
 const router = express.Router();
 
-router.post("/", criarCodigo);
-router.post("/verificar", verificarCodigo);
+router.post("/recuperacao", criarCodigoRecuperacao);
+router.post("/cadastro", criarCodigoCadastro);
+router.post("/recuperacao/verificar", verificarCodigoRecuperacao);
+router.post("/cadastro/verificar", verificarCodigoCadastro);
+
 router.put("/senha/:aluno_id", atualizarSenha);
 
 

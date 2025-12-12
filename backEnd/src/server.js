@@ -10,7 +10,7 @@
   import loginRoutes from "./routes/login.routes.js"
   import reservaRoutes from "./routes/reserva.routes.js"
   import verificacaoRoute from "./routes/verificacao.routes.js";
-
+  import cursoRoute from "./routes/curso.routes.js"
   // ============================
   //  Configuração do servidor
   // ============================
@@ -22,6 +22,7 @@
     res.send("API rodando com sucesso")
   })
 
+  app.use("/curso", cursoRoute)
   app.use("/usuario", usuarioRoutes)
   app.use("/livros", livroRoutes)
   app.use("/favoritos", favoritosRoutes)

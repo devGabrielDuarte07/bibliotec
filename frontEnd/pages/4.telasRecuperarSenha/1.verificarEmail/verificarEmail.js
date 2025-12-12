@@ -1,4 +1,4 @@
-const APICriarCodigo = "http://localhost:3000/verificacao";
+const APICriarCodigo = "http://localhost:3000/verificacao/recuperacao";
 
 const inputEmail = document.getElementById("email");
 const btnEnviarCodigo = document.getElementById("btnConfirmarEmail");
