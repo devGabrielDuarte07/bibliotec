@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela livro</title>
+    <link rel="icon" href="/frontEnd/img/Group.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="telaLivro.css">
+</head>
+
+
+
+<body>
+    <header class="cabecario">
+        <img class="imagemLogo" id="imagemLogo" src="/frontEnd/img/logo.png" alt="Logo">
+
+        <div class="pesquisar">
+            <input class="inputCampo" id="inputPesquisarLivros" type="search" placeholder="Pesquisar..."
+                autocomplete="off">
+
+            <img class="filtro" src="/frontEnd/img/filtro.png" alt="Filtro de pesquisa" id="filtro">
+        </div>
+        <div class="todosBotoes">
+            <button class="botao">Adicionar livro</button>
+            <!-- <button class="botao">Excluir livro</button>
+            <button class="botao">Editar livro</button> -->
+        </div>
+
+    </header>
+
+    
+    <div class="descricaoFiltro" id="tirarDescricao">
+        <div class="descricaoLivro" id="descricaoLivro"></div>
+    </div>
+
+
+    <main class="conteiner" id="conteiner">
+
+        <div class="pop-up-filtro" id="pop-up-filtro">
+            <div class="filtro-pop" id="filtro-pop">
+                <h2 class="tituloFiltro">Escolha o que deseja ver:</h2>
+                <div class="temas">
+
+                    <input class="checkbox" type="checkbox" value="meusReservados">
+                    <p class="textoFiltro">Meus Reservados</p></input>
+                    <input class="checkbox" type="checkbox" value="meusFavoritos">
+                    <p class="textoFiltro">Meus favoritos</p></input>
+                    <input class="checkbox" type="checkbox" value="Romance">
+                    <p class="textoFiltro">Romance</p></input>
+                    <input class="checkbox" type="checkbox" value="Terror">
+                    <p class="textoFiltro">Terror</p></input>
+                    <input class="checkbox" type="checkbox" value="Comedia">
+                    <p class="textoFiltro">Comédia</p></input>
+                    <input class="checkbox" type="checkbox" value="Drama">
+                    <p class="textoFiltro">Drama</p></input>
+                    <input class="checkbox" type="checkbox" value="Aventura">
+                    <p class="textoFiltro">Aventura</p></input>
+                    <input class="checkbox" type="checkbox" value="Fantasia">
+                    <p class="textoFiltro">Fantasia</p></input>
+                    <input class="checkbox" type="checkbox" value="FiccaoCientifica">
+                    <p class="textoFiltro">Ficção Científica</p></input>
+                    <input class="checkbox" type="checkbox" value="Misterio">
+                    <p class="textoFiltro">Mistério</p></input>
+                    <input class="checkbox" type="checkbox" value="Suspense">
+                    <p class="textoFiltro">Suspense</p></input>
+                    <input class="checkbox" type="checkbox" value="Policial">
+                    <p class="textoFiltro">Policial</p></input>
+                    <input class="checkbox" type="checkbox" value="Acao">
+                    <p class="textoFiltro">Ação</p></input>
+                    <input class="checkbox" type="checkbox" value="Distopia">
+                    <p class="textoFiltro">Distopia</p></input>
+                    <input class="checkbox" type="checkbox" value="Mitologia">
+                    <p class="textoFiltro">Mitologia</p></input>
+                    <input class="checkbox" type="checkbox" value="Classicos">
+                    <p class="textoFiltro">Clássicos</p></input>
+                    <input class="checkbox" type="checkbox" value="Contos">
+                    <p class="textoFiltro">Contos</p></input>
+                    <input class="checkbox" type="checkbox" value="Cronicas">
+                    <p class="textoFiltro">Crônicas</p></input>
+                    <input class="checkbox" type="checkbox" value="Poesia">
+                    <p class="textoFiltro">Poesia</p></input>
+                    <input class="checkbox" type="checkbox" value="Biografia">
+                    <p class="textoFiltro">Biografia</p></input>
+                    <input class="checkbox" type="checkbox" value="Autoajuda">
+                    <p class="textoFiltro">Autoajuda</p></input>
+                    <input class="checkbox" type="checkbox" value="Historia">
+                    <p class="textoFiltro">História</p></input>
+                    <input class="checkbox" type="checkbox" value="Filosofia">
+                    <p class="textoFiltro">Filosofia</p></input>
+                </div>
+
+                <div class="conteinerInferior">
+                    <button class="botaoFiltrar" id="botaoFiltrar" type="button">Filtrar</button>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div >
+            <img id="livro-1" class="livro" src="/frontEnd/img/livros/Mangas/One-Piece-vol-1.PNG" alt="">  
+        </div>
+    </main>
+
+
+  
+    <script src="telaLivro.js"></script>
+
+
+</body>
+
+</html>
