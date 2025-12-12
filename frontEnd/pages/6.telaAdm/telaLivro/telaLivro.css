@@ -563,3 +563,23 @@ h1 {
     margin-top: 10%;
 }
 
+.editarLivroBotao,
+.excluirLivroBotao{
+     background-color: #4A67DF;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+}
+
+.botoes{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 30px;
+    margin-right: 5%;
+}

@@ -1,22 +1,20 @@
-const img = document.getElementById("imagemLogo");
 
-img.addEventListener("click", () => {
-    window.location.href = "/frontEnd/pages/2.telaInicial/telaInicial.html";
-})
 
 const descricaoLivro2 = document.getElementById('descricaoLivro');
 document.addEventListener("click", async (e) => {
     if (e.target.classList.contains("livro")) {
         const livroId = e.target.id.split("-")[1];
 
-       
+
         descricaoLivro.innerHTML = `
-            <h3 class="h3Descricao">${e.target.alt}</h3>
+            <h3 class="h3Descricao">One Piece vol-1</h3>
             <div class="descricao">
                 <img class="imgDescricao" src="${e.target.src}">
-                <p class="pDescricaoLivro">,l,kl,l</p>
+                <p class="pDescricaoLivro">O primeiro volume apresenta Monkey D. Luffy desde sua infância, quando admira Shanks e sua tripulação. Após comer a Gomu Gomu no Mi, ele ganha um corpo elástico, mas perde a capacidade de nadar. Anos depois, já adolescente, decide partir sozinho para os mares, mesmo sem navio ou tripulação, guiado apenas pelo sonho de encontrar o One Piece e se tornar o Rei dos Piratas. Nesse volume, Luffy enfrenta sua primeira inimiga, Alvida, mostrando seu estilo ingênuo, corajoso e otimista. Ele também conhece Roronoa Zoro, um caçador de piratas temido, preso injustamente pela Marinha. Luffy o liberta e tenta convencê-lo a se juntar à sua tripulação. O volume estabelece o espírito de aventura, liberdade e amizade que define toda a série.</p>
             </div>
-             
+            <div class="botoes">
+                 <button class="editarLivroBotao">Editar livro</button>
+                 <button class="excluirLivroBotao">Excluir livro</button>
                 </div>
                 </div>
         `
