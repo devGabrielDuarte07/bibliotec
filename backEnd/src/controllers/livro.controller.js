@@ -71,3 +71,17 @@ export async function deletarLivro(req, res) {
     res.status(500).json({ erro: err.message });
   }
 };
+
+export async function listarLivrosPorCategoria(req, res) {
+  try {
+    const genero = req.params.genero;
+    const [rows] = await db.execute(
+      "SELECT * FROM tabela_livros WHERE genero = ?",
+      [genero]
+    );
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json({ erro: err.message });
+  }
+};
+

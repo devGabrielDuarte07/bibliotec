@@ -84,7 +84,9 @@
     <h1 class="h1Foto">EDITAR FOTO DE PERFIL</h1>
     <div class="retanguloMain">
             <div class="corFundo">
-                    <img class="icon" src="/frontEnd/img/perfil.png" alt="Editar foto">
+                <input type="file" id="foto" accept="image/png, image/jpeg" hidden>
+                    <img class="fotoPerfil" src="/frontEnd/img/perfil.png" alt="Editar foto" id="fotoPerfil" style="cursor:pointer;">
+                    
                     <div class="campo">
                         <img class="icone" src="/frontEnd/img/editar.png" alt="">
                         <h3 >Editar foto de perfil</h3></a>
@@ -94,12 +96,6 @@
             </div>
         </div>
 </main>
-
-    <script src="/frontEnd/js/gFiltro.js"></script>
-    <script src="/frontEnd/js/gperfil.js"></script>
-    <script src="telaEditarFoto.js"></script>
-</body>
-
 <footer>
 
 <div class="container">
@@ -133,6 +129,13 @@
   	 		
   	 	</div>
   	 </div>
-  </footer>
+</footer>
   
+    <script src="/frontEnd/js/gFiltro.js"></script>
+
+    <script src="telaEditarFoto.js"></script>
+    <script src="../../../js/carregarFoto.js"></script>
+</body>
+
+
 </html>

@@ -139,7 +139,7 @@ export async function verificarCodigoRecuperacao(req, res) {
 
     const [rows] = await db.execute(
       "SELECT * FROM tabela_verificacao WHERE email = ? AND codigo = ? AND tipo = ? ORDER BY criado_em DESC LIMIT 1",
-      [email, codigo, 'cadastro' || 'recuperacao']
+      [email, codigo, 'recuperacao']
     );
 
     if (rows.length === 0) {

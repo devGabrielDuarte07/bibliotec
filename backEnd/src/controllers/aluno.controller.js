@@ -102,3 +102,31 @@ export async function deletarAluno(req, res) {
     res.status(500).json({ erro: err.message });
   }
 };
+
+export async function adicionarFotoPerfil(req, res) {
+  try {
+    const { aluno_id, foto_base64 } = req.body;
+    await db.execute(
+      "UPDATE tabela_usuario SET foto_perfil = ? WHERE id = ?",
+      [foto_base64, aluno_id]
+    );
+    res.json({ mensagem: "Foto de perfil atualizada com sucesso!" });
+  } catch (err) {
+    res.status(500).json({ erro: err.message });
+  }
+};
+
+export async function obterFotoPerfil(req, res) {
+  try {
+    const {id } = req.params;  
+    const [rows] = await db.execute(
+      "SELECT foto_perfil FROM tabela_usuario WHERE id = ?",
+      [id]
+    );
+    if (rows.length === 0)
+      return res.status(404).json({ erro: "Usuário não encontrado" });
+    res.json({ foto_perfil: rows[0].foto_perfil });
+  } catch (err) {
+    res.status(500).json({ erro: err.message });
+  }
+};
