@@ -33,7 +33,6 @@ header {
     height: 100vh;
 }
 
-
 .imagemLogo {
     width: 13%;
     height: 11%;
@@ -44,37 +43,6 @@ header {
     align-items: center;
     gap: 20px;
     margin-right: 2%;
-}
-
-.coracaoFav{
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-.divFotoPerfil{
-    display: flex;
-    justify-content: center;
-}
-
-.divNomePessoa{
-    display: flex;
-    justify-content: center;    
-}
-
-.perfil {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.perfil:hover {
-    transform: scale(1.15);
-}
-
-.coracaoFav:hover {
-    transform: scale(1.15);
 }
 
 .pesquisar {
@@ -90,144 +58,6 @@ header {
     border: 2px solid #4A67DF;
     border-radius: 50px;
     font-size: 1.2em;
-    color: #4A67DF;
-}
-
-.pop-up-perfil {
-    position: fixed;    
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    align-items: center;
-    justify-content: right;
-    z-index: 1000;
-}
-
-.pop-up-perfil.show{
-    display: flex;
-}
-
-.perfil-pop {
-    background: rgb(255, 255, 255);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 90%;
-    height: 100%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transform: translateX(80px);
-    animation: direitaSuave 0.5s cubic-bezier(.25,.46,.45,.94) forwards;
-}
-
-@keyframes direitaSuave {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-
-.cabecarioPerfil{
-    display: flex;
-    justify-content: center;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-}
-
-.fotoPerfil{
-    width: 10vw;
-    height: 20vh;
-    
-}
-
-.divFotoPerfil{
-    display: flex;
-    justify-content: center;
-}
-
-.divNomePessoa{
-    display: flex;
-    justify-content: center;    
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-}
-
-.divConfig{
-    margin-top: 20%;
-    display: flex;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    color:#4A67DF
-}
-
-.divInfoPerfil{
-    margin-left: 4%;
-    margin-top: 8%;
-    cursor: pointer;
-    transition: transform 1.5s ease;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-}
-
-.divMeusFavoritos{
-    margin-left: 4%;
-    margin-top: 4%;
-    cursor: pointer;
-    transition: transform 1.5s ease;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    text-decoration: none;
-}
-
-.divModo{
-    margin-left: 4%;
-    margin-top: 4%;
-    cursor: pointer;
-    transition: transform 1.5s ease;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-}
-
-.divTermosEPrivacidade{
-    display: flex;
-    margin-top: 14%;
-    color:#4A67DF;
-    transition: transform 1.5s ease;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-}
-
-.divPrivacidade{
-    margin-left: 4%;
-    margin-top: 4%;
-    cursor: pointer;
-    transition: transform 1.5s ease;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-}
-
-.divTermo{
-    margin-left: 4%;
-    margin-top: 8%;
-    cursor: pointer;
-    transition: transform 1.5s ease;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-}
-
-.fav{
-    text-decoration: none;
-    color: black;
-    
-}
-
-.reservados{
-    margin-top: 4%;
-    margin-left: 4%;
-    transition: transform 1.5s ease;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    
-}
-
-.reserv{
-    text-decoration: none;
-    color: black;
-    
-}
-
-a:hover{
     color: #4A67DF;
 }
 
@@ -318,22 +148,6 @@ a:hover{
     width: 700px;
 }
 
-
-h1 {
-    font-family: 'Montserrat', sans-serif;
-    color: #4A67DF;
-    font-size: 50px;
-    display: flex;
-    justify-content: center;
-    margin-top: 8%;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
-
-#h1Populares{
-    padding-top: 3%;
-}
-
 .exibirLivros {
     width: 100%;
     height: 670px;
@@ -343,7 +157,6 @@ h1 {
     z-index: 1;
     background: linear-gradient(rgb(255, 255, 255), rgba(47, 214, 203, 0.4), rgba(74, 103, 223, 0.4), rgb(255, 255, 255));
 }
-
 
 
 .livro {
@@ -406,7 +219,6 @@ h1 {
 .arrow:hover {
     background: #ffffff3d;
 }
-
 
 
 .nomesLivros {
@@ -582,4 +394,24 @@ h1 {
     justify-content: end;
     gap: 30px;
     margin-right: 5%;
+}
+
+.adicionarLivro.ativa {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.adicionarLivro {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 1000px;
+    height: 700px;
+    border-radius: 15px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    transition: 0.3s ease;
+    gap: 10px;
+    z-index: 11;
 }

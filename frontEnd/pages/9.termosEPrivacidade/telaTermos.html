@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +13,70 @@
         rel="stylesheet">
     <link rel="stylesheet" href="telaTermosPrivacidade.css">
 </head>
-<body class="container">
+
+<header class="cabecario">
+    <img id="" class="imagemLogo" src="/frontEnd/img/logo.png" alt="Logo">
+
+    <div class="icones">
+        <div class="trilho" id="trilho">
+            <div class="indicador"></div>
+        </div>
+        </a>
+        <img class="perfil" id="perfil" src="/frontEnd/img/perfil.png" alt="Perfil">
+
+
+    </div>
+</header>
+
+<div class="pop-up-perfil" id="pop-up-perfil">
+    <div class="perfil-pop" id="perfil-pop">
+        <div class="cabecarioPerfil">
+            <h2>Perfil</h2>
+        </div>
+        <div class="divFotoPerfil"><img class="fotoPerfil" src="/frontEnd/img/perfil.png" alt="Foto de perfil"></div>
+        <div class="divNomePessoa">
+            <h2 id="divNomePessoa"></h2>
+        </div>
+        <div class="divConfig">
+            <h2>Configurações</h2>
+        </div>
+        <div class="divInfoPerfil"><a class="fav" href="/frontEnd/pages/7.telaPerfil/telaPerfil.html">
+                <h2>Informações do perfil</h2>
+            </a></div>
+        <div class="divMeusFavoritos">
+            <a class="fav" href="/frontEnd/pages/3.telaFavoritos/telaFavoritos.html">
+                <h2>Meus favoritos</h2>
+            </a>
+        </div>
+        <div class="reservados">
+            <a class="reserv" href="/frontEnd/pages/8.telaReservados/telaReservados.html">
+                <h2>Meus reservados</h2>
+            </a>
+        </div>
+
+
+        <div class="divModo">
+            <h2>Modo</h2>
+        </div>
+
+        <div class="divTermosEPrivacidade">
+            <h2>Termos e Privacidade</h2>
+        </div>
+        <div class="divTermo"><a class="fav" href="telaTermos.html">
+                <h2>Termos e condições</h2>
+            </a>
+        </div>
+        <div class="divPrivacidade"><a class="fav" href="telaPrivacidade.html">
+                <h2>Privacidade e segurança</h2>
+            </a>
+        </div>
+    </div>
+</div>
+
+<body class="finalconteiner">
     <h1 class="tituloT">Termo de Uso - Bibliotec (Senai)</h1>
-    <h2>Última atualização: 12/12/2025</h2>
-    <h3>1. Objetivo</h3>
+    <h1>Última atualização: 12/12/2025</h1>
+    <h3 >1. Objetivo</h3>
     <p>Gerenciar e reservar livros da biblioteca.</p>
     <h3>2. Cadastro</h3>
     <p>O aluno fornece nome completo, curso e e-mail.</p>
@@ -34,40 +95,50 @@
     <h3>9. Contato</h3>
     <p>E-mail: Bibliotec@gmail.com</p>
     <p>Endereço: SENAI Osasco</p>
+
+
+    <footer>
+
+        <hr>
+
+        <div class="container">
+            <div class="row">
+                <div class="footerText">
+                    <h4>Bibliotec</h4>
+                    <ul>
+                        <li><a href="/frontEnd/pages/10.sobreNos/sobreNos.html">Sobre nós</a></li>
+                        <li><a href="/frontEnd/pages/15.termosEPrivacidade/telaTermos.html">Termos e
+                                condições</a></li>
+                        <li><a href="/frontEnd/pages/15.termosEPrivacidade/telaPrivacidade.html">Segurança
+                                e privacidade</a></li>
+                    </ul>
+                </div>
+
+                <div class="footerText">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="#">Email: bibliotecsenai@gmail.com</a></li>
+                        <li><a href="#">Telefone: (11) 9999999</a></li>
+                        <li><a href="#">Local: Senai osasco</a></li>
+                    </ul>
+                </div>
+
+                <div class="footerText">
+                    <h4>Desenvolvedores</h4>
+                    <ul>
+                        <li><a href="#">Denise Gonçalves</a></li>
+                        <li><a href="#">Gabriel Duarte</a></li>
+                        <li><a href="#">Cauâ Borges</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="/frontEnd/js/gperfil.js"></script>
+    <script src="/frontEnd/js/voltarAdm.js"></script>
 </body>
 
-<footer>
 
-<div class="container">
-  	 	<div class="row">
-  	 		<div class="footerText">
-  	 			<h4>Bibliotec</h4>
-  	 			<ul>
-  	 				<li><a href="/frontEnd/pages/10.sobreNos/sobreNos.html">Sobre nós</a></li>
-  	 				<li><a href="/frontEnd/pages/15.termosEPrivacidade/telaTermos.html">Termos e condições</a></li>
-  	 				<li><a href="/frontEnd/pages/15.termosEPrivacidade/telaPrivacidade.html">Segurança e privacidade</a></li>
-  	 			</ul>
-  	 		</div>
-
-  	 		<div class="footerText">
-  	 			<h4>Contato</h4>
-  	 			<ul>
-  	 				<li><a href="#">Email: bibliotecsenai@gmail.com</a></li>
-  	 				<li><a href="#">Telefone: (11) 9999999</a></li>
-  	 				<li><a href="#">Local: Senai osasco</a></li>
-  	 			</ul>
-  	 		</div>
-
-  	 		<div class="footerText">
-  	 			<h4>Desenvolvedores</h4>
-  	 			<ul>
-  	 				<li><a href="#">Denise Gonçalves</a></li>
-  	 				<li><a href="#">Gabriel Duarte</a></li>
-  	 				<li><a href="#">Cauâ Borges</a></li>
-  	 			</ul>
-  	 		</div>
-  	 		
-  	 	</div>
-  	 </div>
-  </footer>
 </html>

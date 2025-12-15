@@ -1,5 +1,4 @@
 
-
 const descricaoLivro2 = document.getElementById('descricaoLivro');
 document.addEventListener("click", async (e) => {
     if (e.target.classList.contains("livro")) {
@@ -25,5 +24,21 @@ document.addEventListener("click", async (e) => {
 
     if (!descricaoLivro.contains(e.target)) {
         descricaoLivro.classList.remove("ativa");
+    }
+});
+
+const botaoAdd = document.getElementById('botaoAdd');
+const adicionarLivro = document.getElementById('adicionarLivro');
+
+botaoAdd.addEventListener("click", () => {
+    adicionarLivro.innerHTML = `
+       aa
+    `
+    adicionarLivro.classList.add("ativa");
+});
+
+document.addEventListener("click", (e) => {
+    if (!adicionarLivro.contains(e.target) && e.target !== botaoAdd) {
+        adicionarLivro.classList.remove("ativa");
     }
 });
