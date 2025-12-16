@@ -194,7 +194,7 @@ document.addEventListener("click", async (e) => {
 
         const reservadosResponse = await fetch(APIListReservados);
         const reservados = await reservadosResponse.json();
-        const jaReservado = reservados.some(r => r.livro_id == livroId);
+        const jaReservado = reservados.some(r => r.livro_id == livroId);    
 
         descricaoLivro.innerHTML = `
             <h3 class="h3Descricao">${e.target.alt}</h3>

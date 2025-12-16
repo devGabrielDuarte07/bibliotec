@@ -1,6 +1,6 @@
 import { db } from "../config/db.js"
 import bcrypt from "bcrypt"
-
+import jwt from "jsonwebtoken";
 
 // ============================
 //  Rotas CRUD
@@ -38,10 +38,14 @@ export async function login(req, res) {
     if (!senhaCorreta) {
       return res.status(401).json({ erro: "Senha incorreta" });
     }
+    const token = jwt.sign(
+      { id: aluno.id, email: aluno.email, perfil: dadosLogin.perfil },
+       "Segredo", 
+      { expiresIn: "5h" }
+    );
 
-
-    return res.json({
-      mensagem: "Login bem-sucedido",
+    return res.status(200).json({
+       token,
       aluno: {
         id: aluno.id,
         nome: aluno.nome,
