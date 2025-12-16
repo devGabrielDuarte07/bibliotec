@@ -50,6 +50,7 @@
             <div class="filtro-pop" id="filtro-pop">
                 <h2 class="tituloFiltro">Escolha o que deseja ver:</h2>
                 <div class="temas">
+
                     <input class="checkbox" type="checkbox" value="meusReservados">
                     <p class="textoFiltro">Meus Reservados</p></input>
                     <input class="checkbox" type="checkbox" value="meusFavoritos">
@@ -106,21 +107,17 @@
             </div>
         </div>
 
-        <div id="conteiner-livros">
-        </div>
+       
     </main>
 
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script type="module">
-  import { validarAcesso } from "/frontEnd/js/globalAuth.js";
 
-  document.addEventListener("DOMContentLoaded", () => {
-    validarAcesso(["admin"]);
-  });
-</script>
     <script src="telaLivro.js"></script>
-    <script src="../../../js/voltarInicial.js"></script>
+    <script src="/frontEnd/js/voltarInicial.js"></script>
+    <script src="/frontEnd/js/gFiltro.js"></script>
+
+
 </body>
 
 </html>

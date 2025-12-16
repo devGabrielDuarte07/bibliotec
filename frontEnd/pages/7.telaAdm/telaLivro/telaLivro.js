@@ -1,6 +1,7 @@
 
-const conteiner = document.getElementById("conteiner-livros");
+const conteiner = document.getElementById("conteiner");
 const APILivros = "http://localhost:3000/livros";
+
 const Toast = Swal.mixin({
   toast: true,
   position: "top-end",
@@ -30,23 +31,26 @@ async function buscarDadosDoBanco() {
   }
 }
 
-function criarCardLivro(dados) {
-  const imgLivro = document.createElement("img");
-    imgLivro.src = dados.capa_url;
-    imgLivro.alt = dados.titulo;
-    imgLivro.classList.add("livro");
-    imgLivro.id = `livro-${dados.livro_id}`;
-    return imgLivro;
+function criarCardLivro(livro) {
+  const card = document.createElement("div");
+  card.classList.add("cardLivro");
+  card.id = `livro-${livro.id}`;
+  card.innerHTML = `
+        <img class="livro" src="${livro.capa_url}" alt="Capa do livro ${livro.titulo}" id="livro-${livro.id}">
+        <h3 class="titulo-livro">${livro.titulo}</h3>
+    `;
+  return card;
 }
 
 async function carregarLivros() {
-  const livros = await buscarDadosDoBanco();
-    if (livros) {
-        livros.forEach((livro) => {
-            const imgLivro = criarCardLivro(livro);
-            conteiner.appendChild(imgLivro);
-        });
-    }
+  const dados = await buscarDadosDoBanco();
+  if (dados) {
+    dados.forEach((livro) => {
+      const cardLivro = criarCardLivro(livro);
+      conteiner.appendChild(cardLivro);
+    });
+    Toast.fire({ icon: "success", title: "Livros carregados!" });
+  }
 }
 
 carregarLivros();
@@ -56,13 +60,15 @@ const descricaoLivro2 = document.getElementById('descricaoLivro');
 document.addEventListener("click", async (e) => {
     if (e.target.classList.contains("livro")) {
         const livroId = e.target.id.split("-")[1];
+        const dadosLivro = await fetch(`${APILivros}/${livroId}`);
+        const dados = await dadosLivro.json();
 
 
         descricaoLivro.innerHTML = `
-            <h3 class="h3Descricao">One Piece vol-1</h3>
+            <h3 class="h3Descricao">${dados.titulo}</h3>
             <div class="descricao">
                 <img class="imgDescricao" src="${e.target.src}">
-                <p class="pDescricaoLivro">O primeiro volume apresenta Monkey D. Luffy desde sua infância, quando admira Shanks e sua tripulação. Após comer a Gomu Gomu no Mi, ele ganha um corpo elástico, mas perde a capacidade de nadar. Anos depois, já adolescente, decide partir sozinho para os mares, mesmo sem navio ou tripulação, guiado apenas pelo sonho de encontrar o One Piece e se tornar o Rei dos Piratas. Nesse volume, Luffy enfrenta sua primeira inimiga, Alvida, mostrando seu estilo ingênuo, corajoso e otimista. Ele também conhece Roronoa Zoro, um caçador de piratas temido, preso injustamente pela Marinha. Luffy o liberta e tenta convencê-lo a se juntar à sua tripulação. O volume estabelece o espírito de aventura, liberdade e amizade que define toda a série.</p>
+                <p class="pDescricaoLivro">${dados.descricao}</p>
             </div>
             <div class="botoes">
                  <button class="editarLivroBotao">Editar livro</button>

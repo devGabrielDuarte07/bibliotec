@@ -3,7 +3,7 @@ const botaoAcao = document.getElementById('actionButton');
 const inputEmail = document.getElementById("email");
 const inputSenha = document.getElementById("senha");
 
-// Toast SweetAlert2
+
 const Toast = Swal.mixin({
   toast: true,
   position: "top-end",

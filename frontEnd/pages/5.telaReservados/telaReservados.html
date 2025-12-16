@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favoritos</title>
+    <title>Meus reservados</title>
     <link rel="icon" href="../../img/Group.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,13 +38,14 @@
 
         </div>
     </header>
-    
+
     <div class="pop-up-perfil" id="pop-up-perfil">
         <div class="perfil-pop" id="perfil-pop">
             <div class="cabecarioPerfil">
                 <h2>Perfil</h2>
             </div>
-            <div class="divFotoPerfil"><img class="fotoPerfil" src="/frontEnd/img/perfil.png" alt="Foto de perfil"></div>
+            <div class="divFotoPerfil"><img class="fotoPerfil" src="/frontEnd/img/perfil.png" alt="Foto de perfil">
+            </div>
             <div class="divNomePessoa">
                 <h2 id="divNomePessoa"></h2>
             </div>
@@ -58,7 +60,7 @@
                     <h2>Meus favoritos</h2>
                 </a>
             </div>
-            <div class="reservados"><a class="reserv" href="/frontEnd/pages/8.telaReservados/telaReservados.html">
+            <div class="reservados"><a class="reserv" href="#">
                     <h2>Meus reservados</h2>
                 </a></div>
 
@@ -74,51 +76,75 @@
                     <h2>Termos e condições</h2>
                 </a>
             </div>
-            <div class="divPrivacidade"><a class="fav" href="/frontEnd/pages/15.termosEPrivacidade/telaPrivacidade.html">
+            <div class="divPrivacidade"><a class="fav"
+                    href="/frontEnd/pages/15.termosEPrivacidade/telaPrivacidade.html">
                     <h2>Privacidade e segurança</h2>
                 </a>
             </div>
         </div>
     </div>
 
-  
+
     <main class="conteiner" id="conteiner">
 
         <div class="pop-up-filtro" id="pop-up-filtro">
             <div class="filtro-pop" id="filtro-pop">
                 <h2 class="tituloFiltro">Escolha o que deseja ver:</h2>
                 <div class="temas">
-                    
-                    <input class="checkbox" type="checkbox" value="meusReservados"><p class="textoFiltro">Meus Reservados</p></input>
-                    <input class="checkbox" type="checkbox" value="meusFavoritos"><p class="textoFiltro">Meus favoritos</p></input>
-                    <input class="checkbox" type="checkbox" value="Romance"><p class="textoFiltro">Romance</p></input>
-                    <input class="checkbox" type="checkbox" value="Terror"><p class="textoFiltro">Terror</p></input>
-                    <input class="checkbox" type="checkbox" value="Comedia"><p class="textoFiltro">Comédia</p></input>
-                    <input class="checkbox" type="checkbox" value="Drama"><p class="textoFiltro">Drama</p></input>
-                    <input class="checkbox" type="checkbox" value="Aventura"><p class="textoFiltro">Aventura</p></input>
-                    <input class="checkbox" type="checkbox" value="Fantasia"><p class="textoFiltro">Fantasia</p></input>
-                    <input class="checkbox" type="checkbox" value="FiccaoCientifica"><p class="textoFiltro">Ficção Científica</p></input>
-                    <input class="checkbox" type="checkbox" value="Misterio"><p class="textoFiltro">Mistério</p></input>
-                    <input class="checkbox" type="checkbox" value="Suspense"><p class="textoFiltro">Suspense</p></input>
-                    <input class="checkbox" type="checkbox" value="Policial"><p class="textoFiltro">Policial</p></input>
-                    <input class="checkbox" type="checkbox" value="Acao"><p class="textoFiltro">Ação</p></input>
-                    <input class="checkbox" type="checkbox" value="Distopia"><p class="textoFiltro">Distopia</p></input>
-                    <input class="checkbox" type="checkbox" value="Mitologia"><p class="textoFiltro">Mitologia</p></input>
-                    <input class="checkbox" type="checkbox" value="Classicos"><p class="textoFiltro">Clássicos</p></input>
-                    <input class="checkbox" type="checkbox" value="Contos"><p class="textoFiltro">Contos</p></input>
-                    <input class="checkbox" type="checkbox" value="Cronicas"><p class="textoFiltro">Crônicas</p></input>
-                    <input class="checkbox" type="checkbox" value="Poesia"><p class="textoFiltro">Poesia</p></input>
-                    <input class="checkbox" type="checkbox" value="Biografia"><p class="textoFiltro">Biografia</p></input>
-                    <input class="checkbox" type="checkbox" value="Autoajuda"><p class="textoFiltro">Autoajuda</p></input>
-                    <input class="checkbox" type="checkbox" value="Historia"><p class="textoFiltro">História</p></input>
-                    <input class="checkbox" type="checkbox" value="Filosofia"><p class="textoFiltro">Filosofia</p></input>
+
+                    <input class="checkbox" type="checkbox" value="meusReservados">
+                    <p class="textoFiltro">Meus Reservados</p></input>
+                    <input class="checkbox" type="checkbox" value="meusFavoritos">
+                    <p class="textoFiltro">Meus favoritos</p></input>
+                    <input class="checkbox" type="checkbox" value="Romance">
+                    <p class="textoFiltro">Romance</p></input>
+                    <input class="checkbox" type="checkbox" value="Terror">
+                    <p class="textoFiltro">Terror</p></input>
+                    <input class="checkbox" type="checkbox" value="Comedia">
+                    <p class="textoFiltro">Comédia</p></input>
+                    <input class="checkbox" type="checkbox" value="Drama">
+                    <p class="textoFiltro">Drama</p></input>
+                    <input class="checkbox" type="checkbox" value="Aventura">
+                    <p class="textoFiltro">Aventura</p></input>
+                    <input class="checkbox" type="checkbox" value="Fantasia">
+                    <p class="textoFiltro">Fantasia</p></input>
+                    <input class="checkbox" type="checkbox" value="FiccaoCientifica">
+                    <p class="textoFiltro">Ficção Científica</p></input>
+                    <input class="checkbox" type="checkbox" value="Misterio">
+                    <p class="textoFiltro">Mistério</p></input>
+                    <input class="checkbox" type="checkbox" value="Suspense">
+                    <p class="textoFiltro">Suspense</p></input>
+                    <input class="checkbox" type="checkbox" value="Policial">
+                    <p class="textoFiltro">Policial</p></input>
+                    <input class="checkbox" type="checkbox" value="Acao">
+                    <p class="textoFiltro">Ação</p></input>
+                    <input class="checkbox" type="checkbox" value="Distopia">
+                    <p class="textoFiltro">Distopia</p></input>
+                    <input class="checkbox" type="checkbox" value="Mitologia">
+                    <p class="textoFiltro">Mitologia</p></input>
+                    <input class="checkbox" type="checkbox" value="Classicos">
+                    <p class="textoFiltro">Clássicos</p></input>
+                    <input class="checkbox" type="checkbox" value="Contos">
+                    <p class="textoFiltro">Contos</p></input>
+                    <input class="checkbox" type="checkbox" value="Cronicas">
+                    <p class="textoFiltro">Crônicas</p></input>
+                    <input class="checkbox" type="checkbox" value="Poesia">
+                    <p class="textoFiltro">Poesia</p></input>
+                    <input class="checkbox" type="checkbox" value="Biografia">
+                    <p class="textoFiltro">Biografia</p></input>
+                    <input class="checkbox" type="checkbox" value="Autoajuda">
+                    <p class="textoFiltro">Autoajuda</p></input>
+                    <input class="checkbox" type="checkbox" value="Historia">
+                    <p class="textoFiltro">História</p></input>
+                    <input class="checkbox" type="checkbox" value="Filosofia">
+                    <p class="textoFiltro">Filosofia</p></input>
                 </div>
-                
+
                 <div class="conteinerInferior">
-                <button class="botaoFiltrar" id="botaoFiltrar" type="button">Filtrar</button>
+                    <button class="botaoFiltrar" id="botaoFiltrar" type="button">Filtrar</button>
                 </div>
-            
-                
+
+
             </div>
         </div>
         <h1 class="h1Reservados">Meus reservados</h1>
@@ -128,17 +154,18 @@
             </div>
         </div>
     </main>
-    
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script type="module">
-  import { validarAcesso } from "/frontEnd/js/globalAuth.js";
 
-  document.addEventListener("DOMContentLoaded", () => {
-    validarAcesso(["aluno"]);
-  });
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module">
+        import { validarAcesso } from "/frontEnd/js/globalAuth.js";
+
+        document.addEventListener("DOMContentLoaded", () => {
+            validarAcesso(["aluno"]);
+        });
+    </script>
     <script src="/frontEnd/js/gFiltro.js"></script>
     <script src="/frontEnd/js/gperfil.js"></script>
+    <script src="/frontEnd/js/carregarFoto.js"></script>
     <script src="telaReservados.js"></script>
     <script src="/frontEnd/js/voltarInicial.js"></script>
 </body>

@@ -1,6 +1,14 @@
 const inputFoto = document.getElementById("foto");
 const btnFoto = document.getElementById("fotoPerfil");
 
+const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 2000,
+  timerProgressBar: true,
+});
+
 const APISalvarFotoPerfil = "http://localhost:3000/usuario/foto-perfil";
 const TAMANHO_MAX = 200 * 1024;
 
@@ -14,13 +22,20 @@ inputFoto.addEventListener("change", async function () {
   if (!file) return;
 
   if (!["image/jpeg", "image/png"].includes(file.type)) {
-    alert("A imagem deve ser JPG ou PNG");
+    
+    Toast.fire({
+      icon: "warning",
+      title: "Formato inválido! Use JPG ou PNG.",
+    });
     inputFoto.value = "";
     return;
   }
 
   if (file.size > TAMANHO_MAX) {
-    alert("A imagem deve ter no máximo 200KB");
+   Toast.fire({
+      icon: "warning",
+      title: "Arquivo muito grande! Máx 200KB.",
+    });
     inputFoto.value = "";
     return;
   }
@@ -33,7 +48,10 @@ inputFoto.addEventListener("change", async function () {
 
     const alunoId = localStorage.getItem("id");
     if (!alunoId) {
-      alert("Usuário não identificado");
+     Toast.fire({
+        icon: "error",
+        title: "Usuário não autenticado.",
+      });
       return;
     }
 
@@ -57,7 +75,7 @@ inputFoto.addEventListener("change", async function () {
       console.log("Foto salva com sucesso:", data);
     } catch (error) {
       console.error("Erro ao salvar foto de perfil:", error);
-      alert("Erro ao salvar a foto");
+      Toast.fire({ icon: "error", title: "Erro ao salvar a foto" });
     }
   };
 

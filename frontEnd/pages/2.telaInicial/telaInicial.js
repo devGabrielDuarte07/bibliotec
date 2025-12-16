@@ -21,8 +21,8 @@ const APIListFavoritos = `http://localhost:3000/favoritos/${idAluno}`;
 
 const APIListReservados = `http://localhost:3000/reserva/${idAluno}`;
 const aluno = JSON.parse(localStorage.getItem("aluno"));
-divNomePessoa.textContent = aluno.nome;
-
+const divNomePessoa = document.getElementById("divNomePessoa");
+divNomePessoa.textContent = aluno.nome
 
 async function buscarDadosDoBanco() {
   try {

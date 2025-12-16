@@ -103,6 +103,9 @@ header {
     height: 100vh;
 }
 
+a{
+    text-decoration: none;
+}
 h1 {
     font-family: 'Montserrat', sans-serif;
     color: #4A67DF;

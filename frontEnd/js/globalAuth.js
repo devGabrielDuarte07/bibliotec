@@ -18,7 +18,6 @@ export function validarAcesso(perfisPermitidos) {
   const perfil = getPerfilDoToken();
 
   if (!perfil || !perfisPermitidos.includes(perfil)) {
-    // Se você estiver usando SweetAlert2
     if (typeof Swal !== "undefined") {
       Swal.fire({
         icon: "error",
