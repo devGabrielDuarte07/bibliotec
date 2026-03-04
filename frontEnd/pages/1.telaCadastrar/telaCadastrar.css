@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.backgroundCor{
+    width: 100%;
+    height: 1080px;
+    position: absolute;
+    bottom: 15%;
+    opacity: 0;
+    animation: aparecer 1.5s ease forwards;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.imagemLogo{
+    width: 13%;
+    height: 11%;
+    position: absolute;
+}
+
+.retangulo{
+    width: 750px;
+    height: 830px;
+    background-image: linear-gradient(#65EAE1, #718BF6);
+    border-radius: 58px;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.divinha{
+    display: flex;
+    justify-content: center;
+}
+
+.Login{
+    color: white;
+    font-size: 60px;
+    padding-top: 6%;
+}
+
+.nome{
+    padding-top: 3%;
+}
+
+.cpf{
+    padding-top: 3%;
+}
+
+
+.cadastroUsuario{
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding-top: 5%;
+    gap: 3px;
+
+}
+
+.imput{
+    width: 520px;
+    height: 48px;
+    background-color: white;
+    border-radius: 13px;
+    
+}
+
+#btnCadastrar{
+    width: 200px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.459);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+}
+
+#btnCadastrar{
+    margin-top: 2%;
+}
+
+.botaoCadastrar{
+    color: white;
+    font-size: 30px;
+}
+
+.turma{
+    padding-top: 3%;
+}
+
+
+/* ===========================
+   Pop-up Código (Fundo e Container)
+   =========================== */
+.pop-up-codigo {
+  display: none; /* Inicialmente oculto */
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.pop-up-codigo-conteudo {
+  width: 750px;
+    height: 500px;
+  background: linear-gradient(135deg, #65EAE1, #718BF6);
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 2;
+}
+
+/* ===========================
+   Título
+   =========================== */
+.pop-up-codigo h2 {
+  font-size: 32px;
+  color: white;
+  margin-bottom: 40px;
+  font-family: 'Arial', sans-serif;
+}
+
+.pop-up-codigo p {
+  color: rgb(0, 0, 0);
+  margin-bottom: 40px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* ===========================
+   Inputs de Código
+   =========================== */
+.inputs-codigo {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.inputs-codigo input {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 12px;
+  font-size: 32px;
+  text-align: center;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inputs-codigo input:focus {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===========================
+   Botão Confirmar
+   =========================== */
+#btnVerificar {
+  width: 220px;
+  height: 55px;
+  background-color: rgba(255, 255, 255, 0.45);
+  border-radius: 25px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#btnVerificar:hover {
+    
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}

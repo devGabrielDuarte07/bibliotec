@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../img/Group.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Bibliotec</title>
+</head>
+
+<body>
+    
+    <header class="cabecario">        
+        <img class="imagemLogo" src="../img/logo.png" alt="logo">
+    </header>
+    
+
+    <main class="conteiner">
+        <div class="fade">
+        <script  src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+        <dotlottie-wc class="iconLogin" src="https://lottie.host/bf503391-8ad7-43f9-a692-bbfd13adac6a/OBkxxNsDm2.json" autoplay loop></dotlottie-wc>
+        </div>
+        
+        <div class="retangulo">
+            <h1 class="top">Bem Vindo</h1>
+            <p class="cadastrar">Não tem uma conta? <a href="../pages/1.telaCadastrar/telaCadastrar.html">cadastrar-se</a></p>
+
+            <div class="formulario">
+                <h3 class="texto" for="userInput">Email</h3>
+                <input type="text" class="campo" id="email">
+
+                <h3 class="texto" for="userInput">Senha</h3>
+                <input type="password" class="campo" id="senha">
+
+                <div class="linkRecuperar">
+                    <a href="../pages/4.telasRecuperarSenha/1.verificarEmail/verificarEmail.html">Esqueceu sua senha?</a>
+                </div>
+            </div>
+            <div class="divBotao">
+                <button class="botaoEntrar" type="button" id="actionButton">Entrar</button>
+            </div>
+        </div>
+
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+    
+</body>
+
+</html>

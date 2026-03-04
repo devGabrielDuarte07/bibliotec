@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Administração</title>
+    <link rel="icon" href="../../img/Group.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="telaAdm.css">
+</head>
+
+<body>
+    <header class="cabecario">
+        <img id="imagemLogo" class="imagemLogo" src="/frontEnd/img/logo.png" alt="Logo">
+
+    </header>
+
+  
+    <main class="conteiner" id="conteiner">
+                
+            </div>
+        </div>
+    <h1 class="h1Perfil">TELA ADMINISTRAÇÃO</h1>
+    <div class="retanguloMain">
+            <div class="retangulo">
+                <div class="todosCampos"> 
+                    <div class="campos">
+                        <img class="icons" src="/frontEnd/img/livro.png" alt="Editar livro">
+                        <a class="texth3" href="/frontEnd/pages/7.telaAdm/telaLivro/telaLivro.html"><h3 >Livros</h3></a>
+                    </div>
+                    <div class="campos">
+                        <img class="icons" src="/frontEnd/img/perfil.png" alt="Editar aluno">
+                        <a class="texth3" href="/frontEnd/pages/7.telaAdm/telaAlunos/telaAlunos.html"><h3 >Aluno</h3></a>
+                    </div>
+                    
+                    <div class="campos">
+                        <a href="/frontEnd/pages/index.html"><img  id="imgSair" src="/frontEnd/img/sair.png" alt="Editar perfil"></a>
+                        <a class="textSair"  href="/frontEnd/pages/index.html"><h3 >Sair</h3></a>
+                    </div>
+                </div> 
+            </div>
+        </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="module">
+
+    import { validarAcesso } from "/frontEnd/js/globalAuth.js";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      validarAcesso(["admin"]);
+    });
+</script>
+    <script src="/frontEnd/js/gFiltro.js"></script>
+    <script src="telaAdm.js"></script>
+    <script src="../../js/voltarInicial.js"></script>
+</body>
+</html>

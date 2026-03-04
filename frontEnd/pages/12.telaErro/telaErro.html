@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso Negado</title>
+    <link rel="icon" href="../../img/Group.png">
+  <link rel="stylesheet" href="telaErrro.css"> <!-- seu CSS principal -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+  <div class="acesso-negado-container">
+    <span class="material-icons" style="font-size: 100px;">block</span>
+    <h1>Acesso Negado</h1>
+    <p>Você não tem permissão para acessar esta página.</p>
+    <button id="acessoVoltar">Voltar para login</button>
+  </div>
+
+  <script>
+    document.getElementById("acessoVoltar").addEventListener("click", () => {
+      window.location.href = "/frontEnd/pages/index.html";
+    });
+  </script>
+</body>
+</html>
+

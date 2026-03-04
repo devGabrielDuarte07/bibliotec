@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil - foto</title>
+    <link rel="icon" href="../../../img/Group.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="telaEditarFoto.css">
+</head>
+
+<body>
+    <header class="cabecario">
+        <img id="imagemLogo" class="imagemLogo" src="/frontEnd/img/logo.png" alt="Logo">
+
+        <div class="icones">
+            <div class="trilho" id="trilho">
+                <div class="indicador"></div>
+            </div>
+            </a>
+            <img class="perfil" id="perfil" src="/frontEnd/img/perfil.png" alt="Perfil">
+
+
+        </div>
+    </header>
+    
+    <div class="pop-up-perfil" id="pop-up-perfil">
+        <div class="perfil-pop" id="perfil-pop">
+            <div class="cabecarioPerfil">
+                <h2>Perfil</h2>
+            </div>
+            <div class="divFotoPerfil"><img class="fotoPerfil" src="/frontEnd/img/perfil.png" alt="Foto de perfil"></div>
+            <div class="divNomePessoa">
+                <h2 id="divNomePessoa"></h2>
+            </div>
+            <div class="divConfig">
+                <h2>Configurações</h2>
+            </div>
+            <div class="divInfoPerfil"><a class="fav" href="/frontEnd/pages/7.telaPerfil/telaPerfil.html">
+                    <h2>Informações do perfil</h2>
+                </a></div>
+            <div class="divMeusFavoritos">
+                <a class="fav" href="/frontEnd/pages/3.telaFavoritos/telaFavoritos.html">
+                    <h2>Meus favoritos</h2>
+                </a>
+            </div>
+            <div class="reservados">
+                <a class="reserv" href="/frontEnd/pages/8.telaReservados/telaReservados.html">
+                    <h2>Meus reservados</h2>
+                </a></div>
+
+
+            <div class="divModo">
+                <h2>Modo</h2>
+            </div>
+
+            <div class="divTermosEPrivacidade">
+                <h2>Termos e Privacidade</h2>
+            </div>
+            <div class="divTermo"><a class="fav" href="/frontEnd/pages/15.termosEPrivacidade/telaTermos.html">
+                    <h2>Termos e condições</h2>
+                </a>
+            </div>
+            <div class="divPrivacidade"><a class="fav" href="/frontEnd/pages/15.termosEPrivacidade/telaPrivacidade.html">
+                    <h2>Privacidade e segurança</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+
+  
+    <main class="conteiner" id="conteiner">
+
+    
+            
+                
+            </div>
+        </div>
+    <h1 class="h1Foto">EDITAR FOTO DE PERFIL</h1>
+    <div class="retanguloMain">
+            <div class="corFundo">
+                <input type="file" id="foto" accept="image/png, image/jpeg" hidden>
+                    <img class="fotoPerfil" src="/frontEnd/img/perfil.png" alt="Editar foto" id="fotoPerfil" style="cursor:pointer;">
+                    
+                    <div class="campo">
+                        <img class="icone" src="/frontEnd/img/editar.png" alt="">
+                        <h3 >Editar foto de perfil</h3></a>
+                    </div>
+                    
+                </div> 
+            </div>
+        </div>
+</main>
+<footer>
+
+                        <hr>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="footerText">
+                                    <h4>Bibliotec</h4>
+                                    <ul>
+                                        <li><a href="/frontEnd/pages/10.SobreNos/sobreNos.html">Sobre nós</a></li>
+                                        <li><a href="/frontEnd/pages/9.termosEPrivacidade/telaTermos.html">Termos e
+                                                condições</a></li>
+                                        <li><a href="/frontEnd/pages/9.termosEPrivacidade/telaPrivacidade.html">Segurança
+                                                e privacidade</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="footerText">
+                                    <h4>Contato</h4>
+                                    <ul>
+                                        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=bibliotecsenai@gmail.com"
+                                                target="_blank">Email: bibliotecsenai@gmail.com</a></li>
+                                        <li><a href="https://wa.me/551136857999" target="_blank">Telefone: (11)
+                                                3685-7999</a></li>
+
+                                        <li><a href="https://www.google.com/maps/search/?api=1&query=SENAI+Osasco+Nadir+Figueiredo"
+                                                target="_blank">Local: Senai osasco</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="footerText">
+                                    <h4>Desenvolvedores</h4>
+                                    <ul>
+                                        <li><a href="https://github.com/ninis333" target="_blank">Denise Gonçalves</a>
+                                        </li>
+                                        <li><a href="https://github.com/devGabrielDuarte07" target="_blank">Gabriel
+                                                Duarte</a></li>
+                                        <li><a href="https://github.com/CauaBorges438" target="_blank">Cauâ Borges</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </footer>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="module">
+  import { validarAcesso } from "/frontEnd/js/globalAuth.js";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    validarAcesso(["aluno"]);
+  });
+</script>
+    <script src="/frontEnd/js/gPerfil.js"></script>
+    <script src="telaEditarFoto.js"></script>
+    <script src="../../../js/carregarFoto.js"></script>
+    <script src="../../../js/voltarInicial.js"></script>
+
+</body>
+
+
+</html>
